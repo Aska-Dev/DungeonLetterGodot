@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dir7xei8fm6gp"]
+
+[ext_resource type="PackedScene" uid="uid://bm7vp0dclmjkm" path="res://Items/Weapons/Sword/sword_1handed.gltf" id="1_fmp75"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fmp75"]
+radius = 0.25878906
+height = 1.8530273
+
+[node name="sword_1handed2" instance=ExtResource("1_fmp75")]
+
+[node name="Hitbox" type="Area3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.58504796, 0)
+collision_layer = 2
+collision_mask = 4
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07348633, 0)
+shape = SubResource("CapsuleShape3D_fmp75")

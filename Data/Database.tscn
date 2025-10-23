@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmey1iutbnheu"]
+
+[ext_resource type="Resource" uid="uid://lbcx1hwxakbl" path="res://Items/Weapons/Sword/Data.tres" id="1_i62r0"]
+[ext_resource type="Resource" uid="uid://bwyinnl237ljr" path="res://Items/Weapons/Axe/Data.tres" id="1_q15ru"]
+
+[node name="Database" type="ResourcePreloader"]
+
+[node name="Items" type="ResourcePreloader" parent="."]
+resources = [PackedStringArray("Weapon_LumberjackAxe", "Weapon_RustySword"), [ExtResource("1_q15ru"), ExtResource("1_i62r0")]]

@@ -1,0 +1,152 @@
+[gd_scene load_steps=11 format=3 uid="uid://dox658scd5yq2"]
+
+[ext_resource type="Script" uid="uid://02ewrngl0yi3" path="res://Player/Player.cs" id="1_3qydi"]
+[ext_resource type="PackedScene" uid="uid://degvr7rxew1w" path="res://UI/PlayerGUI.tscn" id="2_ddoul"]
+[ext_resource type="PackedScene" uid="uid://dir7xei8fm6gp" path="res://Items/Weapons/Sword/Model.tscn" id="2_q3lat"]
+[ext_resource type="Script" uid="uid://cdhv4ikb2a32c" path="res://Player/PlayerHand.cs" id="2_tok1r"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_l2ndj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l2ndj"]
+
+[sub_resource type="Animation" id="Animation_ddoul"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/PlayerCamera/MainHandPivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.9552461, -0.6859697, -0.8526355)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/PlayerCamera/MainHandPivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.037154775, -1.4017794, 0.21433772)]
+}
+
+[sub_resource type="Animation" id="Animation_q3lat"]
+resource_name = "sword_attack"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/PlayerCamera/MainHandPivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.39999998),
+"transitions": PackedFloat32Array(1, -2),
+"update": 0,
+"values": [Vector3(0.9552461, -0.6859697, -0.8356732), Vector3(-0.95313346, -0.6859697, -0.8356732)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/PlayerCamera/MainHandPivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.39999998),
+"transitions": PackedFloat32Array(1, -2),
+"update": 0,
+"values": [Vector3(-1.2514365, -0.66926676, -0.32112175), Vector3(-1.2514365, 1.2796376, -0.3211217)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/PlayerCamera/MainHandPivot")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [true],
+"method": &"SetWeaponHitboxStatus"
+}, {
+"args": [false],
+"method": &"SetWeaponHitboxStatus"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_tok1r"]
+resource_name = "sword_idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/PlayerCamera/MainHandPivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.9552461, -0.6859697, -0.8526355)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/PlayerCamera/MainHandPivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.037154775, -1.4017794, 0.21433772)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8g4oa"]
+_data = {
+&"RESET": SubResource("Animation_ddoul"),
+&"sword_attack": SubResource("Animation_q3lat"),
+&"sword_idle": SubResource("Animation_tok1r")
+}
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+collision_mask = 28
+script = ExtResource("1_3qydi")
+
+[node name="PlayerGui" parent="." instance=ExtResource("2_ddoul")]
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="PlayerCamera" type="Camera3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+current = true
+fov = 80.0
+
+[node name="MainHandPivot" type="Node3D" parent="Pivot/PlayerCamera"]
+transform = Transform3D(0.17215264, -1.4901161e-08, -0.9850701, 0.21255356, 0.9764431, 0.037146218, 0.96186507, -0.21577501, 0.16809723, 0.9552461, -0.6859697, -0.8526355)
+script = ExtResource("2_tok1r")
+
+[node name="Model" parent="Pivot/PlayerCamera/MainHandPivot" instance=ExtResource("2_q3lat")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_l2ndj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_l2ndj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8g4oa")
+}
+autoplay = "sword_idle"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_OnAnimationPlayerAnimationFinished"]

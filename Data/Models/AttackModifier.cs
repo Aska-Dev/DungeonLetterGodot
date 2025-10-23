@@ -1,0 +1,13 @@
+using DungeonLetter.Common;
+using Godot;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+[GlobalClass]
+public abstract partial class AttackModifier : Resource
+{
+    public abstract void Apply(AttackContext context);
+}

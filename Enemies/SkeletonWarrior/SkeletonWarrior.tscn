@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://wwipi1igh3pd"]
+
+[ext_resource type="PackedScene" uid="uid://cgpaxpvmso3s3" path="res://Enemies/SkeletonWarrior/Model/Model.tscn" id="1_fqya7"]
+[ext_resource type="Script" uid="uid://c623feq3aje7r" path="res://Components/CollisionComponent.cs" id="2_xmedp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fqya7"]
+radius = 0.7397461
+height = 2.0581055
+
+[node name="SkeletonWarrior" type="CharacterBody3D"]
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="Skeleton_Warrior" parent="Pivot" instance=ExtResource("1_fqya7")]
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0290527, 0.17228144)
+shape = SubResource("CapsuleShape3D_fqya7")
+
+[node name="CollisionComponent" type="Node" parent="." node_paths=PackedStringArray("CollisionShape")]
+script = ExtResource("2_xmedp")
+CollisionShape = NodePath("../Collision")
+metadata/_custom_type_script = "uid://c623feq3aje7r"

@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://degvr7rxew1w"]
+
+[ext_resource type="Script" uid="uid://d3t2dt5xbe5w8" path="res://UI/PlayerGuiController.cs" id="1_ibxxy"]
+
+[sub_resource type="Theme" id="Theme_ibxxy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3duyu"]
+bg_color = Color(0.15294118, 0.15294118, 0.15294118, 0.7647059)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fahtf"]
+bg_color = Color(0.8260047, 0.1693291, 0.21496624, 1)
+
+[node name="PlayerGui" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_ibxxy")
+
+[node name="Healthbar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 598.0
+offset_right = 320.0
+offset_bottom = 628.0
+theme = SubResource("Theme_ibxxy")
+theme_override_styles/background = SubResource("StyleBoxFlat_3duyu")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fahtf")
+max_value = 10.0
+step = 1.0
+value = 5.0
+show_percentage = false

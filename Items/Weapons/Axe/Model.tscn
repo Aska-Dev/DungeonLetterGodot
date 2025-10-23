@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bd0cpmdkn31fo"]
+
+[ext_resource type="PackedScene" uid="uid://buicsvpuf8vw0" path="res://Items/Weapons/Axe/axe_1handed.gltf" id="1_tert5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tert5"]
+radius = 0.11621094
+height = 1.3984375
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tert5"]
+size = Vector3(0.7380127, 0.6430664, 0.16257325)
+
+[node name="axe_1handed2" instance=ExtResource("1_tert5")]
+
+[node name="Hitbox" type="Area3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.58504796, 0)
+collision_layer = 2
+collision_mask = 4
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011504412, -0.30078125, 0)
+shape = SubResource("CapsuleShape3D_tert5")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Hitbox" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2213257, 0.06616211, 0.003161626)
+shape = SubResource("BoxShape3D_tert5")

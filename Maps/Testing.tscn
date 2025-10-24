@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://fusv2wmfq63l"]
+[gd_scene load_steps=13 format=3 uid="uid://fusv2wmfq63l"]
 
 [ext_resource type="PackedScene" uid="uid://dox658scd5yq2" path="res://Player/Player.tscn" id="1_uda1j"]
 [ext_resource type="PackedScene" uid="uid://dyju1a0dp6bia" path="res://Enemies/SkeletonMinion/SkeletonMinion.tscn" id="2_acudx"]
 [ext_resource type="Texture2D" uid="uid://bmr8s77sbhtiu" path="res://MapAssets/grid_black_512x512.png" id="3_r451g"]
 [ext_resource type="PackedScene" uid="uid://bgdosy5d44fvi" path="res://Environment/WoodenDoor/WoodenDoor.tscn" id="4_bmafo"]
+[ext_resource type="PackedScene" uid="uid://wwipi1igh3pd" path="res://Enemies/SkeletonWarrior/SkeletonWarrior.tscn" id="5_01o2i"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uda1j"]
 sky_horizon_color = Color(1.0209353, 1.0547092, 1.1295648, 1)
@@ -89,3 +90,6 @@ shape = SubResource("ConvexPolygonShape3D_acudx")
 [node name="Model" parent="Ground" instance=ExtResource("4_bmafo")]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -7.5344934, 0.70705765, -4.9817867)
 Open = true
+
+[node name="SkeletonWarrior" parent="." instance=ExtResource("5_01o2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4448395, 0.5000265, 1.8823624)

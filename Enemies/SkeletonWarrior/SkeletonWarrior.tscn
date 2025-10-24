@@ -1,13 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://wwipi1igh3pd"]
+[gd_scene load_steps=10 format=3 uid="uid://wwipi1igh3pd"]
 
+[ext_resource type="Script" uid="uid://nekjn6peu81s" path="res://Enemies/SkeletonWarrior/SkeletonWarrior.cs" id="1_1wxfa"]
 [ext_resource type="PackedScene" uid="uid://cgpaxpvmso3s3" path="res://Enemies/SkeletonWarrior/Model/Model.tscn" id="1_fqya7"]
-[ext_resource type="Script" uid="uid://c623feq3aje7r" path="res://Components/CollisionComponent.cs" id="2_xmedp"]
+[ext_resource type="Script" uid="uid://cfm0cpt63r8vf" path="res://Components/OnAttackHitComponent.cs" id="3_smlyc"]
+[ext_resource type="Script" uid="uid://c6qa8g71idvo" path="res://Components/DamageComponent.cs" id="4_1wxfa"]
+[ext_resource type="Script" uid="uid://xol7jp7rgfrt" path="res://Components/ValueComponent.cs" id="5_cb25u"]
+[ext_resource type="Script" uid="uid://cp2nwspqswe8a" path="res://Components/DeathComponent.cs" id="7_cb25u"]
+[ext_resource type="Script" uid="uid://bgg73aduwak8g" path="res://Components/AnimationComponent/AnimationComponent.cs" id="7_dbk7d"]
+[ext_resource type="Script" uid="uid://dia8efc0vs0jg" path="res://Components/AnimationComponent/AnimationTrigger.cs" id="8_dbk7d"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fqya7"]
 radius = 0.7397461
 height = 2.0581055
 
 [node name="SkeletonWarrior" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 6
+script = ExtResource("1_1wxfa")
 
 [node name="Pivot" type="Node3D" parent="."]
 
@@ -17,7 +26,43 @@ height = 2.0581055
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0290527, 0.17228144)
 shape = SubResource("CapsuleShape3D_fqya7")
 
-[node name="CollisionComponent" type="Node" parent="." node_paths=PackedStringArray("CollisionShape")]
-script = ExtResource("2_xmedp")
-CollisionShape = NodePath("../Collision")
-metadata/_custom_type_script = "uid://c623feq3aje7r"
+[node name="OnAttackHitComponent" type="Node" parent="."]
+script = ExtResource("3_smlyc")
+metadata/_custom_type_script = "uid://cfm0cpt63r8vf"
+
+[node name="DamageComponent" type="Node" parent="." node_paths=PackedStringArray("Health")]
+script = ExtResource("4_1wxfa")
+Health = NodePath("../Health")
+Armor = 2
+metadata/_custom_type_script = "uid://c6qa8g71idvo"
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("5_cb25u")
+MaxValue = 5
+metadata/_custom_type_script = "uid://xol7jp7rgfrt"
+
+[node name="DeathComponent" type="Node" parent="." node_paths=PackedStringArray("Health")]
+script = ExtResource("7_cb25u")
+Health = NodePath("../Health")
+DeathDelay = 4.0
+metadata/_custom_type_script = "uid://cp2nwspqswe8a"
+
+[node name="AnimationComponent" type="Node" parent="."]
+script = ExtResource("7_dbk7d")
+AnimationTreePath = NodePath("../Pivot/Skeleton_Warrior/AnimationTree")
+metadata/_custom_type_script = "uid://bgg73aduwak8g"
+
+[node name="HitTrigger" type="Node" parent="AnimationComponent"]
+script = ExtResource("8_dbk7d")
+TriggerName = "hit"
+metadata/_custom_type_script = "uid://dia8efc0vs0jg"
+
+[node name="DeathTrigger" type="Node" parent="AnimationComponent"]
+script = ExtResource("8_dbk7d")
+TriggerName = "dead"
+TriggerType = 1
+metadata/_custom_type_script = "uid://dia8efc0vs0jg"
+
+[connection signal="OnAttackHit" from="OnAttackHitComponent" to="DamageComponent" method="OnHit"]
+[connection signal="OnDamageTaken" from="DamageComponent" to="AnimationComponent/HitTrigger" method="Trigger"]
+[connection signal="OnDeath" from="DeathComponent" to="AnimationComponent/DeathTrigger" method="Trigger"]

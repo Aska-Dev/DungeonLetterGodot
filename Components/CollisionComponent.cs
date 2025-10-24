@@ -5,7 +5,7 @@ using System;
 public partial class CollisionComponent : Component
 {
     [Export]
-    public CollisionShape3D CollisionShape {  get; set; }
+    public required CollisionShape3D CollisionShape {  get; set; }
 
     public void EnableCollision(bool value)
     {

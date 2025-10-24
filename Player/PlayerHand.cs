@@ -37,13 +37,18 @@ public partial class PlayerHand : Node3D
 		AddChild(modelInstance);
 	}
 
-	public void OnAttackHit(Node3D enemyBody)
+	public void OnAttackHit(Node3D body)
 	{
-		if (Item is Weapon weapon && enemyBody is Enemy enemy)
+		if (Item is Weapon weapon && body is IEntity entity)
 		{
 			var player = GetParent() as Player;
-			enemy.OnHit(player, weapon.AttackModifiers);
-		}
+			
+			var onAttackHitComponent = entity.Components.Get<OnAttackHitComponent>();
+			if(onAttackHitComponent is not null)
+			{
+				onAttackHitComponent.OnHit(player!, weapon.AttackModifiers);
+            }
+        }
 	}
 
 	public void SetWeaponHitboxStatus(bool status)

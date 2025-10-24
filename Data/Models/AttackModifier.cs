@@ -9,5 +9,4 @@ using System.Threading.Tasks;
 [GlobalClass]
 public abstract partial class AttackModifier : Resource
 {
-    public abstract void Apply(AttackContext context);
 }

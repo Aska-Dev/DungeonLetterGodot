@@ -6,10 +6,4 @@ using System.Threading.Tasks;
 
 namespace DungeonLetter.Common
 {
-    public enum DamageTypes
-    {
-        Physical,
-        Magical,
-        True
-    }
 }

@@ -30,13 +30,13 @@ public partial class WoodenDoor : Environment
     {
         if(Open)
         {
-            animator.SetState("open");
-            SetCollission(false);
+            //animator.SetState("open");
+            //SetCollission(false);
         }
         else
         {
-            animator.SetState("close");
-            SetCollission(false);
+            //animator.SetState("close");
+            //SetCollission(false);
         }
     }
 }

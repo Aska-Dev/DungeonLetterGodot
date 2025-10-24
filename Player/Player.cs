@@ -2,20 +2,14 @@ using DungeonLetter.Common;
 using Godot;
 using System;
 
-public interface ICharacter
+public static class PlayerAnimations
 {
-	[Export]
-	public int MaxHealth { get; set; }
-	public int Health { get; set; }
-	[Export]
-	public int Armor { get; set; }
-	[Export]
-	public int Resistance { get; set; }
-
-	public void OnHit(ICharacter source, AttackModifier[] attackModifiers);
+    public const string SwordIdle = "sword_idle";
+    public const string SwordAttack = "sword_attack";
 }
 
-public partial class Player : CharacterBody3D, ICharacter
+
+public partial class Player : CharacterBody3D, IEntity
 {
     // CHARACTER STATS
     [Export]
@@ -47,8 +41,10 @@ public partial class Player : CharacterBody3D, ICharacter
 	[Export]
 	public float JumpVelocity { get; set; } = 3.5f;
 
-	// INJECTIONS
-	private ResourcePreloader itemDb;
+	public Components Components { get; set; } = null!;
+
+    // INJECTIONS
+    private ResourcePreloader itemDb;
 	private Node3D pivot;
 	private Camera3D camera;
 	private AnimationPlayer animationPlayer;
@@ -57,7 +53,9 @@ public partial class Player : CharacterBody3D, ICharacter
 
 	public override void _Ready()
 	{
-		itemDb = GetNode<ResourcePreloader>("/root/Database/Items");
+        Components = new Components(this);
+
+        itemDb = GetNode<ResourcePreloader>("/root/Database/Items");
 
 		animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 		mainHand = GetNode<PlayerHand>("Pivot/PlayerCamera/MainHandPivot");
@@ -124,11 +122,6 @@ public partial class Player : CharacterBody3D, ICharacter
 		{
 			animationPlayer.Play(PlayerAnimations.SwordIdle);
 		}
-	}
-
-	public void OnHit(ICharacter source, AttackModifier[] attackModifiers)
-	{
-		AttackProcessor.Execute(source, this, attackModifiers);
 	}
 
 	private void HandlePlayerMovement(double delta)

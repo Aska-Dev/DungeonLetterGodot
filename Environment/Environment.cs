@@ -1,22 +1,12 @@
 using Godot;
 using System;
 
-public partial class Environment : StaticBody3D
+public partial class Environment : StaticBody3D, IEntity
 {
+	public Components Components { get; set; } = null!;
 
-	protected AnimationTreeController animator;
-
-	private CollisionShape3D collider;
-
-	public override void _Ready()
+    public override void _Ready()
 	{
-		animator = new AnimationTreeController(GetNode<AnimationTree>("AnimationTree"));
-
-		collider = GetNode<CollisionShape3D>("Collider");
-	}
-
-	public void SetCollission(bool value)
-	{
-        collider.SetDeferred("disabled", !value);
+        Components = new Components(this);
     }
 }

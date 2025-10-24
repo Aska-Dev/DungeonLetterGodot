@@ -1,5 +1,7 @@
+using Godot;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +18,7 @@ public static class Inputs
 
     public const string ActionFirst = "player_action_first";
     public const string ActionSecondary = "player_action_secondary";
+    public const string ActionInteract = "player_interaction";
 
     public const string ActionSwitchWeapon = "player_action_switch_weapon";
 

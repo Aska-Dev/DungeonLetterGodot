@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 [GlobalClass]
 public partial class DealTrueDamage : DealDamage
 {
-    public override void Apply(AttackContext context)
+    public override void Apply(DamageComponent damageComponent)
     {
-        context.Target.Health -= DamageAmount;
+        damageComponent.Health.Decrease(DamageAmount);
     }
 }

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=6 format=3 uid="uid://bwyinnl237ljr"]
+[gd_resource type="Resource" script_class="Weapon" load_steps=6 format=3 uid="uid://bwyinnl237ljr"]
 
 [ext_resource type="Script" uid="uid://dsuqhe4puxwpc" path="res://Data/Models/AttackModifiers/DealPhysicalDamage.cs" id="1_6oywa"]
 [ext_resource type="Script" uid="uid://cv2ecvislsi11" path="res://Data/Models/ItemModel.cs" id="2_k2cqa"]

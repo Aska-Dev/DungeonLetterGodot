@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 [GlobalClass]
 public partial class DealMagicalDamage : DealDamage
 {
-    public override void Apply(AttackContext context)
+    public override void Apply(DamageComponent damageComponent)
     {
-        var reducedDmg = Mathf.Max(0, DamageAmount - context.Target.Resistance);
-        context.Target.Health -= reducedDmg;
+        var reducedDmg = Mathf.Max(0, DamageAmount - damageComponent.Resistance);
+        damageComponent.Health.Decrease(reducedDmg);
     }
 }

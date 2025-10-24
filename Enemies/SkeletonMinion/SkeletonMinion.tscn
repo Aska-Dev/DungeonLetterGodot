@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dyju1a0dp6bia"]
+[gd_scene load_steps=13 format=3 uid="uid://dyju1a0dp6bia"]
 
 [ext_resource type="PackedScene" uid="uid://6ukpwtog0qgp" path="res://Enemies/SkeletonMinion/Model/Model.tscn" id="1_aqreq"]
 [ext_resource type="Script" uid="uid://be35cjtspr3q4" path="res://Enemies/SkeletonMinion/SkeletonMinion.cs" id="1_idjeq"]
@@ -8,6 +8,9 @@
 [ext_resource type="Script" uid="uid://cp2nwspqswe8a" path="res://Components/DeathComponent.cs" id="6_i77qh"]
 [ext_resource type="Script" uid="uid://bgg73aduwak8g" path="res://Components/AnimationComponent/AnimationComponent.cs" id="7_bpfbn"]
 [ext_resource type="Script" uid="uid://dia8efc0vs0jg" path="res://Components/AnimationComponent/AnimationTrigger.cs" id="8_flimc"]
+[ext_resource type="Script" uid="uid://c623feq3aje7r" path="res://Components/CollisionComponent.cs" id="9_k8ji4"]
+[ext_resource type="Script" uid="uid://cidr8bq8lq74j" path="res://Components/ResurrectionComponent.cs" id="10_j5n7j"]
+[ext_resource type="Script" uid="uid://bbo8f0mi03o46" path="res://Components/AnimationComponent/AnimationTriggerCollection.cs" id="11_tcxpt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_aqreq"]
 radius = 0.7397461
@@ -45,22 +48,63 @@ script = ExtResource("6_i77qh")
 Health = NodePath("../Health")
 metadata/_custom_type_script = "uid://cp2nwspqswe8a"
 
+[node name="CollisionComponent" type="Node" parent="." node_paths=PackedStringArray("CollisionShape")]
+script = ExtResource("9_k8ji4")
+CollisionShape = NodePath("../Collision")
+metadata/_custom_type_script = "uid://c623feq3aje7r"
+
+[node name="ResurrectionComponent" type="Node" parent="." node_paths=PackedStringArray("HealthComp", "DeathComp", "CollisionComp")]
+script = ExtResource("10_j5n7j")
+HealthComp = NodePath("../Health")
+DeathComp = NodePath("../DeathComponent")
+CollisionComp = NodePath("../CollisionComponent")
+metadata/_custom_type_script = "uid://cidr8bq8lq74j"
+
 [node name="AnimationComponent" type="Node" parent="."]
 script = ExtResource("7_bpfbn")
 AnimationTreePath = NodePath("../Pivot/Model/AnimationTree")
 metadata/_custom_type_script = "uid://bgg73aduwak8g"
 
-[node name="HitTrigger" type="Node" parent="AnimationComponent"]
+[node name="HitTrigger" type="Node" parent="AnimationComponent" node_paths=PackedStringArray("AnimationComponent")]
 script = ExtResource("8_flimc")
+AnimationComponent = NodePath("..")
 TriggerName = "hit"
 metadata/_custom_type_script = "uid://dia8efc0vs0jg"
 
-[node name="DeathTrigger" type="Node" parent="AnimationComponent"]
+[node name="DeathTrigger" type="Node" parent="AnimationComponent" node_paths=PackedStringArray("AnimationComponent")]
 script = ExtResource("8_flimc")
+AnimationComponent = NodePath("..")
 TriggerName = "dead"
+TriggerType = 2
+metadata/_custom_type_script = "uid://dia8efc0vs0jg"
+
+[node name="ResurrectionCollection" type="Node" parent="AnimationComponent" node_paths=PackedStringArray("Triggers")]
+script = ExtResource("11_tcxpt")
+Triggers = [NodePath("ResurrectionCancelHit"), NodePath("ResurrectionTrigger"), NodePath("ResurrectionStateAliveTrigger")]
+metadata/_custom_type_script = "uid://bbo8f0mi03o46"
+
+[node name="ResurrectionCancelHit" type="Node" parent="AnimationComponent/ResurrectionCollection" node_paths=PackedStringArray("AnimationComponent")]
+script = ExtResource("8_flimc")
+AnimationComponent = NodePath("../..")
+TriggerName = "hit"
 TriggerType = 1
+metadata/_custom_type_script = "uid://dia8efc0vs0jg"
+
+[node name="ResurrectionStateAliveTrigger" type="Node" parent="AnimationComponent/ResurrectionCollection" node_paths=PackedStringArray("AnimationComponent")]
+script = ExtResource("8_flimc")
+AnimationComponent = NodePath("../..")
+TriggerName = "alive"
+TriggerType = 1
+metadata/_custom_type_script = "uid://dia8efc0vs0jg"
+
+[node name="ResurrectionTrigger" type="Node" parent="AnimationComponent/ResurrectionCollection" node_paths=PackedStringArray("AnimationComponent")]
+script = ExtResource("8_flimc")
+AnimationComponent = NodePath("../..")
+TriggerName = "resurrection"
 metadata/_custom_type_script = "uid://dia8efc0vs0jg"
 
 [connection signal="OnAttackHit" from="OnAttackHitComponent" to="DamageComponent" method="OnHit"]
 [connection signal="OnDamageTaken" from="DamageComponent" to="AnimationComponent/HitTrigger" method="Trigger"]
 [connection signal="OnDeath" from="DeathComponent" to="AnimationComponent/DeathTrigger" method="Trigger"]
+[connection signal="OnDeath" from="DeathComponent" to="CollisionComponent" method="EnableCollision" binds= [false]]
+[connection signal="OnResurrect" from="ResurrectionComponent" to="AnimationComponent/ResurrectionCollection" method="TriggerAll"]

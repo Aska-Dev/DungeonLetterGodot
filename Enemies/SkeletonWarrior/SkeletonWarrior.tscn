@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://wwipi1igh3pd"]
+[gd_scene load_steps=11 format=3 uid="uid://wwipi1igh3pd"]
 
 [ext_resource type="Script" uid="uid://nekjn6peu81s" path="res://Enemies/SkeletonWarrior/SkeletonWarrior.cs" id="1_1wxfa"]
 [ext_resource type="PackedScene" uid="uid://cgpaxpvmso3s3" path="res://Enemies/SkeletonWarrior/Model/Model.tscn" id="1_fqya7"]
+[ext_resource type="Script" uid="uid://c623feq3aje7r" path="res://Components/CollisionComponent.cs" id="2_xmedp"]
 [ext_resource type="Script" uid="uid://cfm0cpt63r8vf" path="res://Components/OnAttackHitComponent.cs" id="3_smlyc"]
 [ext_resource type="Script" uid="uid://c6qa8g71idvo" path="res://Components/DamageComponent.cs" id="4_1wxfa"]
 [ext_resource type="Script" uid="uid://xol7jp7rgfrt" path="res://Components/ValueComponent.cs" id="5_cb25u"]
@@ -63,6 +64,12 @@ TriggerName = "dead"
 TriggerType = 1
 metadata/_custom_type_script = "uid://dia8efc0vs0jg"
 
+[node name="CollisionComponent" type="Node" parent="." node_paths=PackedStringArray("CollisionShape")]
+script = ExtResource("2_xmedp")
+CollisionShape = NodePath("../Collision")
+metadata/_custom_type_script = "uid://c623feq3aje7r"
+
 [connection signal="OnAttackHit" from="OnAttackHitComponent" to="DamageComponent" method="OnHit"]
 [connection signal="OnDamageTaken" from="DamageComponent" to="AnimationComponent/HitTrigger" method="Trigger"]
 [connection signal="OnDeath" from="DeathComponent" to="AnimationComponent/DeathTrigger" method="Trigger"]
+[connection signal="OnDeath" from="DeathComponent" to="CollisionComponent" method="EnableCollision" binds= [false]]

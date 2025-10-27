@@ -6,7 +6,6 @@ public partial class PlayerAttackComponent : Component
 {
     [Export]
     public required AnimationPlayer AttackAnimationPlayer { get; set; }
-
     [Export]
     public bool IsActive { get; set; } = true;
 

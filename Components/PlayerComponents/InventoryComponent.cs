@@ -16,33 +16,36 @@ public partial class InventoryComponent : Component
     public int TotalInventorySlots => InventoryRows * InventoryColumns;
     public int TotalSlots => TotalInventorySlots + HotbarSize;
 
-    // Slots: 0-8 = Inventory (3x3), 9-13 = Hotbar (5 slots)
-    private Item?[] _slots;
+    private Item?[] _slots = null!;
 
     public override void _Ready()
     {
-        base._Ready();
         _slots = new Item?[TotalSlots];
     }
 
     public Item? GetItemAt(int slotIndex)
     {
         if (slotIndex < 0 || slotIndex >= _slots.Length)
+        {
             return null;
+        }
+
         return _slots[slotIndex];
     }
 
-    public bool SetItemAt(int slotIndex, Item? item)
+    public void SetItemAt(int slotIndex, Item? item)
     {
         if (slotIndex < 0 || slotIndex >= _slots.Length)
-            return false;
+        {
+            GD.PrintErr("Invalid slot index for setting item.");
+            return;
+        }
 
         _slots[slotIndex] = item;
         EmitSignal(SignalName.InventoryChanged);
-        return true;
     }
 
-    public bool AddItem(Item item)
+    public void AddItem(Item item)
     {
         // Find first empty slot
         for (int i = 0; i < _slots.Length; i++)
@@ -52,19 +55,17 @@ public partial class InventoryComponent : Component
                 _slots[i] = item;
                 EmitSignal(SignalName.ItemAdded, item);
                 EmitSignal(SignalName.InventoryChanged);
-                return true;
             }
         }
-        return false; // Inventory full
     }
 
-    public bool MoveItem(int fromSlot, int toSlot)
+    public void MoveItem(int fromSlot, int toSlot)
     {
         if (fromSlot < 0 || fromSlot >= _slots.Length || toSlot < 0 || toSlot >= _slots.Length)
-            return false;
-
-        if (fromSlot == toSlot)
-            return true;
+        {
+            GD.PrintErr("Invalid slot indices for moving item.");
+            return;
+        }
 
         // Swap items
         var temp = _slots[toSlot];
@@ -73,23 +74,28 @@ public partial class InventoryComponent : Component
 
         EmitSignal(SignalName.ItemMoved, fromSlot, toSlot);
         EmitSignal(SignalName.InventoryChanged);
-        return true;
     }
 
-    public bool RemoveItemAt(int slotIndex)
+    public void RemoveItemAt(int slotIndex)
     {
         if (slotIndex < 0 || slotIndex >= _slots.Length)
-            return false;
+        {
+            GD.PrintErr("Invalid slot index for removing item.");
+            return;
+        }
 
         _slots[slotIndex] = null;
         EmitSignal(SignalName.InventoryChanged);
-        return true;
     }
 
     public bool IsSlotEmpty(int slotIndex)
     {
         if (slotIndex < 0 || slotIndex >= _slots.Length)
+        {
+            GD.PrintErr("Invalid slot index for checking emptiness.");
             return false;
+        }
+
         return _slots[slotIndex] == null;
     }
 

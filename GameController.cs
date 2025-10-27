@@ -6,32 +6,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DungeonLetter
+namespace DungeonLetter;
+
+public partial class GameController : Node
 {
-    public partial class GameController : Node
+    public static GameController Instance { get; private set; }
+
+    public PlayerUi PlayerUi { get; set; }
+
+    public override void _Ready()
     {
-        public static GameController Instance { get; private set; }
+        Instance = this;
 
-        public override void _Ready()
+        // Set the mouse to captured
+        Input.MouseMode = Input.MouseModeEnum.Captured;
+    }
+
+    public override void _Input(InputEvent @event)
+    {
+        if(@event.IsActionPressed(Inputs.UiEscape))
         {
-            Instance = this;
-
-            // Set the mouse to captured
-            Input.MouseMode = Input.MouseModeEnum.Captured;
-        }
-
-        public override void _Input(InputEvent @event)
-        {
-            if(@event.IsActionPressed(Inputs.UiEscape))
+            if (Input.MouseMode == Input.MouseModeEnum.Captured)
             {
-                if (Input.MouseMode == Input.MouseModeEnum.Captured)
-                {
-                    Input.MouseMode = Input.MouseModeEnum.Visible;
-                }
-                else if (Input.MouseMode == Input.MouseModeEnum.Visible)
-                {
-                    Input.MouseMode = Input.MouseModeEnum.Captured;
-                }
+                Input.MouseMode = Input.MouseModeEnum.Visible;
+            }
+            else if (Input.MouseMode == Input.MouseModeEnum.Visible)
+            {
+                Input.MouseMode = Input.MouseModeEnum.Captured;
             }
         }
     }

@@ -59,6 +59,7 @@ public partial class ResurrectionComponent : Component
                 DeathComp.AlternateDeathHandler = false;
             }
 
+            HealthComp.Set(HealthComp.MaxValue);
             isResurrecting = false;
             CollisionComp.EnableCollision(true);
         }

@@ -2,12 +2,6 @@ using DungeonLetter.Common;
 using Godot;
 using System;
 
-public static class PlayerAnimations
-{
-    public const string SwordIdle = "sword_idle";
-    public const string SwordAttack = "sword_attack";
-}
-
 
 public partial class Player : CharacterBody3D, IEntity
 {
@@ -49,7 +43,8 @@ public partial class Player : CharacterBody3D, IEntity
 	private Camera3D camera;
 	private AnimationPlayer animationPlayer;
 	private PlayerHand mainHand;
-	private PlayerGuiController guiController;
+	private PlayerUi guiController;
+	private RayCast3D interactionRay;
 
 	public override void _Ready()
 	{
@@ -61,9 +56,10 @@ public partial class Player : CharacterBody3D, IEntity
 		mainHand = GetNode<PlayerHand>("Pivot/PlayerCamera/MainHandPivot");
 		pivot = GetNode<Node3D>("Pivot");
 		camera = GetNode<Camera3D>("Pivot/PlayerCamera");
-        guiController = GetNode<PlayerGuiController>("PlayerGui");
+        guiController = GetNode<PlayerUi>("PlayerGui");
+		interactionRay = GetNode<RayCast3D>("Pivot/PlayerCamera/InteractionRay");
 
-		Health = MaxHealth;
+        Health = MaxHealth;
         guiController.HealthBar.MaxValue = Health;
         guiController.HealthBar.Value = Health;
 
@@ -114,14 +110,6 @@ public partial class Player : CharacterBody3D, IEntity
 	public override void _PhysicsProcess(double delta)
 	{
 		HandlePlayerMovement(delta);
-	}
-
-	public void _OnAnimationPlayerAnimationFinished(string animationName)
-	{
-		if(animationName == PlayerAnimations.SwordAttack)
-		{
-			animationPlayer.Play(PlayerAnimations.SwordIdle);
-		}
 	}
 
 	private void HandlePlayerMovement(double delta)

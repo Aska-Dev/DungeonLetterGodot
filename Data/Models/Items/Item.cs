@@ -10,14 +10,14 @@ using System.Threading.Tasks;
 public partial class Item : Resource
 {
 	[Export]
-	public ItemModel Model { get; set; }
+	public required ItemModel Model { get; set; }
 	
 	[Export]
-	public string Name { get; set; }
+	public required string Name { get; set; }
 
 	[Export]
-	public virtual string UseAnimation { get; set; } = PlayerAnimations.SwordAttack;
+	public virtual string UseAnimation { get; set; } = "";
 
 	[Export]
-	public virtual string IdleAnimation { get; set; } = PlayerAnimations.SwordIdle;
+	public virtual string IdleAnimation { get; set; } = "";
 }

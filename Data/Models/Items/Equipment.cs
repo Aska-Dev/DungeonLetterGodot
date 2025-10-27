@@ -7,8 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 [GlobalClass]
-public partial class Weapon : Item
+public partial class Equipment : Item
 {
-    [Export]
-    public AttackModifier[] AttackModifiers { get; set; } = [];
 }

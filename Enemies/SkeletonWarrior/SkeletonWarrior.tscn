@@ -34,7 +34,7 @@ metadata/_custom_type_script = "uid://cfm0cpt63r8vf"
 [node name="DamageComponent" type="Node" parent="." node_paths=PackedStringArray("Health")]
 script = ExtResource("4_1wxfa")
 Health = NodePath("../Health")
-Armor = 2
+Armor = 1
 metadata/_custom_type_script = "uid://c6qa8g71idvo"
 
 [node name="Health" type="Node" parent="."]
@@ -53,15 +53,17 @@ script = ExtResource("7_dbk7d")
 AnimationTreePath = NodePath("../Pivot/Skeleton_Warrior/AnimationTree")
 metadata/_custom_type_script = "uid://bgg73aduwak8g"
 
-[node name="HitTrigger" type="Node" parent="AnimationComponent"]
+[node name="HitTrigger" type="Node" parent="AnimationComponent" node_paths=PackedStringArray("AnimationComponent")]
 script = ExtResource("8_dbk7d")
+AnimationComponent = NodePath("..")
 TriggerName = "hit"
 metadata/_custom_type_script = "uid://dia8efc0vs0jg"
 
-[node name="DeathTrigger" type="Node" parent="AnimationComponent"]
+[node name="DeathTrigger" type="Node" parent="AnimationComponent" node_paths=PackedStringArray("AnimationComponent")]
 script = ExtResource("8_dbk7d")
+AnimationComponent = NodePath("..")
 TriggerName = "dead"
-TriggerType = 1
+TriggerType = 2
 metadata/_custom_type_script = "uid://dia8efc0vs0jg"
 
 [node name="CollisionComponent" type="Node" parent="." node_paths=PackedStringArray("CollisionShape")]

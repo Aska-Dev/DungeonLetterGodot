@@ -1,10 +1,76 @@
-[gd_scene load_steps=11 format=3 uid="uid://bgdosy5d44fvi"]
+[gd_scene load_steps=19 format=3 uid="uid://bgdosy5d44fvi"]
 
-[ext_resource type="PackedScene" uid="uid://bl5lycongbly2" path="res://Environment/WoodenDoor/door.gltf.glb" id="1_6blcm"]
+[ext_resource type="PackedScene" uid="uid://bl5lycongbly2" path="res://Environment/WoodenDoor/Model/door.gltf.glb" id="1_6blcm"]
 [ext_resource type="Script" uid="uid://bul2qpbon5ocl" path="res://Environment/WoodenDoor/WoodenDoor.cs" id="1_awcy1"]
+[ext_resource type="Script" uid="uid://q8vh3m03xg15" path="res://Components/InteractionComponent.cs" id="3_7pfbs"]
+[ext_resource type="Script" uid="uid://bgg73aduwak8g" path="res://Components/AnimationComponent/AnimationComponent.cs" id="5_yyjch"]
+[ext_resource type="Script" uid="uid://dia8efc0vs0jg" path="res://Components/AnimationComponent/AnimationTrigger.cs" id="6_m4qh3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_awcy1"]
 size = Vector3(1.9919739, 2.510025, 0.4473877)
+
+[sub_resource type="Animation" id="Animation_yyjch"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5707964, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_m4qh3"]
+resource_name = "closeBack"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(2, -2),
+"update": 0,
+"values": [Vector3(0, 1.5707964, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_o14a6"]
+resource_name = "closeFront"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(2, -2),
+"update": 0,
+"values": [Vector3(0, -1.5707964, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ujmhe"]
+resource_name = "openBack"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(2, -2),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5707964, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_6blcm"]
 resource_name = "close"
@@ -22,62 +88,68 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, -1.5707964, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_o14a6"]
-resource_name = "open"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(2, -2),
-"update": 0,
-"values": [Vector3(0, -1.5707964, 0), Vector3(0, 0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o14a6"]
 _data = {
-&"close": SubResource("Animation_o14a6"),
-&"open": SubResource("Animation_6blcm")
+&"RESET": SubResource("Animation_yyjch"),
+&"closeBack": SubResource("Animation_m4qh3"),
+&"closeFront": SubResource("Animation_o14a6"),
+&"openBack": SubResource("Animation_ujmhe"),
+&"openFront": SubResource("Animation_6blcm")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6blcm"]
-animation = &"close"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yyjch"]
+animation = &"closeBack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m4qh3"]
+animation = &"closeFront"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ujmhe"]
+animation = &"openBack"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_awcy1"]
-animation = &"open"
+animation = &"openFront"
 
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_o14a6"]
-input_0/name = "open"
+input_0/name = "openFront"
 input_0/auto_advance = false
 input_0/break_loop_at_end = false
 input_0/reset = true
-input_1/name = "close"
+input_1/name = "openBack"
 input_1/auto_advance = false
 input_1/break_loop_at_end = false
 input_1/reset = true
+input_2/name = "closeFront"
+input_2/auto_advance = false
+input_2/break_loop_at_end = false
+input_2/reset = true
+input_3/name = "closeBack"
+input_3/auto_advance = false
+input_3/break_loop_at_end = false
+input_3/reset = true
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_6blcm"]
-graph_offset = Vector2(-48, -38)
+graph_offset = Vector2(-373.48926, -131.00095)
 nodes/output/position = Vector2(900, 120)
-nodes/animOpen/node = SubResource("AnimationNodeAnimation_awcy1")
-nodes/animOpen/position = Vector2(480, -20)
-nodes/animClose/node = SubResource("AnimationNodeAnimation_6blcm")
-nodes/animClose/position = Vector2(479, 155)
+nodes/animOpenFront/node = SubResource("AnimationNodeAnimation_awcy1")
+nodes/animOpenFront/position = Vector2(480, -160)
+nodes/animOpenBack/node = SubResource("AnimationNodeAnimation_ujmhe")
+nodes/animOpenBack/position = Vector2(480, 20)
 nodes/state/node = SubResource("AnimationNodeTransition_o14a6")
 nodes/state/position = Vector2(720, 80)
-node_connections = [&"output", 0, &"state", &"state", 0, &"animOpen", &"state", 1, &"animClose"]
+nodes/animCloseFront/node = SubResource("AnimationNodeAnimation_m4qh3")
+nodes/animCloseFront/position = Vector2(480, 200)
+nodes/animCloseBack/node = SubResource("AnimationNodeAnimation_yyjch")
+nodes/animCloseBack/position = Vector2(498.249, 416.68152)
+node_connections = [&"output", 0, &"state", &"state", 0, &"animOpenFront", &"state", 1, &"animOpenBack", &"state", 2, &"animCloseFront", &"state", 3, &"animCloseBack"]
 
-[node name="Model" type="StaticBody3D"]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
-collision_layer = 16
+[node name="WoodenDoor" type="StaticBody3D"]
+transform = Transform3D(-4.371137e-08, 0, 0.9999995, 0, 1, 0, -0.9999996, 0, -4.3711367e-08, 0, 0, 0)
+collision_layer = 48
 collision_mask = 5
 script = ExtResource("1_awcy1")
 
 [node name="door_gltf" parent="." instance=ExtResource("1_6blcm")]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0, 0)
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0002594, 1.0436783, 0.005554199)
@@ -91,6 +163,50 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeBlendTree_6blcm")
 anim_player = NodePath("../AnimationPlayer")
-parameters/state/current_state = "close"
+parameters/state/current_state = "closeBack"
 parameters/state/transition_request = ""
-parameters/state/current_index = 1
+parameters/state/current_index = 3
+
+[node name="InteractionComponent" type="Node" parent="."]
+script = ExtResource("3_7pfbs")
+InteractionMessage = "Press [F] to open Door"
+metadata/_custom_type_script = "uid://q8vh3m03xg15"
+
+[node name="AnimationComponent" type="Node" parent="."]
+script = ExtResource("5_yyjch")
+AnimationTreePath = NodePath("../AnimationTree")
+metadata/_custom_type_script = "uid://bgg73aduwak8g"
+
+[node name="OpenFrontTrigger" type="Node" parent="AnimationComponent" node_paths=PackedStringArray("AnimationComponent")]
+script = ExtResource("6_m4qh3")
+AnimationComponent = NodePath("..")
+TriggerName = "openFront"
+TriggerType = 2
+metadata/_custom_type_script = "uid://dia8efc0vs0jg"
+
+[node name="CloseFrontTrigger" type="Node" parent="AnimationComponent" node_paths=PackedStringArray("AnimationComponent")]
+script = ExtResource("6_m4qh3")
+AnimationComponent = NodePath("..")
+TriggerName = "closeFront"
+TriggerType = 2
+metadata/_custom_type_script = "uid://dia8efc0vs0jg"
+
+[node name="OpenBackTrigger" type="Node" parent="AnimationComponent" node_paths=PackedStringArray("AnimationComponent")]
+script = ExtResource("6_m4qh3")
+AnimationComponent = NodePath("..")
+TriggerName = "openBack"
+TriggerType = 2
+metadata/_custom_type_script = "uid://dia8efc0vs0jg"
+
+[node name="CloseBackTrigger" type="Node" parent="AnimationComponent" node_paths=PackedStringArray("AnimationComponent")]
+script = ExtResource("6_m4qh3")
+AnimationComponent = NodePath("..")
+TriggerName = "closeBack"
+TriggerType = 2
+metadata/_custom_type_script = "uid://dia8efc0vs0jg"
+
+[connection signal="OnCloseBack" from="." to="AnimationComponent/CloseBackTrigger" method="Trigger"]
+[connection signal="OnCloseFront" from="." to="AnimationComponent/CloseFrontTrigger" method="Trigger"]
+[connection signal="OnOpenBack" from="." to="AnimationComponent/OpenBackTrigger" method="Trigger"]
+[connection signal="OnOpenFront" from="." to="AnimationComponent/OpenFrontTrigger" method="Trigger"]
+[connection signal="OnInteraction" from="InteractionComponent" to="." method="OnInteract"]

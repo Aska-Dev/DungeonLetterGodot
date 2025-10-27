@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="AttackCombo" load_steps=5 format=3 uid="uid://dm7nwqgke0rf8"]
+
+[ext_resource type="Script" uid="uid://b8lu5lu8mkec1" path="res://Data/Models/AttackCombo/AttackCombo.cs" id="1_mgxry"]
+[ext_resource type="Script" uid="uid://cs4p0rj2fo0i6" path="res://Data/Models/AttackCombo/ComboStep.cs" id="1_t1son"]
+
+[sub_resource type="Resource" id="Resource_kg4lh"]
+script = ExtResource("1_t1son")
+AnimationName = "sword_attack_1"
+ResetAnimationName = "sword_attack_1_reset"
+metadata/_custom_type_script = "uid://cs4p0rj2fo0i6"
+
+[sub_resource type="Resource" id="Resource_t1son"]
+script = ExtResource("1_t1son")
+AnimationName = "sword_attack_2"
+ResetAnimationName = "sword_attack_2_reset"
+metadata/_custom_type_script = "uid://cs4p0rj2fo0i6"
+
+[resource]
+script = ExtResource("1_mgxry")
+Steps = Array[Object]([SubResource("Resource_kg4lh"), SubResource("Resource_t1son")])
+InputActionName = "player_action_first"
+metadata/_custom_type_script = "uid://b8lu5lu8mkec1"

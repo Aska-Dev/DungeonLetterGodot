@@ -80,7 +80,7 @@ metadata/_custom_type_script = "uid://dia8efc0vs0jg"
 
 [node name="ResurrectionCollection" type="Node" parent="AnimationComponent" node_paths=PackedStringArray("Triggers")]
 script = ExtResource("11_tcxpt")
-Triggers = [NodePath("ResurrectionCancelHit"), NodePath("ResurrectionTrigger"), NodePath("ResurrectionStateAliveTrigger")]
+Triggers = [NodePath("ResurrectionCancelHit"), NodePath("ResurrectionTrigger"), NodePath("SetStateAlive")]
 metadata/_custom_type_script = "uid://bbo8f0mi03o46"
 
 [node name="ResurrectionCancelHit" type="Node" parent="AnimationComponent/ResurrectionCollection" node_paths=PackedStringArray("AnimationComponent")]
@@ -90,17 +90,17 @@ TriggerName = "hit"
 TriggerType = 1
 metadata/_custom_type_script = "uid://dia8efc0vs0jg"
 
-[node name="ResurrectionStateAliveTrigger" type="Node" parent="AnimationComponent/ResurrectionCollection" node_paths=PackedStringArray("AnimationComponent")]
-script = ExtResource("8_flimc")
-AnimationComponent = NodePath("../..")
-TriggerName = "alive"
-TriggerType = 1
-metadata/_custom_type_script = "uid://dia8efc0vs0jg"
-
 [node name="ResurrectionTrigger" type="Node" parent="AnimationComponent/ResurrectionCollection" node_paths=PackedStringArray("AnimationComponent")]
 script = ExtResource("8_flimc")
 AnimationComponent = NodePath("../..")
 TriggerName = "resurrection"
+metadata/_custom_type_script = "uid://dia8efc0vs0jg"
+
+[node name="SetStateAlive" type="Node" parent="AnimationComponent/ResurrectionCollection" node_paths=PackedStringArray("AnimationComponent")]
+script = ExtResource("8_flimc")
+AnimationComponent = NodePath("../..")
+TriggerName = "alive"
+TriggerType = 2
 metadata/_custom_type_script = "uid://dia8efc0vs0jg"
 
 [connection signal="OnAttackHit" from="OnAttackHitComponent" to="DamageComponent" method="OnHit"]
@@ -108,3 +108,4 @@ metadata/_custom_type_script = "uid://dia8efc0vs0jg"
 [connection signal="OnDeath" from="DeathComponent" to="AnimationComponent/DeathTrigger" method="Trigger"]
 [connection signal="OnDeath" from="DeathComponent" to="CollisionComponent" method="EnableCollision" binds= [false]]
 [connection signal="OnResurrect" from="ResurrectionComponent" to="AnimationComponent/ResurrectionCollection" method="TriggerAll"]
+[connection signal="OnResurrect" from="ResurrectionComponent" to="AnimationComponent/ResurrectionCollection/SetStateAlive" method="Trigger"]

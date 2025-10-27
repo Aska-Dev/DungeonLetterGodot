@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://dox658scd5yq2"]
+[gd_scene load_steps=17 format=3 uid="uid://dox658scd5yq2"]
 
 [ext_resource type="Script" uid="uid://02ewrngl0yi3" path="res://Player/Player.cs" id="1_3qydi"]
-[ext_resource type="PackedScene" uid="uid://degvr7rxew1w" path="res://UI/PlayerGUI.tscn" id="2_ddoul"]
+[ext_resource type="PackedScene" uid="uid://degvr7rxew1w" path="res://UI/PlayerUi.tscn" id="2_ddoul"]
 [ext_resource type="PackedScene" uid="uid://dir7xei8fm6gp" path="res://Items/Weapons/Sword/Model.tscn" id="2_q3lat"]
 [ext_resource type="Script" uid="uid://cdhv4ikb2a32c" path="res://Player/PlayerHand.cs" id="2_tok1r"]
+[ext_resource type="Script" uid="uid://cj6c6ft7m1ygx" path="res://Components/InteractionRayComponent.cs" id="5_8g4oa"]
+[ext_resource type="Script" uid="uid://c1wjq4x2gl1v2" path="res://Components/PlayerComponents/PlayerAttackComponent.cs" id="8_s1rgi"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_l2ndj"]
 
@@ -36,8 +38,154 @@ tracks/1/keys = {
 "values": [Vector3(-0.037154775, -1.4017794, 0.21433772)]
 }
 
+[sub_resource type="Animation" id="Animation_8g4oa"]
+resource_name = "sword_attack_1"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/PlayerCamera/MainHandPivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.35),
+"transitions": PackedFloat32Array(1, 2, 0.5),
+"update": 0,
+"values": [Vector3(0.9552461, -0.6859697, -0.8526355), Vector3(0.75262904, -0.1875639, -0.8907016), Vector3(-0.9339593, -0.71052253, -0.8907016)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/PlayerCamera/MainHandPivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.35),
+"transitions": PackedFloat32Array(1, 2, 0.5),
+"update": 0,
+"values": [Vector3(-0.037154775, -1.4017794, 0.21433772), Vector3(-0.5080551, -1.4117336, 0.43544513), Vector3(-0.7381463, -0.44864905, 1.6289529)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/PlayerCamera/MainHandPivot")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.35),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [true],
+"method": &"SetWeaponHitboxStatus"
+}, {
+"args": [false],
+"method": &"SetWeaponHitboxStatus"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_6ysni"]
+resource_name = "sword_attack_1_reset"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/PlayerCamera/MainHandPivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 2),
+"update": 0,
+"values": [Vector3(-0.9339593, -0.71052253, -0.8907016), Vector3(0.9552461, -0.6859697, -0.8526355)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/PlayerCamera/MainHandPivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 2),
+"update": 0,
+"values": [Vector3(-0.7381463, -0.44864905, 1.6289529), Vector3(-0.037154775, -1.4017794, 0.21433772)]
+}
+
+[sub_resource type="Animation" id="Animation_vlldt"]
+resource_name = "sword_attack_2"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/PlayerCamera/MainHandPivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.27),
+"transitions": PackedFloat32Array(1, 2.000001),
+"update": 0,
+"values": [Vector3(-0.9339593, -0.71052253, -0.8907016), Vector3(0.80866754, 0.118926644, -0.7109895)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/PlayerCamera/MainHandPivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.27),
+"transitions": PackedFloat32Array(1, 2.000001),
+"update": 0,
+"values": [Vector3(-0.7381463, -0.44864905, 1.6289529), Vector3(-0.82379043, -1.4602339, 0.25882998)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/PlayerCamera/MainHandPivot")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.27),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [true],
+"method": &"SetWeaponHitboxStatus"
+}, {
+"args": [false],
+"method": &"SetWeaponHitboxStatus"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_j23h2"]
+resource_name = "sword_attack_2_reset"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/PlayerCamera/MainHandPivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 2),
+"update": 0,
+"values": [Vector3(0.80866754, 0.118926644, -0.7109895), Vector3(0.9552461, -0.6859697, -0.8526355)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/PlayerCamera/MainHandPivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 2),
+"update": 0,
+"values": [Vector3(-0.82379043, -1.4602339, 0.25882998), Vector3(-0.037154775, -1.4017794, 0.21433772)]
+}
+
 [sub_resource type="Animation" id="Animation_q3lat"]
-resource_name = "sword_attack"
+resource_name = "sword_attack_horizontal"
 length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -112,11 +260,15 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8g4oa"]
 _data = {
 &"RESET": SubResource("Animation_ddoul"),
-&"sword_attack": SubResource("Animation_q3lat"),
+&"sword_attack_1": SubResource("Animation_8g4oa"),
+&"sword_attack_1_reset": SubResource("Animation_6ysni"),
+&"sword_attack_2": SubResource("Animation_vlldt"),
+&"sword_attack_2_reset": SubResource("Animation_j23h2"),
+&"sword_attack_horizontal": SubResource("Animation_q3lat"),
 &"sword_idle": SubResource("Animation_tok1r")
 }
 
-[node name="CharacterBody3D" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D"]
 collision_mask = 28
 script = ExtResource("1_3qydi")
 
@@ -129,9 +281,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 current = true
 fov = 80.0
 
-[node name="MainHandPivot" type="Node3D" parent="Pivot/PlayerCamera"]
-transform = Transform3D(0.17215264, -1.4901161e-08, -0.9850701, 0.21255356, 0.9764431, 0.037146218, 0.96186507, -0.21577501, 0.16809723, 0.9552461, -0.6859697, -0.8526355)
+[node name="InteractionRay" type="RayCast3D" parent="Pivot/PlayerCamera"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+target_position = Vector3(0, -1.5, 0)
+collision_mask = 32
+debug_shape_thickness = 5
+
+[node name="MainHandPivot" type="Node3D" parent="Pivot/PlayerCamera" node_paths=PackedStringArray("AnimationPlayer", "PlayerAttackComponent")]
+transform = Transform3D(0.1721526, -1.4901161e-08, -0.9850698, 0.21255352, 0.9764431, 0.037146207, 0.9618648, -0.21577501, 0.16809718, 0.9552461, -0.6859697, -0.8526355)
 script = ExtResource("2_tok1r")
+AnimationPlayer = NodePath("../../../AnimationPlayer")
+PlayerAttackComponent = NodePath("../../../PlayerAttackComponent")
 
 [node name="Model" parent="Pivot/PlayerCamera/MainHandPivot" instance=ExtResource("2_q3lat")]
 
@@ -149,4 +309,14 @@ libraries = {
 }
 autoplay = "sword_idle"
 
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_OnAnimationPlayerAnimationFinished"]
+[node name="InteractionRayComponent" type="Node" parent="." node_paths=PackedStringArray("Ray")]
+script = ExtResource("5_8g4oa")
+Ray = NodePath("../Pivot/PlayerCamera/InteractionRay")
+metadata/_custom_type_script = "uid://cj6c6ft7m1ygx"
+
+[node name="PlayerAttackComponent" type="Node" parent="." node_paths=PackedStringArray("AttackAnimationPlayer")]
+script = ExtResource("8_s1rgi")
+AttackAnimationPlayer = NodePath("../AnimationPlayer")
+metadata/_custom_type_script = "uid://c1wjq4x2gl1v2"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="PlayerAttackComponent" method="OnAttackAnimationFinished"]

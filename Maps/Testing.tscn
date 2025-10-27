@@ -48,19 +48,20 @@ transform = Transform3D(1, 0, 0, 0, 0.6499787, 0.7599524, 0, -0.7599524, 0.64997
 light_energy = 0.5
 shadow_enabled = true
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("1_uda1j")]
+[node name="Player" parent="." instance=ExtResource("1_uda1j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.718, 0.5, 4.383)
 
 [node name="SkeletonMinion2" parent="." instance=ExtResource("2_acudx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -5)
-CanResurrect = true
 
 [node name="SkeletonMinion" parent="." instance=ExtResource("2_acudx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.5, -5)
-CanResurrect = true
 
 [node name="SkeletonMinion3" parent="." instance=ExtResource("2_acudx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.5, -5)
+
+[node name="Door" parent="." instance=ExtResource("4_bmafo")]
+transform = Transform3D(-4.3711385e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -4.3711385e-08, -7.5344934, 0.70705765, -4.9817867)
 
 [node name="CollisionEnvironment" type="CSGCombiner3D" parent="."]
 use_collision = true
@@ -86,10 +87,6 @@ mesh = SubResource("BoxMesh_acudx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 shape = SubResource("ConvexPolygonShape3D_acudx")
-
-[node name="Model" parent="Ground" instance=ExtResource("4_bmafo")]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -7.5344934, 0.70705765, -4.9817867)
-Open = true
 
 [node name="SkeletonWarrior" parent="." instance=ExtResource("5_01o2i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4448395, 0.5000265, 1.8823624)

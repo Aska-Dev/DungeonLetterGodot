@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=6 format=3 uid="uid://bwyinnl237ljr"]
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://bwyinnl237ljr"]
 
 [ext_resource type="Script" uid="uid://dsuqhe4puxwpc" path="res://Data/Models/AttackModifiers/DealPhysicalDamage.cs" id="1_6oywa"]
-[ext_resource type="Script" uid="uid://cv2ecvislsi11" path="res://Data/Models/ItemModel.cs" id="2_k2cqa"]
-[ext_resource type="Script" uid="uid://dmwphj6gvabry" path="res://Data/Models/Weapon.cs" id="2_q5ffu"]
+[ext_resource type="Script" uid="uid://cv2ecvislsi11" path="res://Data/Models/Items/ItemModel.cs" id="2_k2cqa"]
+[ext_resource type="Script" uid="uid://dmwphj6gvabry" path="res://Data/Models/Items/Weapon.cs" id="2_q5ffu"]
 
 [sub_resource type="Resource" id="Resource_k2cqa"]
 script = ExtResource("1_6oywa")

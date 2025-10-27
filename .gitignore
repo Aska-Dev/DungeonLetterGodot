@@ -2,6 +2,7 @@
 .godot/
 .nomedia
 .vs/
+.vs
 
 # Godot-specific ignores
 .import/

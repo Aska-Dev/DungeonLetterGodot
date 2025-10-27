@@ -4,20 +4,22 @@ using System;
 
 public partial class PlayerHand : Node3D
 {
-	[Export]
+	[ExportGroup("Dependencies")]
+	[Export] public required AnimationPlayer AnimationPlayer { get; set; }
+	[Export] public required PlayerAttackComponent PlayerAttackComponent { get; set; }
+
+    [Export]
 	public Item? Item { get; set; } = null;
-
-	private AnimationPlayer animationPlayer;
-
-	public override void _Ready()
-	{
-		animationPlayer = GetNode<AnimationPlayer>("../../../AnimationPlayer");
-	}
 
 	public void UseItem()
 	{
-		animationPlayer.Play(Item.UseAnimation);
-	}
+		if (Item is null || Item is Weapon weapon)
+		{
+			return;
+		}
+
+        AnimationPlayer.Play(Item.UseAnimation);
+    }
 
 	public void EquipItem(Item item)
 	{
@@ -30,8 +32,18 @@ public partial class PlayerHand : Node3D
 		var loadedModel = GD.Load<PackedScene>(item.Model.Path);
 		var modelInstance = loadedModel.Instantiate<Node3D>();
 
-		var itemHitbox = modelInstance.GetChild<Area3D>(1);
-		itemHitbox.BodyEntered += OnAttackHit;
+		if(item is Weapon weapon)
+		{
+			PlayerAttackComponent.IsActive = true;
+			PlayerAttackComponent.CurrentCombo = weapon.Combo;
+
+            var itemHitbox = modelInstance.GetChild<Area3D>(1);
+            itemHitbox.BodyEntered += OnAttackHit;
+        }
+		else
+		{
+			PlayerAttackComponent.IsActive = false;
+        }
 
 		Item = item;
 		AddChild(modelInstance);

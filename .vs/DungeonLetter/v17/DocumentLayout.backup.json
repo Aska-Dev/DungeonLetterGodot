@@ -3,28 +3,52 @@
   "WorkspaceRootPath": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\components\\damagecomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:components\\damagecomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\components\\playercomponents\\inventorycomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:components\\playercomponents\\inventorycomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\data\\models\\items\\offhand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:data\\models\\items\\offhand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\data\\models\\items\\itemmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:data\\models\\items\\itemmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\data\\models\\items\\weapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:data\\models\\items\\weapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\data\\models\\items\\equipment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:data\\models\\items\\equipment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\components\\animationcomponent\\animationcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:components\\animationcomponent\\animationcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\player\\playerhand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:player\\playerhand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\components\\animationcomponent\\animationtrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:components\\animationcomponent\\animationtrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\environment\\woodendoor\\woodendoor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:environment\\woodendoor\\woodendoor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\data\\models\\attackcombo\\attackcombo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:data\\models\\attackcombo\\attackcombo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\environment\\environment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:environment\\environment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\components\\animationcomponent\\animationtriggercollection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:components\\animationcomponent\\animationtriggercollection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\components\\component.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:components\\component.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\data\\models\\attackcombo\\combostep.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:data\\models\\attackcombo\\combostep.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\common\\attackcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -35,68 +59,44 @@
       "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:common\\constants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\common\\inputs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:common\\inputs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\environment\\woodendoor\\woodendoor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:environment\\woodendoor\\woodendoor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\enemies\\skeletonminion\\skeletonminion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:enemies\\skeletonminion\\skeletonminion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\components\\interactionraycomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:components\\interactionraycomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\enemies\\skeletonwarrior\\skeletonwarrior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:enemies\\skeletonwarrior\\skeletonwarrior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\ui\\playerui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:ui\\playerui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\player\\playerhand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:player\\playerhand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\uieventbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:uieventbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\enemies\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:enemies\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\gamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:gamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\components\\playerattackcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:components\\playerattackcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\components\\deathcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:components\\deathcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\ui\\inventory\\inventoryslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:ui\\inventory\\inventoryslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\components\\valuecomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:components\\valuecomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\ui\\inventory\\inventoryui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:ui\\inventory\\inventoryui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\components\\onattackhitcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:components\\onattackhitcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\ui\\inventory\\hotbarui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:ui\\inventory\\hotbarui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\components\\collisioncomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:components\\collisioncomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\data\\models\\attackmodifiers\\dealdamage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:data\\models\\attackmodifiers\\dealdamage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\data\\models\\attackmodifier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:data\\models\\attackmodifier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\data\\models\\attackmodifiers\\dealtruedamage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:data\\models\\attackmodifiers\\dealtruedamage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\data\\models\\attackmodifiers\\dealphysicaldamage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:data\\models\\attackmodifiers\\dealphysicaldamage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\data\\models\\attackmodifiers\\dealmagicaldamage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:data\\models\\attackmodifiers\\dealmagicaldamage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\dungeonletter.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:dungeonletter.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|d:\\user\\documents\\godot games\\dungeon-letter\\components\\playercomponents\\inventorytesthelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{695C4388-4FC1-422A-9731-6E08BB107463}|DungeonLetter.csproj|solutionrelative:components\\playercomponents\\inventorytesthelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -106,76 +106,213 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AnimationComponent.cs",
-              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Components\\AnimationComponent\\AnimationComponent.cs",
-              "RelativeDocumentMoniker": "Components\\AnimationComponent\\AnimationComponent.cs",
-              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Components\\AnimationComponent\\AnimationComponent.cs",
-              "RelativeToolTip": "Components\\AnimationComponent\\AnimationComponent.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 23,
+              "Title": "InventoryTestHelper.cs",
+              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Components\\PlayerComponents\\InventoryTestHelper.cs",
+              "RelativeDocumentMoniker": "Components\\PlayerComponents\\InventoryTestHelper.cs",
+              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Components\\PlayerComponents\\InventoryTestHelper.cs",
+              "RelativeToolTip": "Components\\PlayerComponents\\InventoryTestHelper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-24T08:39:04.597Z",
+              "WhenOpened": "2025-10-27T22:12:12.463Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "HotbarUI.cs",
+              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\UI\\Inventory\\HotbarUI.cs",
+              "RelativeDocumentMoniker": "UI\\Inventory\\HotbarUI.cs",
+              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\UI\\Inventory\\HotbarUI.cs",
+              "RelativeToolTip": "UI\\Inventory\\HotbarUI.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T22:12:00.97Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "InventoryUI.cs",
+              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\UI\\Inventory\\InventoryUI.cs",
+              "RelativeDocumentMoniker": "UI\\Inventory\\InventoryUI.cs",
+              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\UI\\Inventory\\InventoryUI.cs",
+              "RelativeToolTip": "UI\\Inventory\\InventoryUI.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAL4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T22:11:43.196Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "InventorySlot.cs",
+              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\UI\\Inventory\\InventorySlot.cs",
+              "RelativeDocumentMoniker": "UI\\Inventory\\InventorySlot.cs",
+              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\UI\\Inventory\\InventorySlot.cs",
+              "RelativeToolTip": "UI\\Inventory\\InventorySlot.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T22:11:22.448Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "InventoryComponent.cs",
+              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Components\\PlayerComponents\\InventoryComponent.cs",
+              "RelativeDocumentMoniker": "Components\\PlayerComponents\\InventoryComponent.cs",
+              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Components\\PlayerComponents\\InventoryComponent.cs",
+              "RelativeToolTip": "Components\\PlayerComponents\\InventoryComponent.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAswGMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T20:32:47.204Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "AnimationTrigger.cs",
-              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Components\\AnimationComponent\\AnimationTrigger.cs",
-              "RelativeDocumentMoniker": "Components\\AnimationComponent\\AnimationTrigger.cs",
-              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Components\\AnimationComponent\\AnimationTrigger.cs",
-              "RelativeToolTip": "Components\\AnimationComponent\\AnimationTrigger.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAEAAAAAAAAAA==",
+              "Title": "ItemModel.cs",
+              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Data\\Models\\Items\\ItemModel.cs",
+              "RelativeDocumentMoniker": "Data\\Models\\Items\\ItemModel.cs",
+              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Data\\Models\\Items\\ItemModel.cs",
+              "RelativeToolTip": "Data\\Models\\Items\\ItemModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-24T08:38:55.668Z",
+              "WhenOpened": "2025-10-27T20:16:15.438Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Offhand.cs",
+              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Data\\Models\\Items\\Offhand.cs",
+              "RelativeDocumentMoniker": "Data\\Models\\Items\\Offhand.cs",
+              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Data\\Models\\Items\\Offhand.cs",
+              "RelativeToolTip": "Data\\Models\\Items\\Offhand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T20:16:10.573Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "WoodenDoor.cs",
-              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Environment\\WoodenDoor\\WoodenDoor.cs",
-              "RelativeDocumentMoniker": "Environment\\WoodenDoor\\WoodenDoor.cs",
-              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Environment\\WoodenDoor\\WoodenDoor.cs",
-              "RelativeToolTip": "Environment\\WoodenDoor\\WoodenDoor.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAOAAAAAAAAAA==",
+              "Title": "Weapon.cs",
+              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Data\\Models\\Items\\Weapon.cs",
+              "RelativeDocumentMoniker": "Data\\Models\\Items\\Weapon.cs",
+              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Data\\Models\\Items\\Weapon.cs",
+              "RelativeToolTip": "Data\\Models\\Items\\Weapon.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-24T08:24:22.065Z",
+              "WhenOpened": "2025-10-27T16:29:17.663Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Environment.cs",
-              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Environment\\Environment.cs",
-              "RelativeDocumentMoniker": "Environment\\Environment.cs",
-              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Environment\\Environment.cs",
-              "RelativeToolTip": "Environment\\Environment.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "Title": "Equipment.cs",
+              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Data\\Models\\Items\\Equipment.cs",
+              "RelativeDocumentMoniker": "Data\\Models\\Items\\Equipment.cs",
+              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Data\\Models\\Items\\Equipment.cs",
+              "RelativeToolTip": "Data\\Models\\Items\\Equipment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-24T08:23:23.938Z",
+              "WhenOpened": "2025-10-27T16:29:03.201Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "PlayerAttackComponent.cs",
+              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Components\\PlayerAttackComponent.cs",
+              "RelativeDocumentMoniker": "Components\\PlayerAttackComponent.cs",
+              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Components\\PlayerAttackComponent.cs",
+              "RelativeToolTip": "Components\\PlayerAttackComponent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAxwFoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T13:53:42.132Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PlayerHand.cs",
+              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Player\\PlayerHand.cs",
+              "RelativeDocumentMoniker": "Player\\PlayerHand.cs",
+              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Player\\PlayerHand.cs",
+              "RelativeToolTip": "Player\\PlayerHand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T10:23:06.472Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AnimationTriggerCollection.cs",
+              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Components\\AnimationComponent\\AnimationTriggerCollection.cs",
+              "RelativeDocumentMoniker": "Components\\AnimationComponent\\AnimationTriggerCollection.cs",
+              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Components\\AnimationComponent\\AnimationTriggerCollection.cs",
+              "RelativeToolTip": "Components\\AnimationComponent\\AnimationTriggerCollection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T08:39:34.891Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AnimationComponent.cs",
+              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Components\\AnimationComponent\\AnimationComponent.cs",
+              "RelativeDocumentMoniker": "Components\\AnimationComponent\\AnimationComponent.cs",
+              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Components\\AnimationComponent\\AnimationComponent.cs",
+              "RelativeToolTip": "Components\\AnimationComponent\\AnimationComponent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T08:39:35.444Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "Inputs.cs",
-              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Common\\Inputs.cs",
-              "RelativeDocumentMoniker": "Common\\Inputs.cs",
-              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Common\\Inputs.cs",
-              "RelativeToolTip": "Common\\Inputs.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA2AAAAAAAAAA==",
+              "Title": "AnimationTrigger.cs",
+              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Components\\AnimationComponent\\AnimationTrigger.cs",
+              "RelativeDocumentMoniker": "Components\\AnimationComponent\\AnimationTrigger.cs",
+              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Components\\AnimationComponent\\AnimationTrigger.cs",
+              "RelativeToolTip": "Components\\AnimationComponent\\AnimationTrigger.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-24T08:18:36.168Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-27T08:35:25.915Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
+              "Title": "AttackCombo.cs",
+              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Data\\Models\\AttackCombo\\AttackCombo.cs",
+              "RelativeDocumentMoniker": "Data\\Models\\AttackCombo\\AttackCombo.cs",
+              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Data\\Models\\AttackCombo\\AttackCombo.cs",
+              "RelativeToolTip": "Data\\Models\\AttackCombo\\AttackCombo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T08:24:00.669Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ComboStep.cs",
+              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Data\\Models\\AttackCombo\\ComboStep.cs",
+              "RelativeDocumentMoniker": "Data\\Models\\AttackCombo\\ComboStep.cs",
+              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Data\\Models\\AttackCombo\\ComboStep.cs",
+              "RelativeToolTip": "Data\\Models\\AttackCombo\\ComboStep.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T08:23:38.909Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "AttackContext.cs",
               "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Common\\AttackContext.cs",
               "RelativeDocumentMoniker": "Common\\AttackContext.cs",
@@ -183,241 +320,91 @@
               "RelativeToolTip": "Common\\AttackContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-24T08:18:12.746Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-26T23:46:18.041Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 13,
               "Title": "Constants.cs",
               "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Common\\Constants.cs",
               "RelativeDocumentMoniker": "Common\\Constants.cs",
               "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Common\\Constants.cs",
               "RelativeToolTip": "Common\\Constants.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-24T08:18:01.447Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-26T23:46:16.841Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 14,
-              "Title": "DeathComponent.cs",
-              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Components\\DeathComponent.cs",
-              "RelativeDocumentMoniker": "Components\\DeathComponent.cs",
-              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Components\\DeathComponent.cs",
-              "RelativeToolTip": "Components\\DeathComponent.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAgAAAAAAAAAA==",
+              "Title": "WoodenDoor.cs",
+              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Environment\\WoodenDoor\\WoodenDoor.cs",
+              "RelativeDocumentMoniker": "Environment\\WoodenDoor\\WoodenDoor.cs",
+              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Environment\\WoodenDoor\\WoodenDoor.cs",
+              "RelativeToolTip": "Environment\\WoodenDoor\\WoodenDoor.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAcwE8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-24T07:31:54.038Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-26T00:28:46.426Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "SkeletonWarrior.cs",
-              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Enemies\\SkeletonWarrior\\SkeletonWarrior.cs",
-              "RelativeDocumentMoniker": "Enemies\\SkeletonWarrior\\SkeletonWarrior.cs",
-              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Enemies\\SkeletonWarrior\\SkeletonWarrior.cs",
-              "RelativeToolTip": "Enemies\\SkeletonWarrior\\SkeletonWarrior.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-24T07:24:47.36Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "OnAttackHitComponent.cs",
-              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Components\\OnAttackHitComponent.cs",
-              "RelativeDocumentMoniker": "Components\\OnAttackHitComponent.cs",
-              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Components\\OnAttackHitComponent.cs",
-              "RelativeToolTip": "Components\\OnAttackHitComponent.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABBAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-24T07:20:11.669Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Enemy.cs",
-              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Enemies\\Enemy.cs",
-              "RelativeDocumentMoniker": "Enemies\\Enemy.cs",
-              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Enemies\\Enemy.cs",
-              "RelativeToolTip": "Enemies\\Enemy.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-24T07:16:55.271Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DamageComponent.cs",
-              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Components\\DamageComponent.cs",
-              "RelativeDocumentMoniker": "Components\\DamageComponent.cs",
-              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Components\\DamageComponent.cs",
-              "RelativeToolTip": "Components\\DamageComponent.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-24T07:15:55.469Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 7,
               "Title": "Player.cs",
               "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Player\\Player.cs",
               "RelativeDocumentMoniker": "Player\\Player.cs",
               "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Player\\Player.cs",
               "RelativeToolTip": "Player\\Player.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAjwHEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-24T06:25:41.268Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-25T23:22:23.929Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 15,
-              "Title": "ValueComponent.cs",
-              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Components\\ValueComponent.cs",
-              "RelativeDocumentMoniker": "Components\\ValueComponent.cs",
-              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Components\\ValueComponent.cs",
-              "RelativeToolTip": "Components\\ValueComponent.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAABZAAAAAAAAAA==",
+              "Title": "InteractionRayComponent.cs",
+              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Components\\InteractionRayComponent.cs",
+              "RelativeDocumentMoniker": "Components\\InteractionRayComponent.cs",
+              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Components\\InteractionRayComponent.cs",
+              "RelativeToolTip": "Components\\InteractionRayComponent.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-23T16:27:41.448Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Component.cs",
-              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Components\\Component.cs",
-              "RelativeDocumentMoniker": "Components\\Component.cs",
-              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Components\\Component.cs",
-              "RelativeToolTip": "Components\\Component.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-23T17:03:28.176Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "DealDamage.cs",
-              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Data\\Models\\AttackModifiers\\DealDamage.cs",
-              "RelativeDocumentMoniker": "Data\\Models\\AttackModifiers\\DealDamage.cs",
-              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Data\\Models\\AttackModifiers\\DealDamage.cs",
-              "RelativeToolTip": "Data\\Models\\AttackModifiers\\DealDamage.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-24T06:06:06.116Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "PlayerHand.cs",
-              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Player\\PlayerHand.cs",
-              "RelativeDocumentMoniker": "Player\\PlayerHand.cs",
-              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Player\\PlayerHand.cs",
-              "RelativeToolTip": "Player\\PlayerHand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-23T16:44:39.643Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "SkeletonMinion.cs",
-              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Enemies\\SkeletonMinion\\SkeletonMinion.cs",
-              "RelativeDocumentMoniker": "Enemies\\SkeletonMinion\\SkeletonMinion.cs",
-              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Enemies\\SkeletonMinion\\SkeletonMinion.cs",
-              "RelativeToolTip": "Enemies\\SkeletonMinion\\SkeletonMinion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEIAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-23T22:27:25.921Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "AttackModifier.cs",
-              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Data\\Models\\AttackModifier.cs",
-              "RelativeDocumentMoniker": "Data\\Models\\AttackModifier.cs",
-              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Data\\Models\\AttackModifier.cs",
-              "RelativeToolTip": "Data\\Models\\AttackModifier.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-24T06:00:07.655Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "DealTrueDamage.cs",
-              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Data\\Models\\AttackModifiers\\DealTrueDamage.cs",
-              "RelativeDocumentMoniker": "Data\\Models\\AttackModifiers\\DealTrueDamage.cs",
-              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Data\\Models\\AttackModifiers\\DealTrueDamage.cs",
-              "RelativeToolTip": "Data\\Models\\AttackModifiers\\DealTrueDamage.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-24T06:37:28.109Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "DealPhysicalDamage.cs",
-              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Data\\Models\\AttackModifiers\\DealPhysicalDamage.cs",
-              "RelativeDocumentMoniker": "Data\\Models\\AttackModifiers\\DealPhysicalDamage.cs",
-              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Data\\Models\\AttackModifiers\\DealPhysicalDamage.cs",
-              "RelativeToolTip": "Data\\Models\\AttackModifiers\\DealPhysicalDamage.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-24T06:35:14.061Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "DealMagicalDamage.cs",
-              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Data\\Models\\AttackModifiers\\DealMagicalDamage.cs",
-              "RelativeDocumentMoniker": "Data\\Models\\AttackModifiers\\DealMagicalDamage.cs",
-              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Data\\Models\\AttackModifiers\\DealMagicalDamage.cs",
-              "RelativeToolTip": "Data\\Models\\AttackModifiers\\DealMagicalDamage.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-24T06:07:26.461Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-25T23:30:23.337Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 17,
-              "Title": "CollisionComponent.cs",
-              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Components\\CollisionComponent.cs",
-              "RelativeDocumentMoniker": "Components\\CollisionComponent.cs",
-              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\Components\\CollisionComponent.cs",
-              "RelativeToolTip": "Components\\CollisionComponent.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAUAAAAAAAAAA==",
+              "Title": "UiEventBus.cs",
+              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\UiEventBus.cs",
+              "RelativeDocumentMoniker": "UiEventBus.cs",
+              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\UiEventBus.cs",
+              "RelativeToolTip": "UiEventBus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAABOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-23T16:28:31.802Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-25T22:50:18.438Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "DungeonLetter.csproj",
-              "DocumentMoniker": "D:\\USER\\DOCUMENTS\\GODOT GAMES\\DUNGEON-LETTER\\DungeonLetter.csproj",
-              "RelativeDocumentMoniker": "DungeonLetter.csproj",
-              "ToolTip": "D:\\USER\\DOCUMENTS\\GODOT GAMES\\DUNGEON-LETTER\\DungeonLetter.csproj",
-              "RelativeToolTip": "DungeonLetter.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-23T17:02:37.736Z"
+              "DocumentIndex": 16,
+              "Title": "PlayerUi.cs",
+              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\UI\\PlayerUi.cs",
+              "RelativeDocumentMoniker": "UI\\PlayerUi.cs",
+              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\UI\\PlayerUi.cs",
+              "RelativeToolTip": "UI\\PlayerUi.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T22:36:39.367Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "GameController.cs",
+              "DocumentMoniker": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\GameController.cs",
+              "RelativeDocumentMoniker": "GameController.cs",
+              "ToolTip": "D:\\User\\Documents\\Godot Games\\dungeon-letter\\GameController.cs",
+              "RelativeToolTip": "GameController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T22:34:33.045Z"
             }
           ]
         }

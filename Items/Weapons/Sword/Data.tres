@@ -1,19 +1,14 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=8 format=3 uid="uid://lbcx1hwxakbl"]
+[gd_resource type="Resource" load_steps=7 format=3 uid="uid://lbcx1hwxakbl"]
 
-[ext_resource type="Script" uid="uid://dmwphj6gvabry" path="res://Data/Models/Weapon.cs" id="1_c3ihw"]
+[ext_resource type="Script" uid="uid://dmwphj6gvabry" path="res://Data/Models/Items/Weapon.cs" id="1_c3ihw"]
 [ext_resource type="Script" uid="uid://dsuqhe4puxwpc" path="res://Data/Models/AttackModifiers/DealPhysicalDamage.cs" id="1_ox0fp"]
-[ext_resource type="Script" uid="uid://bwx6ksgfkgcc2" path="res://Data/Models/AttackModifiers/DealMagicalDamage.cs" id="2_law60"]
-[ext_resource type="Script" uid="uid://cv2ecvislsi11" path="res://Data/Models/ItemModel.cs" id="2_nk4b1"]
+[ext_resource type="Resource" uid="uid://dm7nwqgke0rf8" path="res://Items/WeaponCombos/SwordCombo.tres" id="2_law60"]
+[ext_resource type="Script" uid="uid://cv2ecvislsi11" path="res://Data/Models/Items/ItemModel.cs" id="2_nk4b1"]
 
 [sub_resource type="Resource" id="Resource_law60"]
 script = ExtResource("1_ox0fp")
 DamageAmount = 1
 metadata/_custom_type_script = "uid://dsuqhe4puxwpc"
-
-[sub_resource type="Resource" id="Resource_f1hg6"]
-script = ExtResource("2_law60")
-DamageAmount = 1
-metadata/_custom_type_script = "uid://bwx6ksgfkgcc2"
 
 [sub_resource type="Resource" id="Resource_nk4b1"]
 script = ExtResource("2_nk4b1")
@@ -22,7 +17,10 @@ metadata/_custom_type_script = "uid://cv2ecvislsi11"
 
 [resource]
 script = ExtResource("1_c3ihw")
-AttackModifiers = Array[Object]([SubResource("Resource_law60"), SubResource("Resource_f1hg6")])
+AttackModifiers = Array[Object]([SubResource("Resource_law60")])
+Combo = ExtResource("2_law60")
 Model = SubResource("Resource_nk4b1")
 Name = "Rusty Sword"
+UseAnimation = ""
+IdleAnimation = ""
 metadata/_custom_type_script = "uid://dmwphj6gvabry"

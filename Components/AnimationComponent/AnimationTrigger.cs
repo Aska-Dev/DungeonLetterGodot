@@ -21,23 +21,12 @@ public partial class AnimationTrigger : Node
 
     public void Trigger()
     {
-        GD.Print(Name);
-
-        switch (TriggerType)
+        var args = new AnimationTriggerEventArgs
         {
-            case TriggerTypes.OneShot:
-                AnimationComponent.OneShot(TriggerName);
-                break;
-            case TriggerTypes.SetState:
-                AnimationComponent.SetState(TriggerName);
-                break;
-            case TriggerTypes.CancelOneShot:
-                AnimationComponent.CancelOneShot(TriggerName);
-                break;
-            default:
-                GD.PrintErr("Unknown TriggerType: " + TriggerType);
-                break;
-        }
+            TriggerName = TriggerName,
+            TriggerType = TriggerType
+        };
+        AnimationComponent.Trigger(args);
     }
-
 }
+

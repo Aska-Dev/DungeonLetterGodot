@@ -19,6 +19,12 @@ config/icon="res://icon.svg"
 
 GameController="*res://GameController.cs"
 Database="*res://Data/Database.tscn"
+UiEventBus="*res://UiEventBus.cs"
+
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [dotnet]
 
@@ -85,6 +91,7 @@ player_interaction={
 3d_physics/layer_3="Enemies"
 3d_physics/layer_4="EnemyAttackHitbox"
 3d_physics/layer_5="Environment"
+3d_physics/layer_6="Interactables"
 
 [rendering]
 

@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://degvr7rxew1w"]
+
+[ext_resource type="Script" uid="uid://d3t2dt5xbe5w8" path="res://UI/PlayerUi.cs" id="1_gotqc"]
+
+[sub_resource type="Theme" id="Theme_ibxxy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3duyu"]
+bg_color = Color(0.15294118, 0.15294118, 0.15294118, 0.7647059)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fahtf"]
+bg_color = Color(0.8260047, 0.1693291, 0.21496624, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ibxxy"]
+
+[node name="PlayerGui" type="Control"]
+top_level = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_gotqc")
+
+[node name="Healthbar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 594.0
+offset_right = 270.0
+offset_bottom = 614.0
+theme = SubResource("Theme_ibxxy")
+theme_override_styles/background = SubResource("StyleBoxFlat_3duyu")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fahtf")
+max_value = 10.0
+step = 1.0
+value = 5.0
+show_percentage = false
+
+[node name="InteractionMessageLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -70.0
+offset_top = -144.0
+offset_right = 70.0
+offset_bottom = -121.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press [F] to Interact"
+label_settings = SubResource("LabelSettings_ibxxy")
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -6,7 +6,7 @@ public partial class FreezeInputComponent : Component
     [Signal] public delegate void OnChangeFreezeEventHandler(bool isFrozen);
 
     [Export]
-    public override bool IsActive { get; set; } = false;
+    public bool IsActive { get; set; } = false;
     [Export]
     public Component[] Components { get; private set; } = [];
 

@@ -26,6 +26,12 @@ public partial class GameController : Node
     {
         if(@event.IsActionPressed(Inputs.UiEscape))
         {
+            if(UiEventBus.Instance.IsUiOpen)
+            {
+                UiEventBus.Instance.CloseUi();
+                return;
+            }
+
             if (Input.MouseMode == Input.MouseModeEnum.Captured)
             {
                 Input.MouseMode = Input.MouseModeEnum.Visible;

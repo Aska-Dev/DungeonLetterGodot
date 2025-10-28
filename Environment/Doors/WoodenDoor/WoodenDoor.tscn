@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://bgdosy5d44fvi"]
 
-[ext_resource type="PackedScene" uid="uid://bl5lycongbly2" path="res://Environment/WoodenDoor/Model/door.gltf.glb" id="1_6blcm"]
-[ext_resource type="Script" uid="uid://bul2qpbon5ocl" path="res://Environment/WoodenDoor/WoodenDoor.cs" id="1_awcy1"]
+[ext_resource type="PackedScene" uid="uid://bl5lycongbly2" path="res://Environment/Doors/WoodenDoor/Model/door.gltf.glb" id="1_6blcm"]
+[ext_resource type="Script" uid="uid://bul2qpbon5ocl" path="res://Environment/Doors/WoodenDoor/WoodenDoor.cs" id="1_awcy1"]
 [ext_resource type="Script" uid="uid://q8vh3m03xg15" path="res://Components/InteractionComponent.cs" id="3_7pfbs"]
 [ext_resource type="Script" uid="uid://bgg73aduwak8g" path="res://Components/AnimationComponent/AnimationComponent.cs" id="5_yyjch"]
 [ext_resource type="Script" uid="uid://dia8efc0vs0jg" path="res://Components/AnimationComponent/AnimationTrigger.cs" id="6_m4qh3"]

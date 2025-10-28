@@ -1,10 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://dox658scd5yq2"]
+[gd_scene load_steps=20 format=3 uid="uid://dox658scd5yq2"]
 
 [ext_resource type="Script" uid="uid://02ewrngl0yi3" path="res://Player/Player.cs" id="1_3qydi"]
-[ext_resource type="PackedScene" uid="uid://degvr7rxew1w" path="res://UI/PlayerUi.tscn" id="2_ddoul"]
 [ext_resource type="PackedScene" uid="uid://dir7xei8fm6gp" path="res://Items/Weapons/Sword/Model.tscn" id="2_q3lat"]
 [ext_resource type="Script" uid="uid://cdhv4ikb2a32c" path="res://Player/PlayerHand.cs" id="2_tok1r"]
 [ext_resource type="Script" uid="uid://cj6c6ft7m1ygx" path="res://Components/InteractionRayComponent.cs" id="5_8g4oa"]
+[ext_resource type="Script" uid="uid://b5rui0vi8qnue" path="res://Components/InventoryComponents/PlayerInventoryComponent.cs" id="6_6ysni"]
+[ext_resource type="Resource" uid="uid://lbcx1hwxakbl" path="res://Items/Weapons/Sword/Data.tres" id="7_s1rgi"]
+[ext_resource type="Script" uid="uid://wb22luuvusfw" path="res://Data/Models/InventorySlot.cs" id="8_j23h2"]
 [ext_resource type="Script" uid="uid://c1wjq4x2gl1v2" path="res://Components/PlayerComponents/PlayerAttackComponent.cs" id="8_s1rgi"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_l2ndj"]
@@ -268,11 +270,14 @@ _data = {
 &"sword_idle": SubResource("Animation_tok1r")
 }
 
+[sub_resource type="Resource" id="Resource_0j2ni"]
+script = ExtResource("8_j23h2")
+Item = ExtResource("7_s1rgi")
+metadata/_custom_type_script = "uid://wb22luuvusfw"
+
 [node name="Player" type="CharacterBody3D"]
 collision_mask = 28
 script = ExtResource("1_3qydi")
-
-[node name="PlayerGui" parent="." instance=ExtResource("2_ddoul")]
 
 [node name="Pivot" type="Node3D" parent="."]
 
@@ -288,7 +293,7 @@ collision_mask = 32
 debug_shape_thickness = 5
 
 [node name="MainHandPivot" type="Node3D" parent="Pivot/PlayerCamera" node_paths=PackedStringArray("AnimationPlayer", "PlayerAttackComponent")]
-transform = Transform3D(0.1721526, -1.4901161e-08, -0.9850698, 0.21255352, 0.9764431, 0.037146207, 0.9618648, -0.21577501, 0.16809718, 0.9552461, -0.6859697, -0.8526355)
+transform = Transform3D(0.1721526, -1.4901161e-08, -0.9850698, 0.2125535, 0.9764431, 0.037146207, 0.96186477, -0.21577501, 0.16809718, 0.9552461, -0.6859697, -0.8526355)
 script = ExtResource("2_tok1r")
 AnimationPlayer = NodePath("../../../AnimationPlayer")
 PlayerAttackComponent = NodePath("../../../PlayerAttackComponent")
@@ -318,5 +323,10 @@ metadata/_custom_type_script = "uid://cj6c6ft7m1ygx"
 script = ExtResource("8_s1rgi")
 AttackAnimationPlayer = NodePath("../AnimationPlayer")
 metadata/_custom_type_script = "uid://c1wjq4x2gl1v2"
+
+[node name="PlayerInventoryComponent" type="Node" parent="."]
+script = ExtResource("6_6ysni")
+InitSlots = Array[Resource]([SubResource("Resource_0j2ni")])
+metadata/_custom_type_script = "uid://b5rui0vi8qnue"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="PlayerAttackComponent" method="OnAttackAnimationFinished"]

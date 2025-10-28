@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bl5lycongbly2"
-path="res://.godot/imported/door.gltf.glb-7bd451a692e6025540ab63c7db5a0326.scn"
+path="res://.godot/imported/door.gltf.glb-49af2a3b0ef4d1db05892ab0fb9004a6.scn"
 
 [deps]
 
-source_file="res://Environment/WoodenDoor/Model/door.gltf.glb"
-dest_files=["res://.godot/imported/door.gltf.glb-7bd451a692e6025540ab63c7db5a0326.scn"]
+source_file="res://Environment/Doors/WoodenDoor/Model/door.gltf.glb"
+dest_files=["res://.godot/imported/door.gltf.glb-49af2a3b0ef4d1db05892ab0fb9004a6.scn"]
 
 [params]
 

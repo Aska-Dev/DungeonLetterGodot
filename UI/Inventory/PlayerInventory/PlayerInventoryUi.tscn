@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfuvdc5ujrk6y"]
+
+[ext_resource type="Script" uid="uid://bxptgjoclgot5" path="res://UI/Inventory/PlayerInventory/PlayerInventoryUi.cs" id="1_u2i7b"]
+[ext_resource type="PackedScene" uid="uid://d04066pudkf1t" path="res://UI/Inventory/InventorySlotUi.tscn" id="2_gbper"]
+
+[node name="PlayerInventoryUi" type="PanelContainer" node_paths=PackedStringArray("ItemGrid")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1088.0
+offset_bottom = -584.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u2i7b")
+InventorySlotUiScene = ExtResource("2_gbper")
+ItemGrid = NodePath("MarginContainer/ItemGrid")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="ItemGrid" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+columns = 4

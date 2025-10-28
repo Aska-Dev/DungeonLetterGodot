@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://degvr7rxew1w"]
+[gd_scene load_steps=8 format=3 uid="uid://degvr7rxew1w"]
 
 [ext_resource type="Script" uid="uid://d3t2dt5xbe5w8" path="res://UI/PlayerUi.cs" id="1_gotqc"]
+[ext_resource type="PackedScene" uid="uid://dfuvdc5ujrk6y" path="res://UI/Inventory/PlayerInventory/PlayerInventoryUi.tscn" id="2_2ti0d"]
+[ext_resource type="PackedScene" uid="uid://cwfeu4ao8ald6" path="res://UI/Inventory/ContainerInventory/ContainerInventoryUi.tscn" id="3_n7s5f"]
 
 [sub_resource type="Theme" id="Theme_ibxxy"]
 
@@ -51,7 +53,40 @@ offset_right = 70.0
 offset_bottom = -121.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Press [F] to Interact"
 label_settings = SubResource("LabelSettings_ibxxy")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PlayerInventory" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="PlayerInventoryUi" parent="PlayerInventory" instance=ExtResource("2_2ti0d")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 161.0
+offset_top = 136.0
+offset_right = 169.0
+offset_bottom = 144.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="ContainerInventory" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -389.0
+offset_top = -53.0
+offset_right = -389.0
+offset_bottom = -53.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="ContainerInventoryUi" parent="ContainerInventory" instance=ExtResource("3_n7s5f")]
+visible = false
+layout_mode = 0

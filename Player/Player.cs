@@ -22,7 +22,6 @@ public partial class Player : CharacterBody3D, IEntity
         }
         set
         {
-            guiController.HealthBar.Value = value;
             _health = value;
         }
     }
@@ -56,12 +55,9 @@ public partial class Player : CharacterBody3D, IEntity
 		mainHand = GetNode<PlayerHand>("Pivot/PlayerCamera/MainHandPivot");
 		pivot = GetNode<Node3D>("Pivot");
 		camera = GetNode<Camera3D>("Pivot/PlayerCamera");
-        guiController = GetNode<PlayerUi>("PlayerGui");
 		interactionRay = GetNode<RayCast3D>("Pivot/PlayerCamera/InteractionRay");
 
         Health = MaxHealth;
-        guiController.HealthBar.MaxValue = Health;
-        guiController.HealthBar.Value = Health;
 
         var startWeapon = itemDb.GetResource("Weapon_RustySword") as Weapon;
 		mainHand.EquipItem(startWeapon);

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="AttackCombo" load_steps=5 format=3 uid="uid://dm7nwqgke0rf8"]
 
-[ext_resource type="Script" uid="uid://b8lu5lu8mkec1" path="res://Types/AttackCombo/AttackCombo.cs" id="1_mgxry"]
-[ext_resource type="Script" uid="uid://cs4p0rj2fo0i6" path="res://Types/AttackCombo/ComboStep.cs" id="1_t1son"]
+[ext_resource type="Script" uid="uid://b8lu5lu8mkec1" path="res://Types/AnimationChain/AnimationChain.cs" id="1_mgxry"]
+[ext_resource type="Script" uid="uid://cs4p0rj2fo0i6" path="res://Types/AnimationChain/AnimationChainStep.cs" id="1_t1son"]
 
 [sub_resource type="Resource" id="Resource_kg4lh"]
 script = ExtResource("1_t1son")

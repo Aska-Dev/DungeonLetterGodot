@@ -6,34 +6,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+public enum ExclusiveItemId
+{
+    None,
+    MainHand,
+    OffHand,
+    HeadGear,
+    ChestGear,
+    LegGear,
+    Boots
+}
+
 [GlobalClass]
 public partial class Item : Resource
 {
-	[Export]
-	public required ItemModel Model { get; set; }
-
-	[ExportGroup("Info")]
+    [ExportCategory("Info")]
     [Export] public required string Name { get; set; }
-	[Export] public virtual required ItemType Type { get; set; }
     [Export] public required string Description { get; set; }
-	[Export] public required AtlasTexture Icon { get; set; }
+	[Export] public required CompressedTexture2D Icon { get; set; }
 
-    [ExportGroup("Animations")]
-
-    [Export]
-	public virtual string UseAnimation { get; set; } = "";
-	[Export]
-	public virtual string IdleAnimation { get; set; } = "";
-}
-
-public enum ItemType
-{
-	Item,
-	MainHand,
-	OffHand,
-	Headgear,
-	BodyArmor,
-	LegArmor,
-	Boots,
-	Consumable,
+    [ExportCategory("Special")]
+    [Export] public ExclusiveItemId ExclusiveItemId { get; set; } = ExclusiveItemId.None;
 }

@@ -3,7 +3,7 @@ using System;
 
 public enum EquipmentSlotType
 {
-	None,
+	NoEquipment,
 	Head,
 	Body,
 	Legs,
@@ -18,18 +18,20 @@ public partial class InventorySlotUi : PanelContainer
 {
     [Export] public required TextureRect IconRenderer { get; set; }
 	[Export] public CompressedTexture2D? BackgroundTexture { get; set; } = null;
-    [Export] public ItemType ExclusiveType { get; set; } = ItemType.Item;
-	[Export] public EquipmentSlotType EquipmentSlotType { get; set; } = EquipmentSlotType.None;
-    [Export]public UserInterfaces ParentInterface { get; set; }
+    [Export] public UserInterfaces ParentInterface { get; set; }
 
-	private Item? _item = null;
+	[ExportCategory("Optional")]
+    [Export] public ExclusiveItemId ExclusiveItemId { get; set; } = ExclusiveItemId.None;
+    [Export] public EquipmentSlotType EquipmentSlotType { get; set; } = EquipmentSlotType.NoEquipment;
+
+    private Item? _item = null;
 
 	public override void _Ready()
 	{
 		MouseEntered += ShowTooltip;
         MouseExited += () => UiEventBus.Instance.ToggleItemTooltip(false);
 
-		SetExlusiveTypeTooltip();
+		SetExclusiveTypeTooltip();
 
 		if(_item is null)
 		{
@@ -53,13 +55,14 @@ public partial class InventorySlotUi : PanelContainer
 	{
 		ClearExclusiveTypeTooltip();
 
-        if (EquipmentSlotType != EquipmentSlotType.None)
+        if (EquipmentSlotType is global::EquipmentSlotType equipSlotType)
 		{
-			var equipChangeArgs = new EquipmentItemChangeEventArgs()
+			var equipmentItem = item as Equipment;
+            var equipChangeArgs = new EquipmentItemChangeEventArgs()
 			{
-				SlotType = EquipmentSlotType,
-				NewItem = item
-			};
+				SlotType = equipSlotType,
+				NewEquipment = equipmentItem
+            };
 			InventoryInterface.Instance.EquipmentSlotItemChanged(equipChangeArgs);
         }
 
@@ -77,7 +80,7 @@ public partial class InventorySlotUi : PanelContainer
 			IconRenderer.Texture = BackgroundTexture;
         }
 
-        SetExlusiveTypeTooltip();
+        SetExclusiveTypeTooltip();
     }
 
     public void OnGuiInput(InputEvent @event)
@@ -92,7 +95,7 @@ public partial class InventorySlotUi : PanelContainer
 					SlotIndex = GetIndex(),
 					ParentInterface = ParentInterface,
 					EquipmentSlotType = EquipmentSlotType,
-					ExclusiveType = ExclusiveType
+                    ExclusiveItemId = ExclusiveItemId
                 };
 
                 InventoryInterface.Instance.InventorySlotClicked(args);
@@ -100,11 +103,11 @@ public partial class InventorySlotUi : PanelContainer
         }
 	}
 
-	private void SetExlusiveTypeTooltip()
+	private void SetExclusiveTypeTooltip()
 	{
-		if(ExclusiveType is not ItemType.Item)
+		if(ExclusiveItemId != ExclusiveItemId.None)
 		{
-			TooltipText = ExclusiveType.ToString() + " exclusive slot";
+			TooltipText = ExclusiveItemId.ToString() + " exclusive slot";
 		}
     }
 

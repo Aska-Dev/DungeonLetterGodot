@@ -36,7 +36,7 @@ public partial class TooltipUi : PanelContainer
     public void SetContent(Item item)
     {
         var richTextLabel = GetNode<RichTextLabel>("Content");
-        richTextLabel.Text = $"{item.Name}\n[hr]\n[color=dim_gray][i]{GetTypeString(item.Type)}[/i][/color]\n{item.Description}";
+        richTextLabel.Text = $"{item.Name}\n[hr]\n[color=dim_gray][i]{item.GetType().ToString()}[/i][/color]\n{item.Description}";
     }
 
     public async void Toggle(bool on, Item? item)
@@ -50,20 +50,5 @@ public partial class TooltipUi : PanelContainer
         {
             Hide();
         }
-    }
-
-    private string GetTypeString(ItemType type)
-    {
-        return type switch
-        {
-            ItemType.Consumable => "Consumable",
-            ItemType.Headgear => "Head",
-            ItemType.BodyArmor => "Body",
-            ItemType.LegArmor => "Legs",
-            ItemType.Boots => "Boots",
-            ItemType.MainHand => "Main Hand",
-            ItemType.OffHand => "Off Hand",
-            _ => "Item"
-        };
     }
 }

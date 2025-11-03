@@ -68,7 +68,7 @@ public partial class InventoryContext : Node
         }
         else
         {
-            if(args.ExclusiveType != ItemType.Item && GrabbedSlotDisplay.Slot.Item!.Type != args.ExclusiveType)
+            if(args.IsExclusiveItemSlot && GrabbedSlotDisplay.Slot.Item?.ExclusiveItemId != args.ExclusiveItemId)
             {
                 // Invalid slot for this item type
                 return;
@@ -149,14 +149,17 @@ public partial class InventoryContext : Node
         }
         else if(args.ParentInterface == UserInterfaces.PlayerEquipment)
         {
-            EquipmentComponent.Slots[args.SlotIndex] = newSlot;
-            InventoryInterface.Instance.EquipmentSlotItemChanged(new EquipmentItemChangeEventArgs()
+            if(args.EquipmentSlotType != EquipmentSlotType.NoEquipment)
             {
-                SlotType = args.EquipmentSlotType,
-                NewItem = newSlot.Item
-            });
+                EquipmentComponent.Slots[args.SlotIndex] = newSlot;
 
-            GD.Print($"SetClickedSlot: Updated equipment slot {args.EquipmentSlotType} with item {newSlot.Item?.Name ?? "None"}");
+                var newEquipment = newSlot.Item as Equipment;
+                InventoryInterface.Instance.EquipmentSlotItemChanged(new EquipmentItemChangeEventArgs()
+                {
+                    SlotType = args.EquipmentSlotType,
+                    NewEquipment = newEquipment
+                });
+            }
         }
         else if (args.ParentInterface == UserInterfaces.ContainerInventory && ContainerComponent is not null)
         {

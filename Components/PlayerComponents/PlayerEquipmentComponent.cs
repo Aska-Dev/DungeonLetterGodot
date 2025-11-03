@@ -21,10 +21,10 @@ public partial class PlayerEquipmentComponent : Component
     public Armor? Boots { get; set; }
 
     // Weapon Slots
-    public Weapon? MainHand1 { get; set; }
-    public Weapon? MainHand2 { get; set; }
-    public Weapon? OffHand1 { get; set; }
-    public Weapon? OffHand2 { get; set; }
+    public Holdable? MainHand1 { get; set; }
+    public Holdable? MainHand2 { get; set; }
+    public Holdable? OffHand1 { get; set; }
+    public Holdable? OffHand2 { get; set; }
 
     public override void _Ready()
     {
@@ -37,21 +37,16 @@ public partial class PlayerEquipmentComponent : Component
 
     public void OnEquipmentChanged(EquipmentItemChangeEventArgs args)
     {
-        if (args.NewItem is not null && args.NewItem is not Equipment)
-        {
-            return;
-        }
-
         var oldEquipment = GetBySlot(args.SlotType);
         if(oldEquipment is not null)
         {
             oldEquipment.RemoveModifiers(Stats);
         }
 
-        SetBySlot(args.SlotType, args.NewItem);
-        if(args.NewItem is Equipment newEquip)
+        SetBySlot(args.SlotType, args.NewEquipment);
+        if(args.NewEquipment is not null)
         {
-            newEquip.ApplyModifiers(Stats);
+            args.NewEquipment.ApplyModifiers(Stats);
         }
 
         HandleHandEquipmentChange(args);
@@ -59,20 +54,25 @@ public partial class PlayerEquipmentComponent : Component
 
     private void HandleHandEquipmentChange(EquipmentItemChangeEventArgs args)
     {
+        if(args.NewEquipment is not Holdable holdableItem)
+        {
+            return;
+        }
+
         // Update PlayerHands configurations based on equipment changes
         switch (args.SlotType)
         {
             case EquipmentSlotType.MainHand1:
-                PlayerHands.PrimaryConfig.MainHandItem = args.NewItem;
+                PlayerHands.PrimaryConfig.MainHandItem = holdableItem;
                 break;
             case EquipmentSlotType.OffHand1:
-                PlayerHands.PrimaryConfig.OffHandItem = args.NewItem;
+                PlayerHands.PrimaryConfig.OffHandItem = holdableItem;
                 break;
             case EquipmentSlotType.MainHand2:
-                PlayerHands.SecondaryConfig.MainHandItem = args.NewItem;
+                PlayerHands.SecondaryConfig.MainHandItem = holdableItem;
                 break;
             case EquipmentSlotType.OffHand2:
-                PlayerHands.SecondaryConfig.OffHandItem = args.NewItem;
+                PlayerHands.SecondaryConfig.OffHandItem = holdableItem;
                 break;
             default:
                 return;
@@ -101,7 +101,7 @@ public partial class PlayerEquipmentComponent : Component
         _ => null
     };
 
-    private void SetBySlot(EquipmentSlotType type, Item? item)
+    private void SetBySlot(EquipmentSlotType type, Equipment? item)
     {
         if(!IsCompatible(type, item))
         {
@@ -137,20 +137,20 @@ public partial class PlayerEquipmentComponent : Component
         }
     }
 
-    private bool IsCompatible(EquipmentSlotType slot, Item? item)
+    private bool IsCompatible(EquipmentSlotType slot, Equipment? item)
     {
         if (item is null) return true;
 
         return slot switch
         {
-            EquipmentSlotType.Head => item.Type == ItemType.Headgear,
-            EquipmentSlotType.Body => item.Type == ItemType.BodyArmor,
-            EquipmentSlotType.Legs => item.Type == ItemType.LegArmor,
-            EquipmentSlotType.Boots => item.Type == ItemType.Boots,
+            EquipmentSlotType.Head => item.Type == EquipmentTypes.Headgear,
+            EquipmentSlotType.Body => item.Type == EquipmentTypes.BodyArmor,
+            EquipmentSlotType.Legs => item.Type == EquipmentTypes.LegArmor,
+            EquipmentSlotType.Boots => item.Type == EquipmentTypes.Boots,
             EquipmentSlotType.MainHand1 or
-            EquipmentSlotType.MainHand2 => item.Type == ItemType.MainHand,
+            EquipmentSlotType.MainHand2 => item.Type == EquipmentTypes.MainHand,
             EquipmentSlotType.OffHand1 or
-            EquipmentSlotType.OffHand2 => item.Type == ItemType.OffHand,
+            EquipmentSlotType.OffHand2 => item.Type == EquipmentTypes.OffHand,
             _ => false
         };
     }

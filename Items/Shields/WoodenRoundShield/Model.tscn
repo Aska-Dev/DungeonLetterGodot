@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bsgnnpeggs545"]
 
-[ext_resource type="PackedScene" uid="uid://ctpdjs0lqap5y" path="res://Items/OffHand/Shields/WoodenRoundShield/Model/shield_round.gltf" id="1_tjc6c"]
+[ext_resource type="PackedScene" uid="uid://ctpdjs0lqap5y" path="res://Items/Shields/WoodenRoundShield/Model/shield_round.gltf" id="1_tjc6c"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_tjc6c"]
 height = 0.21168518

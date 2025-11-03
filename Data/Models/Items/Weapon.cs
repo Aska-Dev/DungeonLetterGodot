@@ -7,10 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 [GlobalClass]
-public partial class Weapon : Equipment
+public partial class Weapon : Holdable
 {
-    [Export]
-    public AttackModifier[] AttackModifiers { get; set; } = [];
-    [Export]
-    public required AttackCombo Combo { get; set; }
+    [Export] public AttackModifier[] AttackModifiers { get; set; } = [];
+    [Export] public required AnimationChain Combo { get; set; }    
 }

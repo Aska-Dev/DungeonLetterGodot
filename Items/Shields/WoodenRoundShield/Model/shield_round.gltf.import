@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ctpdjs0lqap5y"
-path="res://.godot/imported/shield_round.gltf-336ca1e2d815c82c1a6d77178c295b07.scn"
+path="res://.godot/imported/shield_round.gltf-83d1072d20f797ca2d73c7c26253f1fb.scn"
 
 [deps]
 
-source_file="res://Items/OffHand/Shields/WoodenRoundShield/Model/shield_round.gltf"
-dest_files=["res://.godot/imported/shield_round.gltf-336ca1e2d815c82c1a6d77178c295b07.scn"]
+source_file="res://Items/Shields/WoodenRoundShield/Model/shield_round.gltf"
+dest_files=["res://.godot/imported/shield_round.gltf-83d1072d20f797ca2d73c7c26253f1fb.scn"]
 
 [params]
 

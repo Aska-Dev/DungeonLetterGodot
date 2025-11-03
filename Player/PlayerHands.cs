@@ -55,6 +55,6 @@ public partial class PlayerHands : Node3D
 
 public class HandConfig
 {
-    public Item? MainHandItem { get; set; } = null;
-    public Item? OffHandItem { get; set; } = null;
+    public Holdable? MainHandItem { get; set; } = null;
+    public Holdable? OffHandItem { get; set; } = null;
 }

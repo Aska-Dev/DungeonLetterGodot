@@ -10,15 +10,19 @@ public partial class PlayerHandConfigChangeEventArgs : RefCounted
 public partial class EquipmentItemChangeEventArgs : RefCounted
 {
     public EquipmentSlotType SlotType { get; set; }
-    public required Item? NewItem { get; set; }
+    public required Equipment? NewEquipment { get; set; }
 }
 
 public partial class InventorySlotClickEventArgs : RefCounted
 {
     public required int SlotIndex { get; set; }
     public required UserInterfaces ParentInterface { get; set; }
-    public required ItemType ExclusiveType { get; set; }
-    public required EquipmentSlotType EquipmentSlotType { get; set; }
+
+    public bool IsExclusiveItemSlot => ExclusiveItemId is not ExclusiveItemId.None;
+    public ExclusiveItemId ExclusiveItemId { get; set; } = ExclusiveItemId.None;
+
+    public bool IsEquipmentSlot => EquipmentSlotType is not EquipmentSlotType.NoEquipment;
+    public EquipmentSlotType EquipmentSlotType { get; set; } = EquipmentSlotType.NoEquipment;
 }
 
 public partial class InventoryRefreshEventArgs : RefCounted

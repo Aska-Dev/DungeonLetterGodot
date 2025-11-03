@@ -35,9 +35,9 @@ public partial class HotbarUi : Control
 	{
 		if(args.SlotType == EquipmentSlotType.MainHand1)
 		{
-			if(args.NewItem is not null)
+			if(args.NewEquipment is not null)
 			{
-				MainHand1.Texture = args.NewItem.Icon;
+				MainHand1.Texture = args.NewEquipment.Icon;
 			}
 			else
 			{
@@ -46,9 +46,9 @@ public partial class HotbarUi : Control
 		}
 		else if(args.SlotType == EquipmentSlotType.OffHand1)
 		{
-			if(args.NewItem is not null)
+			if(args.NewEquipment is not null)
 			{
-				OffHand1.Texture = args.NewItem.Icon;
+				OffHand1.Texture = args.NewEquipment.Icon;
 			}
 			else
 			{
@@ -57,9 +57,9 @@ public partial class HotbarUi : Control
         }
 		else if(args.SlotType == EquipmentSlotType.MainHand2)
         {
-			if(args.NewItem is not null)
+			if(args.NewEquipment is not null)
             {
-				MainHand2.Texture = args.NewItem.Icon;
+				MainHand2.Texture = args.NewEquipment.Icon;
             }
 			else
             {
@@ -68,9 +68,9 @@ public partial class HotbarUi : Control
         }
 		else if(args.SlotType == EquipmentSlotType.OffHand2)
         {
-			if(args.NewItem is not null)
+			if(args.NewEquipment is not null)
             {
-				OffHand2.Texture = args.NewItem.Icon;
+				OffHand2.Texture = args.NewEquipment.Icon;
             }
 			else
             {

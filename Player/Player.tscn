@@ -1,9 +1,9 @@
 [gd_scene load_steps=44 format=3 uid="uid://dox658scd5yq2"]
 
 [ext_resource type="Script" uid="uid://02ewrngl0yi3" path="res://Player/Player.cs" id="1_3qydi"]
-[ext_resource type="Script" uid="uid://cdhv4ikb2a32c" path="res://Player/PlayerHand.cs" id="2_tok1r"]
-[ext_resource type="Script" uid="uid://d4inj5v4vums1" path="res://Player/PlayerHands.cs" id="2_v0k0e"]
-[ext_resource type="PackedScene" uid="uid://bsgnnpeggs545" path="res://Items/OffHand/Shields/WoodenRoundShield/Model.tscn" id="4_v0k0e"]
+[ext_resource type="Script" uid="uid://cdhv4ikb2a32c" path="res://Player/OldPlayerHand.cs" id="2_tok1r"]
+[ext_resource type="Script" uid="uid://myyl6451qiky" path="res://Player/PlayerHands.cs" id="2_v0k0e"]
+[ext_resource type="PackedScene" uid="uid://bsgnnpeggs545" path="res://Items/Shields/WoodenRoundShield/Model.tscn" id="4_v0k0e"]
 [ext_resource type="Script" uid="uid://cj6c6ft7m1ygx" path="res://Components/InteractionRayComponent.cs" id="5_8g4oa"]
 [ext_resource type="Script" uid="uid://b5rui0vi8qnue" path="res://Components/InventoryComponents/PlayerInventoryComponent.cs" id="6_6ysni"]
 [ext_resource type="Script" uid="uid://cyk1von11cq87" path="res://Components/PlayerComponents/PlayerEquipmentComponent.cs" id="8_0j2ni"]
@@ -65,6 +65,62 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(5.8628935e-08, -2.93622, 0.37114426)]
+}
+
+[sub_resource type="Animation" id="Animation_5wa8t"]
+resource_name = "shield_block_off"
+length = 0.23
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/PlayerCamera/PlayerHands/OffHand:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23),
+"transitions": PackedFloat32Array(1, -2),
+"update": 0,
+"values": [Vector3(-0.28520975, -0.37360406, -0.69329596), Vector3(-0.56635046, -0.608688, -0.5797655)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/PlayerCamera/PlayerHands/OffHand:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.23),
+"transitions": PackedFloat32Array(1, -2),
+"update": 0,
+"values": [Vector3(5.8628935e-08, -2.93622, 0.37114426), Vector3(0, -2.5390003, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_v0k0e"]
+resource_name = "shield_block_on"
+length = 0.23
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/PlayerCamera/PlayerHands/OffHand:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23),
+"transitions": PackedFloat32Array(1, -2),
+"update": 0,
+"values": [Vector3(-0.56635046, -0.608688, -0.5797655), Vector3(-0.28520975, -0.37360406, -0.69329596)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/PlayerCamera/PlayerHands/OffHand:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.23),
+"transitions": PackedFloat32Array(1, -2),
+"update": 0,
+"values": [Vector3(0, -2.5390003, 0), Vector3(5.8628935e-08, -2.93622, 0.37114426)]
 }
 
 [sub_resource type="Animation" id="Animation_8g4oa"]
@@ -284,62 +340,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(-0.037154775, -1.4017794, 0.21433772)]
-}
-
-[sub_resource type="Animation" id="Animation_v0k0e"]
-resource_name = "shield_block_on"
-length = 0.23
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Pivot/PlayerCamera/PlayerHands/OffHand:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.23),
-"transitions": PackedFloat32Array(1, -2),
-"update": 0,
-"values": [Vector3(-0.56635046, -0.608688, -0.5797655), Vector3(-0.28520975, -0.37360406, -0.69329596)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Pivot/PlayerCamera/PlayerHands/OffHand:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.23),
-"transitions": PackedFloat32Array(1, -2),
-"update": 0,
-"values": [Vector3(0, -2.5390003, 0), Vector3(5.8628935e-08, -2.93622, 0.37114426)]
-}
-
-[sub_resource type="Animation" id="Animation_5wa8t"]
-resource_name = "shield_block_off"
-length = 0.23
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Pivot/PlayerCamera/PlayerHands/OffHand:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.23),
-"transitions": PackedFloat32Array(1, -2),
-"update": 0,
-"values": [Vector3(-0.28520975, -0.37360406, -0.69329596), Vector3(-0.56635046, -0.608688, -0.5797655)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Pivot/PlayerCamera/PlayerHands/OffHand:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.23),
-"transitions": PackedFloat32Array(1, -2),
-"update": 0,
-"values": [Vector3(5.8628935e-08, -2.93622, 0.37114426), Vector3(0, -2.5390003, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8g4oa"]

@@ -11,7 +11,7 @@ public partial class PlayerAttackComponent : Component
     [Export]
     public bool IsActive { get; set; } = true;
 
-    public required AttackCombo CurrentCombo { get; set; }
+    public required AnimationChain CurrentCombo { get; set; }
 
     private int currentStepIndex = -1;
     private bool queueNextStep = false;

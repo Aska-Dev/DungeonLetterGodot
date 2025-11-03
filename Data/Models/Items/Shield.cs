@@ -7,7 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 [GlobalClass]
-public partial class Offhand : Item
+public partial class Shield : Holdable
 {
-
 }

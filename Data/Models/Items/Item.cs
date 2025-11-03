@@ -13,13 +13,10 @@ public partial class Item : Resource
 	public required ItemModel Model { get; set; }
 
 	[ExportGroup("Info")]
-
-    [Export]
-	public required string Name { get; set; }
-	[Export]
-	public required string Description { get; set; }
-	[Export]
-	public required AtlasTexture Icon { get; set; }
+    [Export] public required string Name { get; set; }
+	[Export] public virtual required ItemType Type { get; set; }
+    [Export] public required string Description { get; set; }
+	[Export] public required AtlasTexture Icon { get; set; }
 
     [ExportGroup("Animations")]
 
@@ -27,4 +24,16 @@ public partial class Item : Resource
 	public virtual string UseAnimation { get; set; } = "";
 	[Export]
 	public virtual string IdleAnimation { get; set; } = "";
+}
+
+public enum ItemType
+{
+	Item,
+	MainHand,
+	OffHand,
+	Headgear,
+	BodyArmor,
+	LegArmor,
+	Boots,
+	Consumable,
 }

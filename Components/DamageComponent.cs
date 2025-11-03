@@ -6,12 +6,10 @@ using System.Linq;
 [GlobalClass]
 public partial class DamageComponent : Component
 {
-    [Export]
-    public required ValueComponent Health { get; set; }
-    [Export]
-    public required int Armor { get; set; }
-    [Export]
-    public required int Resistance { get; set; }
+    [ExportGroup("Dependencies")]
+    [Export] public required ValueComponent Health { get; set; }
+    [Export] public StatsComponent? Stats { get; set; } = null;
+
 
     [Signal]
     public delegate void OnDamageTakenEventHandler();

@@ -5,6 +5,8 @@ using System;
 public partial class PlayerAttackComponent : Component
 {
     [Export]
+    public required Player Player { get; set; }
+    [Export]
     public required AnimationPlayer AttackAnimationPlayer { get; set; }
     [Export]
     public bool IsActive { get; set; } = true;
@@ -21,6 +23,11 @@ public partial class PlayerAttackComponent : Component
 
     public override void _Input(InputEvent @event)
     {
+        if(!Player.IsInputEnabled)
+        {
+            return;
+        }
+
         if (!IsActive || CurrentCombo?.Steps == null || CurrentCombo.Steps.Length == 0)
         {
             return;
@@ -28,10 +35,8 @@ public partial class PlayerAttackComponent : Component
 
         if (@event.IsActionPressed(CurrentCombo.InputActionName))
         {
-            GD.Print("Attack input received");
             if (isPlayingAnim)
             {
-                GD.Print("Animation is currently playing");
                 if (!lastStep && !isResetting)
                 {
                     queueNextStep = true;
@@ -42,6 +47,15 @@ public partial class PlayerAttackComponent : Component
 
             PlayAnimation();
         }
+    }
+
+    public void HardReset()
+    {
+        currentStepIndex = -1;
+        queueNextStep = false;
+
+        isPlayingAnim = false;
+        isResetting = false;
     }
 
     public void OnAttackAnimationFinished(StringName animationName)

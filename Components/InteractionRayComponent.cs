@@ -44,4 +44,20 @@ public partial class InteractionRayComponent : Component
         }
     }
 
+    public void DisableInteraction()
+    {
+        if(CurrentInteractionComponent is not null)
+        {
+            CurrentInteractionComponent.OnRayHit(false);
+        }
+    }
+
+    public void EnableInteraction()
+    {
+        if (CurrentInteractionComponent is not null)
+        {
+            CurrentInteractionComponent.OnRayHit(true);
+        }
+    }
+
 }

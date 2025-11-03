@@ -5,27 +5,6 @@ using System;
 
 public partial class Player : CharacterBody3D, IEntity
 {
-    // CHARACTER STATS
-    [Export]
-    public int MaxHealth { get; set; }
-	[Export]
-	public int Armor { get; set; }
-	[Export]
-	public int Resistance { get; set; }
-
-	private int _health;
-    public int Health
-    {
-        get
-        {
-            return _health;
-        }
-        set
-        {
-            _health = value;
-        }
-    }
-
     // MOVEMENT STATS
     [Export]
 	public float WalkingSpeed { get; set; } = 8f;
@@ -36,35 +15,32 @@ public partial class Player : CharacterBody3D, IEntity
 
 	public Components Components { get; set; } = null!;
 
+	public bool IsInputEnabled { get; set; } = true;
+
     // INJECTIONS
     private ResourcePreloader itemDb;
 	private Node3D pivot;
 	private Camera3D camera;
-	private AnimationPlayer animationPlayer;
-	private PlayerHand mainHand;
-	private PlayerUi guiController;
-	private RayCast3D interactionRay;
 
 	public override void _Ready()
 	{
         Components = new Components(this);
 
         itemDb = GetNode<ResourcePreloader>("/root/Database/Items");
-
-		animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
-		mainHand = GetNode<PlayerHand>("Pivot/PlayerCamera/MainHandPivot");
 		pivot = GetNode<Node3D>("Pivot");
 		camera = GetNode<Camera3D>("Pivot/PlayerCamera");
-		interactionRay = GetNode<RayCast3D>("Pivot/PlayerCamera/InteractionRay");
 
-        Health = MaxHealth;
-
-        var startWeapon = itemDb.GetResource("Weapon_RustySword") as Weapon;
-		mainHand.EquipItem(startWeapon);
-	}
+		UiEventBus.Instance.OnUiOpen += OnUiOpened;
+		UiEventBus.Instance.OnUiClose += OnUiClosed;
+    }
 
 	public override void _Input(InputEvent @event)
 	{
+		if(!IsInputEnabled)
+		{
+			return;
+		}
+
 		// Handle camera control
 		if (@event is InputEventMouseMotion mouseMotion)
 		{
@@ -75,40 +51,29 @@ public partial class Player : CharacterBody3D, IEntity
 			clampedRotation.X = Mathf.Clamp(camera.Rotation.X, -(Mathf.Pi / 4), Mathf.Pi / 4);
 			camera.Rotation = clampedRotation;
 		}
-
-		// Handle action input
-		if(@event.IsActionPressed(Inputs.ActionFirst))
-		{
-			if(mainHand.Item is null)
-			{
-				return;
-			}
-
-			mainHand.UseItem();
-		}	
-
-		// Switch weapons
-		if(@event.IsActionPressed(Inputs.ActionSwitchWeapon))
-		{
-			if(mainHand.Item.Name == "Rusty Sword")
-			{
-				var newItem = itemDb.GetResource("Weapon_LumberjackAxe") as Item;
-				mainHand.EquipItem(newItem);
-			}
-			else
-			{
-				var newItem = itemDb.GetResource("Weapon_RustySword") as Item;
-				mainHand.EquipItem(newItem);
-			}
-		}
 	}
 
 	public override void _PhysicsProcess(double delta)
 	{
+		if(!IsInputEnabled)
+		{
+			return;
+        }
+
 		HandlePlayerMovement(delta);
 	}
 
-	private void HandlePlayerMovement(double delta)
+	private void OnUiOpened(UiTriggerEventArgs args)
+	{
+		IsInputEnabled = false;
+    }
+
+	private void OnUiClosed()
+	{
+		IsInputEnabled = true;
+    }
+
+    private void HandlePlayerMovement(double delta)
 	{
 		var velocity = Velocity;
 		var speed = WalkingSpeed;

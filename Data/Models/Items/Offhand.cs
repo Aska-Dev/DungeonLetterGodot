@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 [GlobalClass]
-public partial class Offhand : Equipment
+public partial class Offhand : Item
 {
 
 }

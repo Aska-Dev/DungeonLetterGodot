@@ -97,7 +97,6 @@ public partial class WoodenDoor : Environment
     private bool IsPlayerInFront()
     {
         var globalPlayerPos = GetTree().CurrentScene.GetNode<Node3D>("Player")?.GlobalPosition;
-        GD.Print(globalPlayerPos);
 
         Vector3 local = ToLocal(globalPlayerPos ?? Vector3.Zero);
         return local.Z > 0;

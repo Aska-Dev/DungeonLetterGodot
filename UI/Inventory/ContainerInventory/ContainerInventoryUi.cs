@@ -13,6 +13,17 @@ public partial class ContainerInventoryUi : PanelContainer
     {
         UiEventBus.Instance.OnUiOpen += OnOpenInventory;
         UiEventBus.Instance.OnUiClose += OnCloseInventory;
+        InventoryInterface.Instance.OnInventoryRefresh += OnUpdateInventory;
+    }
+
+    public void OnUpdateInventory(InventoryRefreshEventArgs args)
+    {
+        if (args.ParentInterface != UserInterfaces.ContainerInventory || args.Slots is null)
+        {
+            return;
+        }
+
+        PopulateGrid(args.Slots);
     }
 
     public void OnOpenInventory(UiTriggerEventArgs args)
@@ -44,6 +55,7 @@ public partial class ContainerInventoryUi : PanelContainer
         foreach (var slotData in slotDatas)
         {
             var slot = InventorySlotUiScene.Instantiate<InventorySlotUi>();
+            slot.ParentInterface = UserInterfaces.ContainerInventory;
 
             if (slotData is not null && !slotData.IsEmpty)
             {

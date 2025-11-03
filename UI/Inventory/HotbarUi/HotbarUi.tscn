@@ -1,0 +1,114 @@
+[gd_scene load_steps=4 format=3 uid="uid://bou1wcr45ylv4"]
+
+[ext_resource type="Script" uid="uid://dy1s251nphv4k" path="res://UI/Inventory/HotbarUi/HotbarUi.cs" id="1_y508x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v2br2"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y508x"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 5
+
+[node name="HotbarUi" type="Control" node_paths=PackedStringArray("PrimaryHand", "MainHand1", "OffHand1", "SecondaryHand", "MainHand2", "OffHand2")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_y508x")
+PrimaryHand = NodePath("GridContainer/PrimaryHand")
+MainHand1 = NodePath("GridContainer/PrimaryHand/GridContainer/MarginContainer/MainHand")
+OffHand1 = NodePath("GridContainer/PrimaryHand/GridContainer/MarginContainer2/OffHand")
+SecondaryHand = NodePath("GridContainer/SecondaryHand")
+MainHand2 = NodePath("GridContainer/SecondaryHand/GridContainer2/MarginContainer/MainHand")
+OffHand2 = NodePath("GridContainer/SecondaryHand/GridContainer2/MarginContainer2/OffHand")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/h_separation = 20
+columns = 2
+
+[node name="PrimaryHand" type="PanelContainer" parent="GridContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v2br2")
+
+[node name="GridContainer" type="GridContainer" parent="GridContainer/PrimaryHand"]
+layout_mode = 2
+columns = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GridContainer/PrimaryHand/GridContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="MainHand" type="TextureRect" parent="GridContainer/PrimaryHand/GridContainer/MarginContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MarginContainer2" type="MarginContainer" parent="GridContainer/PrimaryHand/GridContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="OffHand" type="TextureRect" parent="GridContainer/PrimaryHand/GridContainer/MarginContainer2"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SecondaryHand" type="PanelContainer" parent="GridContainer"]
+modulate = Color(1, 1, 1, 0.39215687)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_y508x")
+
+[node name="GridContainer2" type="GridContainer" parent="GridContainer/SecondaryHand"]
+layout_mode = 2
+columns = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GridContainer/SecondaryHand/GridContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="MainHand" type="TextureRect" parent="GridContainer/SecondaryHand/GridContainer2/MarginContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MarginContainer2" type="MarginContainer" parent="GridContainer/SecondaryHand/GridContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="OffHand" type="TextureRect" parent="GridContainer/SecondaryHand/GridContainer2/MarginContainer2"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5

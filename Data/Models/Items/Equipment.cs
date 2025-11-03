@@ -1,12 +1,24 @@
-using DungeonLetter.Common;
 using Godot;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 [GlobalClass]
 public partial class Equipment : Item
 {
+    [Export] public EquipModifier[] EquipModifiers { get; set; } = [];
+
+    public void ApplyModifiers(StatsComponent stats)
+    {
+        foreach (var modifier in EquipModifiers)
+        {
+            modifier.Apply(stats);
+        }
+    }
+
+    public void RemoveModifiers(StatsComponent stats)
+    {
+        foreach (var modifier in EquipModifiers)
+        {
+            modifier.Remove(stats);
+        }
+    }
 }

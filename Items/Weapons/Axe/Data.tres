@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Weapon" load_steps=6 format=3 uid="uid://bwyinnl237ljr"]
 
-[ext_resource type="Script" uid="uid://dsuqhe4puxwpc" path="res://Data/Models/AttackModifiers/DealPhysicalDamage.cs" id="1_6oywa"]
+[ext_resource type="Script" uid="uid://dsuqhe4puxwpc" path="res://Types/ItemModifiers/AttackModifiers/DealPhysicalDamage.cs" id="1_6oywa"]
 [ext_resource type="Script" uid="uid://cv2ecvislsi11" path="res://Data/Models/Items/ItemModel.cs" id="2_k2cqa"]
 [ext_resource type="Script" uid="uid://dmwphj6gvabry" path="res://Data/Models/Items/Weapon.cs" id="2_q5ffu"]
 
@@ -17,6 +17,8 @@ metadata/_custom_type_script = "uid://cv2ecvislsi11"
 [resource]
 script = ExtResource("2_q5ffu")
 AttackModifiers = Array[Object]([SubResource("Resource_k2cqa")])
+EquipModifiers = null
 Model = SubResource("Resource_q5ffu")
 Name = "Lumberjack Axe"
+Type = 1
 metadata/_custom_type_script = "uid://dthaq714o5yvu"

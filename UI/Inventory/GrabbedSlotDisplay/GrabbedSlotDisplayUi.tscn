@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfx8vn72t0pd1"]
+
+[ext_resource type="Script" uid="uid://c4e5531rkchv6" path="res://UI/Inventory/GrabbedSlotDisplay/GrabbedSlotDisplayUi.cs" id="1_4kxt0"]
+
+[node name="GrabbedSlotDisplayUi" type="PanelContainer" node_paths=PackedStringArray("IconRenderer")]
+modulate = Color(1, 1, 1, 0.6431373)
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(40, 40)
+script = ExtResource("1_4kxt0")
+IconRenderer = NodePath("MarginContainer/TextureRect")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5

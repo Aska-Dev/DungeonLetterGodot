@@ -24,8 +24,6 @@ public partial class AnimationComponent : Component
 
     public void Trigger(AnimationTriggerEventArgs args)
     {
-        GD.Print($"AnimationComponent Trigger called with TriggerType: {args.TriggerType}, TriggerName: {args.TriggerName}");
-
         switch (args.TriggerType)
         {
             case TriggerTypes.OneShot:

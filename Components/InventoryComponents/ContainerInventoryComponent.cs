@@ -14,29 +14,22 @@ public partial class ContainerInventoryComponent : Component
 
     public override void _Ready()
     {
-        base._Ready();
-
         Slots = new InventorySlot[SlotCount];
 
         for (int i = 0; i < InitSlots.Length; i++)
         {
             Slots[i] = InitSlots[i];
         }
-
     }
 
-    public void OnOpenContainer()
+    public void CreateContainerContext()
+    {   
+        InventoryInterface.Instance.CreateContext(this);
+    }
+
+    public void OpenContainerInventory()
     {
         UiEventBus.Instance.OpenUi(UserInterfaces.ContainerInventory, this);
-        OpenPlayerInventory();
     }
 
-    private void OpenPlayerInventory()
-    {
-        var playerInventory = GetTree().GetFirstNodeInGroup("player.inventory") as PlayerInventoryComponent;
-        if (playerInventory is not null)
-        {
-            playerInventory.OnOpenInventory();
-        }
-    }
 }

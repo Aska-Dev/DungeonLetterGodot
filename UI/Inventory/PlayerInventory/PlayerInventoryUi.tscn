@@ -1,27 +1,141 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfuvdc5ujrk6y"]
+[gd_scene load_steps=9 format=3 uid="uid://dfuvdc5ujrk6y"]
 
 [ext_resource type="Script" uid="uid://bxptgjoclgot5" path="res://UI/Inventory/PlayerInventory/PlayerInventoryUi.cs" id="1_u2i7b"]
-[ext_resource type="PackedScene" uid="uid://d04066pudkf1t" path="res://UI/Inventory/InventorySlotUi.tscn" id="2_gbper"]
+[ext_resource type="PackedScene" uid="uid://d04066pudkf1t" path="res://UI/Inventory/InventorySlotUi/InventorySlotUi.tscn" id="2_gbper"]
+[ext_resource type="Texture2D" uid="uid://dbeqc2gj6b6jd" path="res://UI/Icons/shield.png" id="3_fp7yg"]
+[ext_resource type="Texture2D" uid="uid://ba5nc6oevfsor" path="res://UI/Icons/sword.png" id="3_i2sks"]
+[ext_resource type="Texture2D" uid="uid://cy4idb4u8cg4a" path="res://UI/Icons/helmet.png" id="4_i2sks"]
+[ext_resource type="Texture2D" uid="uid://doo21phvcryr7" path="res://UI/Icons/body_armor.png" id="5_576vm"]
+[ext_resource type="Texture2D" uid="uid://de7othxqv30q3" path="res://UI/Icons/leg_armor.png" id="6_64qhk"]
+[ext_resource type="Texture2D" uid="uid://bwvfktf7gf5ra" path="res://UI/Icons/boots.png" id="7_03bwx"]
 
-[node name="PlayerInventoryUi" type="PanelContainer" node_paths=PackedStringArray("ItemGrid")]
+[node name="PlayerInventoryUi" type="Control" node_paths=PackedStringArray("ItemGrid", "EquipmentContainer")]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1088.0
-offset_bottom = -584.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_u2i7b")
 InventorySlotUiScene = ExtResource("2_gbper")
-ItemGrid = NodePath("MarginContainer/ItemGrid")
+ItemGrid = NodePath("ItemInventory/MarginContainer/ItemGrid")
+EquipmentContainer = NodePath("EquipmentInventory/Slots")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="ItemInventory" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 0
+offset_left = 135.0
+offset_top = 282.0
+offset_right = 175.0
+offset_bottom = 322.0
+
+[node name="MarginContainer" type="MarginContainer" parent="ItemInventory"]
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="ItemGrid" type="GridContainer" parent="MarginContainer"]
+[node name="ItemGrid" type="GridContainer" parent="ItemInventory/MarginContainer"]
 layout_mode = 2
 columns = 4
+
+[node name="EquipmentInventory" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(240, 220)
+layout_mode = 0
+offset_left = 135.0
+offset_top = 53.0
+offset_right = 375.0
+offset_bottom = 273.0
+
+[node name="Slots" type="Control" parent="EquipmentInventory"]
+layout_mode = 2
+
+[node name="MainHand1" parent="EquipmentInventory/Slots" instance=ExtResource("2_gbper")]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 45.0
+offset_bottom = 45.0
+BackgroundTexture = ExtResource("3_i2sks")
+ExclusiveType = 1
+EquipmentSlotType = 5
+ParentInterface = 1
+
+[node name="OffHand1" parent="EquipmentInventory/Slots" instance=ExtResource("2_gbper")]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 5.0
+offset_right = 89.0
+offset_bottom = 45.0
+BackgroundTexture = ExtResource("3_fp7yg")
+ExclusiveType = 2
+EquipmentSlotType = 7
+ParentInterface = 1
+
+[node name="ArmorHead" parent="EquipmentInventory/Slots" instance=ExtResource("2_gbper")]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 5.0
+offset_right = 140.0
+offset_bottom = 45.0
+BackgroundTexture = ExtResource("4_i2sks")
+ExclusiveType = 3
+EquipmentSlotType = 1
+ParentInterface = 1
+
+[node name="ArmorBody" parent="EquipmentInventory/Slots" instance=ExtResource("2_gbper")]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 49.0
+offset_right = 140.0
+offset_bottom = 89.0
+BackgroundTexture = ExtResource("5_576vm")
+ExclusiveType = 4
+EquipmentSlotType = 2
+ParentInterface = 1
+
+[node name="ArmorLegs" parent="EquipmentInventory/Slots" instance=ExtResource("2_gbper")]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 93.0
+offset_right = 140.0
+offset_bottom = 133.0
+BackgroundTexture = ExtResource("6_64qhk")
+ExclusiveType = 5
+EquipmentSlotType = 3
+ParentInterface = 1
+
+[node name="ArmorBoots" parent="EquipmentInventory/Slots" instance=ExtResource("2_gbper")]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 137.0
+offset_right = 140.0
+offset_bottom = 177.0
+BackgroundTexture = ExtResource("7_03bwx")
+ExclusiveType = 6
+EquipmentSlotType = 4
+ParentInterface = 1
+
+[node name="MainHand2" parent="EquipmentInventory/Slots" instance=ExtResource("2_gbper")]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 5.0
+offset_right = 191.0
+offset_bottom = 45.0
+BackgroundTexture = ExtResource("3_i2sks")
+ExclusiveType = 1
+EquipmentSlotType = 6
+ParentInterface = 1
+
+[node name="OffHand2" parent="EquipmentInventory/Slots" instance=ExtResource("2_gbper")]
+layout_mode = 0
+offset_left = 195.0
+offset_top = 5.0
+offset_right = 235.0
+offset_bottom = 45.0
+BackgroundTexture = ExtResource("3_fp7yg")
+ExclusiveType = 2
+EquipmentSlotType = 8
+ParentInterface = 1

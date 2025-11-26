@@ -6,6 +6,7 @@
 	  <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
+    <Folder Include="Components\BehaviourComponents\AttackBehaviour\" />
     <Folder Include="Maps\" />
   </ItemGroup>
 </Project>

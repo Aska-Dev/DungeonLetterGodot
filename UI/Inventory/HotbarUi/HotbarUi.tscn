@@ -8,10 +8,10 @@ content_margin_top = 0.0
 content_margin_right = 0.0
 content_margin_bottom = 0.0
 bg_color = Color(0.1, 0.1, 0.1, 0.6)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 corner_detail = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y508x"]
@@ -20,10 +20,10 @@ content_margin_top = 0.0
 content_margin_right = 0.0
 content_margin_bottom = 0.0
 bg_color = Color(0.1, 0.1, 0.1, 0.6)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 corner_detail = 5
 
 [node name="HotbarUi" type="Control" node_paths=PackedStringArray("PrimaryHand", "MainHand1", "OffHand1", "SecondaryHand", "MainHand2", "OffHand2")]
@@ -39,8 +39,8 @@ OffHand2 = NodePath("GridContainer/SecondaryHand/GridContainer2/MarginContainer2
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 260.0
+offset_bottom = 68.0
 theme_override_constants/h_separation = 20
 columns = 2
 
@@ -49,6 +49,7 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_v2br2")
 
 [node name="GridContainer" type="GridContainer" parent="GridContainer/PrimaryHand"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 columns = 2
 
@@ -60,7 +61,7 @@ theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
 [node name="MainHand" type="TextureRect" parent="GridContainer/PrimaryHand/GridContainer/MarginContainer"]
-custom_minimum_size = Vector2(60, 60)
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 expand_mode = 1
 stretch_mode = 5
@@ -73,7 +74,7 @@ theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
 [node name="OffHand" type="TextureRect" parent="GridContainer/PrimaryHand/GridContainer/MarginContainer2"]
-custom_minimum_size = Vector2(60, 60)
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 expand_mode = 1
 stretch_mode = 5
@@ -95,7 +96,7 @@ theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
 [node name="MainHand" type="TextureRect" parent="GridContainer/SecondaryHand/GridContainer2/MarginContainer"]
-custom_minimum_size = Vector2(60, 60)
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 expand_mode = 1
 stretch_mode = 5
@@ -108,7 +109,7 @@ theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
 [node name="OffHand" type="TextureRect" parent="GridContainer/SecondaryHand/GridContainer2/MarginContainer2"]
-custom_minimum_size = Vector2(60, 60)
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 expand_mode = 1
 stretch_mode = 5

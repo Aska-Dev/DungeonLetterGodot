@@ -16,10 +16,17 @@ public partial class GUI : Control
         OverlayLayer.AddToGroup("ui.overlay");
 
         UiEventBus.Instance.ChangeInteractionLabelText += UpdateInteractionMessageLabel;
+        UiEventBus.Instance.OnHealthBarUpdate += UpdateHealthBar;
     }
 
-    public void UpdateInteractionMessageLabel(string text)
+    private void UpdateInteractionMessageLabel(string text)
     {
         InteractionMessageLabel.Text = text;
+    }
+
+    private void UpdateHealthBar(float currentHealth, float maxHealth)
+    {
+        HealthBar.MaxValue = maxHealth;
+        HealthBar.Value = currentHealth;
     }
 }

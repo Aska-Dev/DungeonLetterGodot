@@ -8,14 +8,24 @@ public enum Stats
     Resistance
 }
 
+public partial class StatChangedEventArgs : RefCounted
+{
+    public Stats Stat { get; set; }
+    public int NewValue { get; set; }
+}
+
 [GlobalClass]
 public partial class StatsComponent : Component
 {
+    [Signal] public delegate void OnStatChangedEventHandler(StatChangedEventArgs args);
+
     [ExportCategory("Dependencies")]
     [Export] public ValueComponent? Health { get; set; } = null;
 
     [ExportCategory("Stats")]
     [Export]
+    public int InitMaxHealth { get; private set; } = 100;
+
     public int MaxHealth
     {
         get => Health?.MaxValue ?? 0;
@@ -37,6 +47,11 @@ public partial class StatsComponent : Component
     [Export] public int MovementSpeed { get; private set; } = 8;
     [Export ] public int PhysicalAttackBonus { get; private set; } = 0;
     [Export ] public int MagicalAttackBonus { get; private set; } = 0;
+
+    public override void _Ready()
+    {
+        MaxHealth = InitMaxHealth;
+    }
 
     public int GetStat(Stats stat)
     {
@@ -65,5 +80,15 @@ public partial class StatsComponent : Component
             default:
                 throw new ArgumentOutOfRangeException(nameof(stat), stat, null);
         }
+
+        EmitSignal
+        (
+            SignalName.OnStatChanged, 
+            new StatChangedEventArgs
+            {
+                NewValue = newValue,
+                Stat = stat 
+            }
+        );
     }
 }

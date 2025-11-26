@@ -11,7 +11,12 @@ public enum EquipmentSlotType
 	MainHand1,
 	MainHand2,
 	OffHand1,
-	OffHand2
+	OffHand2,
+	Consumable1,
+	Consumable2,
+	Consumable3,
+	Consumable4,
+	Consumable5,
 }
 
 public partial class InventorySlotUi : PanelContainer

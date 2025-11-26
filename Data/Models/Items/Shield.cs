@@ -7,6 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 [GlobalClass]
-public partial class Shield : Holdable
+public partial class Shield : TriggerableEquipment
 {
 }

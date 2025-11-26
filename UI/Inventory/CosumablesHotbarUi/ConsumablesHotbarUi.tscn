@@ -1,0 +1,118 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6m8n30cmthti"]
+
+[ext_resource type="Script" uid="uid://dcwffskhe2l7j" path="res://UI/Inventory/CosumablesHotbarUi/ConsumablesHotbarUi.cs" id="1_wm383"]
+[ext_resource type="Script" uid="uid://tkdl0e0fwokd" path="res://UI/Inventory/CosumablesHotbarUi/ConsumableHotbarSlot.cs" id="2_pj2gt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wm383"]
+bg_color = Color(0, 0, 0, 0.3254902)
+border_blend = true
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="ConsumablesHotbarUi" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_wm383")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 256.0
+theme_override_constants/v_separation = 8
+
+[node name="HotbarSlot1" type="PanelContainer" parent="GridContainer"]
+modulate = Color(1, 1, 1, 0.39215687)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wm383")
+script = ExtResource("2_pj2gt")
+
+[node name="MarginContainer" type="MarginContainer" parent="GridContainer/HotbarSlot1"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/HotbarSlot1/MarginContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HotbarSlot2" type="PanelContainer" parent="GridContainer"]
+modulate = Color(1, 1, 1, 0.39215687)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wm383")
+script = ExtResource("2_pj2gt")
+
+[node name="MarginContainer" type="MarginContainer" parent="GridContainer/HotbarSlot2"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/HotbarSlot2/MarginContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HotbarSlot3" type="PanelContainer" parent="GridContainer"]
+modulate = Color(1, 1, 1, 0.39215687)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wm383")
+script = ExtResource("2_pj2gt")
+
+[node name="MarginContainer" type="MarginContainer" parent="GridContainer/HotbarSlot3"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/HotbarSlot3/MarginContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HotbarSlot4" type="PanelContainer" parent="GridContainer"]
+modulate = Color(1, 1, 1, 0.39215687)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wm383")
+script = ExtResource("2_pj2gt")
+
+[node name="MarginContainer" type="MarginContainer" parent="GridContainer/HotbarSlot4"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/HotbarSlot4/MarginContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HotbarSlot5" type="PanelContainer" parent="GridContainer"]
+modulate = Color(1, 1, 1, 0.39215687)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wm383")
+script = ExtResource("2_pj2gt")
+
+[node name="MarginContainer" type="MarginContainer" parent="GridContainer/HotbarSlot5"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/HotbarSlot5/MarginContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5

@@ -16,7 +16,7 @@ public static class Inputs
     public const string MoveRight = "player_move_right";
     public const string MoveJump = "player_move_jump";
 
-    public const string ActionFirst = "player_action_first";
+    public const string ActionPrimary = "player_action_first";
     public const string ActionSecondary = "player_action_secondary";
 
     public const string ActionInteract = "player_interaction";
@@ -24,6 +24,8 @@ public static class Inputs
 
     public const string LoadPrimaryHandConfig = "player_load_primary_hand_config";
     public const string LoadSecondaryHandConfig = "player_load_secondary_hand_config";
+
+    public const string CycleConsumables = "player_cycle_consumable_hotbar";
 
     public const string UiEscape = "global_ui_cancel";
 

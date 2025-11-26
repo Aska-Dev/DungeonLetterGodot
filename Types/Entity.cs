@@ -13,16 +13,26 @@ public class Components
         Init(node);
     }
 
-    public T? Get<T>(string? name = null) where T : Component
+    public T Get<T>(string? name = null) where T : Component
     {
+        var t = null as T;
+
         if (name != null)
         {
-            return _components.FirstOrDefault(c => c is T && c.Name == name) as T;
+            t = _components.FirstOrDefault(c => c is T && c.Name == name) as T;
         }
         else
         {
-            return _components.FirstOrDefault(c => c is T) as T;
+            t = _components.FirstOrDefault(c => c is T) as T;
         }
+
+        if(t is null)
+        {
+            GD.PrintErr($"Component of type {typeof(T).Name} with name '{name}' not found.");
+            throw new Exception($"Component of type {typeof(T).Name} with name '{name}' not found.");
+        }
+
+        return t;
     }
 
     private void Init(Node node)

@@ -8,7 +8,8 @@ public enum EquipmentTypes
     Headgear,
     BodyArmor,
     LegArmor,
-    Boots
+    Boots,
+    Consumable
 }
 
 [GlobalClass]

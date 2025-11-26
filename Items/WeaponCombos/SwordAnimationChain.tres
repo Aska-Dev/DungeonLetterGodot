@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="ActionChainData" load_steps=11 format=3 uid="uid://cn52xws87ob54"]
+
+[ext_resource type="Script" uid="uid://c3p0qa2tvu0c5" path="res://PlayerActions/Actions/ActionChain/ActionChainData.cs" id="1_fidxl"]
+[ext_resource type="Script" uid="uid://dth3ij3q1o0oc" path="res://PlayerActions/Actions/InstantActionData.cs" id="1_nu8l2"]
+[ext_resource type="Script" uid="uid://bg4wxkmls4yj0" path="res://PlayerActions/Actions/ActionChain/ActionChainStepData.cs" id="2_xu5vw"]
+[ext_resource type="Script" uid="uid://6necaq7fbw17" path="res://PlayerActions/Actions/ActionChain/ActionChainStep.cs" id="3_a521d"]
+
+[sub_resource type="Resource" id="Resource_s7sgh"]
+script = ExtResource("1_nu8l2")
+AnimationName = "sword_attack_1"
+ActionCompleteEvents = null
+TriggerInputAction = "player_action_first"
+metadata/_custom_type_script = "uid://dth3ij3q1o0oc"
+
+[sub_resource type="Resource" id="Resource_fpmtl"]
+script = ExtResource("2_xu5vw")
+Action = SubResource("Resource_s7sgh")
+ResetAnimationName = "sword_attack_1_reset"
+metadata/_custom_type_script = "uid://bg4wxkmls4yj0"
+
+[sub_resource type="Resource" id="Resource_xkr24"]
+script = ExtResource("3_a521d")
+Actions = Array[Object]([SubResource("Resource_fpmtl")])
+metadata/_custom_type_script = "uid://6necaq7fbw17"
+
+[sub_resource type="Resource" id="Resource_a521d"]
+script = ExtResource("1_nu8l2")
+AnimationName = "sword_attack_2"
+ActionCompleteEvents = null
+TriggerInputAction = "player_action_first"
+metadata/_custom_type_script = "uid://dth3ij3q1o0oc"
+
+[sub_resource type="Resource" id="Resource_nu8l2"]
+script = ExtResource("2_xu5vw")
+Action = SubResource("Resource_a521d")
+ResetAnimationName = "sword_attack_2_reset"
+metadata/_custom_type_script = "uid://bg4wxkmls4yj0"
+
+[sub_resource type="Resource" id="Resource_xu5vw"]
+script = ExtResource("3_a521d")
+Actions = Array[Object]([SubResource("Resource_nu8l2")])
+metadata/_custom_type_script = "uid://6necaq7fbw17"
+
+[resource]
+script = ExtResource("1_fidxl")
+Steps = Array[Object]([SubResource("Resource_xkr24"), SubResource("Resource_xu5vw")])
+Priority = 100
+TriggerInputAction = "player_action_first"
+metadata/_custom_type_script = "uid://c3p0qa2tvu0c5"

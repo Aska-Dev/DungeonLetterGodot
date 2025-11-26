@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://c6qa8g71idvo" path="res://Components/DamageComponent.cs" id="4_1wxfa"]
 [ext_resource type="Script" uid="uid://xol7jp7rgfrt" path="res://Components/ValueComponent.cs" id="5_cb25u"]
 [ext_resource type="Script" uid="uid://cp2nwspqswe8a" path="res://Components/DeathComponent.cs" id="7_cb25u"]
-[ext_resource type="Script" uid="uid://bgg73aduwak8g" path="res://Components/AnimationComponent/AnimationComponent.cs" id="7_dbk7d"]
+[ext_resource type="Script" uid="uid://bgg73aduwak8g" path="res://Components/AnimationComponent/OldAnimationComponent.cs" id="7_dbk7d"]
 [ext_resource type="Script" uid="uid://dia8efc0vs0jg" path="res://Components/AnimationComponent/AnimationTrigger.cs" id="8_dbk7d"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fqya7"]

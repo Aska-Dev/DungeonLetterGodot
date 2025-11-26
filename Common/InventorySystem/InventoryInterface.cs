@@ -57,7 +57,8 @@ public partial class InventoryInterface : Node
     public void EquipmentSlotItemChanged(EquipmentItemChangeEventArgs args) => EmitSignal(SignalName.OnEquipmentSlotItemChange, args);
     [Signal] public delegate void OnPlayerHandConfigChangeEventHandler(PlayerHandConfigChangeEventArgs args);
     public void PlayerHandConfigChanged(PlayerHandConfigChangeEventArgs args) => EmitSignal(SignalName.OnPlayerHandConfigChange, args);
-
+    [Signal] public delegate void OnConsumableSelectedEventHandler(int slotIndex);
+    public void ConsumableSelected(int slotIndex) => EmitSignal(SignalName.OnConsumableSelected, slotIndex);
 
     public override void _Ready()
 	{

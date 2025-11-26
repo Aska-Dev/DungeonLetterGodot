@@ -2,12 +2,6 @@ using Godot;
 using System;
 using System.Runtime.CompilerServices;
 
-public partial class SkeletonMinion : CharacterBody3D, IEntity
+public partial class SkeletonMinion : Enemy
 {
-    public Components Components { get; set; } = null!;
-
-    public override void _Ready()
-    {
-        Components = new Components(this);
-    }
 }

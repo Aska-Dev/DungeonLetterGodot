@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://degvr7rxew1w"]
+[gd_scene load_steps=11 format=3 uid="uid://degvr7rxew1w"]
 
 [ext_resource type="Script" uid="uid://d3t2dt5xbe5w8" path="res://UI/GUI.cs" id="1_gotqc"]
 [ext_resource type="PackedScene" uid="uid://dfuvdc5ujrk6y" path="res://UI/Inventory/PlayerInventory/PlayerInventoryUi.tscn" id="2_2ti0d"]
 [ext_resource type="PackedScene" uid="uid://ddppdp8kahpyu" path="res://UI/TooltipUi/TooltipUi.tscn" id="2_n3xue"]
 [ext_resource type="PackedScene" uid="uid://cwfeu4ao8ald6" path="res://UI/Inventory/ContainerInventory/ContainerInventoryUi.tscn" id="3_n7s5f"]
 [ext_resource type="PackedScene" uid="uid://bou1wcr45ylv4" path="res://UI/Inventory/HotbarUi/HotbarUi.tscn" id="5_u703e"]
+[ext_resource type="PackedScene" uid="uid://c6m8n30cmthti" path="res://UI/Inventory/CosumablesHotbarUi/ConsumablesHotbarUi.tscn" id="6_sf8lx"]
 
 [sub_resource type="Theme" id="Theme_ibxxy"]
 
@@ -90,7 +91,14 @@ offset_bottom = 279.0
 
 [node name="HotbarUi" parent="." instance=ExtResource("5_u703e")]
 layout_mode = 0
-offset_left = 860.0
-offset_top = 575.0
-offset_right = 860.0
-offset_bottom = 575.0
+offset_left = 972.0
+offset_top = 592.0
+offset_right = 972.0
+offset_bottom = 592.0
+
+[node name="ConsumablesHotbarUi" parent="." instance=ExtResource("6_sf8lx")]
+layout_mode = 0
+offset_left = 1144.0
+offset_top = 295.0
+offset_right = 1144.0
+offset_bottom = 295.0

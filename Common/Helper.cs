@@ -12,11 +12,16 @@ namespace DungeonLetter.Common;
 
 public static class Helper
 {
-    public static T DeepCopy<T>(T original)
+    public static T? GetFirstNodeOrDefault<T> (Node rootNode) where T : Node
     {
-        string jsonString = JsonSerializer.Serialize(original);
-        return JsonSerializer.Deserialize<T>(jsonString)!;
+        foreach (Node child in rootNode.GetChildren())
+        {
+            if (child is T typedChild)
+            {
+                return typedChild;
+            }
+        }
+
+        return null;
     }
-
-
 }

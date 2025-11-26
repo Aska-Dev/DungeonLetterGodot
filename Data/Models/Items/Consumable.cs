@@ -1,6 +1,7 @@
 using Godot;
 using System;
 
-public partial class Consumable : Holdable
+[GlobalClass]
+public partial class Consumable : TriggerableEquipment
 {
 }

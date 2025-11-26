@@ -25,6 +25,11 @@ public partial class UiEventBus : Node
 
     public bool IsUiOpen { get; set; } = false;
 
+    /// HEALTH BAR
+    [Signal]
+    public delegate void OnHealthBarUpdateEventHandler(float currentHealth, float maxHealth);
+    public void UpdateHealthBar(float currentHealth, float maxHealth) => EmitSignal(SignalName.OnHealthBarUpdate, currentHealth, maxHealth);
+
     /// INTERACTION LABEL 
     [Signal]
     public delegate void ChangeInteractionLabelTextEventHandler(string label);
@@ -52,7 +57,7 @@ public partial class UiEventBus : Node
         IsUiOpen = true;
     }
 
-    /// TOOLTOP
+    /// TOOLTIP
     [Signal] public delegate void OnItemTooltipToggleEventHandler(bool on, Item? item);
     public void ToggleItemTooltip(bool on, Item? item = null) => EmitSignal(SignalName.OnItemTooltipToggle, on, item);
 }

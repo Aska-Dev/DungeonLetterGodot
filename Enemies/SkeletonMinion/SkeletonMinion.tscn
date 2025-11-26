@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dyju1a0dp6bia"]
+[gd_scene load_steps=14 format=3 uid="uid://dyju1a0dp6bia"]
 
 [ext_resource type="PackedScene" uid="uid://6ukpwtog0qgp" path="res://Enemies/SkeletonMinion/Model/Model.tscn" id="1_aqreq"]
 [ext_resource type="Script" uid="uid://be35cjtspr3q4" path="res://Enemies/SkeletonMinion/SkeletonMinion.cs" id="1_idjeq"]
@@ -6,20 +6,26 @@
 [ext_resource type="Script" uid="uid://cfm0cpt63r8vf" path="res://Components/OnAttackHitComponent.cs" id="4_v26wx"]
 [ext_resource type="Script" uid="uid://c6qa8g71idvo" path="res://Components/DamageComponent.cs" id="5_i77qh"]
 [ext_resource type="Script" uid="uid://cp2nwspqswe8a" path="res://Components/DeathComponent.cs" id="6_i77qh"]
-[ext_resource type="Script" uid="uid://bgg73aduwak8g" path="res://Components/AnimationComponent/AnimationComponent.cs" id="7_bpfbn"]
-[ext_resource type="Script" uid="uid://dia8efc0vs0jg" path="res://Components/AnimationComponent/AnimationTrigger.cs" id="8_flimc"]
 [ext_resource type="Script" uid="uid://c623feq3aje7r" path="res://Components/CollisionComponent.cs" id="9_k8ji4"]
 [ext_resource type="Script" uid="uid://cidr8bq8lq74j" path="res://Components/ResurrectionComponent.cs" id="10_j5n7j"]
-[ext_resource type="Script" uid="uid://bbo8f0mi03o46" path="res://Components/AnimationComponent/AnimationTriggerCollection.cs" id="11_tcxpt"]
+[ext_resource type="Script" uid="uid://dsuqhe4puxwpc" path="res://Types/ItemModifiers/AttackModifiers/DealPhysicalDamage.cs" id="10_krn4a"]
+[ext_resource type="Script" uid="uid://csugr5nut4gyn" path="res://Components/AnimationComponent/AnimationComponent.cs" id="10_tcxpt"]
+[ext_resource type="Script" uid="uid://ceqr3l8rpl35f" path="res://Components/BehaviourComponents/AttackBehaviour/MeleeBehaviourComponent.cs" id="12_krn4a"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_aqreq"]
 radius = 0.7397461
 height = 2.0581055
 
-[node name="SkeletonMinion" type="CharacterBody3D"]
+[sub_resource type="Resource" id="Resource_pdw5w"]
+script = ExtResource("10_krn4a")
+DamageAmount = 1
+metadata/_custom_type_script = "uid://dsuqhe4puxwpc"
+
+[node name="SkeletonMinion" type="CharacterBody3D" node_paths=PackedStringArray("AttackBehaviour")]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_idjeq")
+AttackBehaviour = NodePath("MeleeBehaviourComponent")
 
 [node name="Pivot" type="Node3D" parent="."]
 
@@ -60,52 +66,21 @@ DeathComp = NodePath("../DeathComponent")
 CollisionComp = NodePath("../CollisionComponent")
 metadata/_custom_type_script = "uid://cidr8bq8lq74j"
 
+[node name="MeleeBehaviourComponent" type="Node" parent="." node_paths=PackedStringArray("AnimationComponent")]
+script = ExtResource("12_krn4a")
+AnimationComponent = NodePath("../AnimationComponent")
+AttackRange = 1.8
+Attacks = [SubResource("Resource_pdw5w")]
+metadata/_custom_type_script = "uid://ceqr3l8rpl35f"
+
 [node name="AnimationComponent" type="Node" parent="."]
-script = ExtResource("7_bpfbn")
+script = ExtResource("10_tcxpt")
 AnimationTreePath = NodePath("../Pivot/Model/AnimationTree")
-metadata/_custom_type_script = "uid://bgg73aduwak8g"
-
-[node name="HitTrigger" type="Node" parent="AnimationComponent" node_paths=PackedStringArray("AnimationComponent")]
-script = ExtResource("8_flimc")
-AnimationComponent = NodePath("..")
-TriggerName = "hit"
-metadata/_custom_type_script = "uid://dia8efc0vs0jg"
-
-[node name="DeathTrigger" type="Node" parent="AnimationComponent" node_paths=PackedStringArray("AnimationComponent")]
-script = ExtResource("8_flimc")
-AnimationComponent = NodePath("..")
-TriggerName = "dead"
-TriggerType = 2
-metadata/_custom_type_script = "uid://dia8efc0vs0jg"
-
-[node name="ResurrectionCollection" type="Node" parent="AnimationComponent" node_paths=PackedStringArray("Triggers")]
-script = ExtResource("11_tcxpt")
-Triggers = [NodePath("ResurrectionCancelHit"), NodePath("ResurrectionTrigger"), NodePath("SetStateAlive")]
-metadata/_custom_type_script = "uid://bbo8f0mi03o46"
-
-[node name="ResurrectionCancelHit" type="Node" parent="AnimationComponent/ResurrectionCollection" node_paths=PackedStringArray("AnimationComponent")]
-script = ExtResource("8_flimc")
-AnimationComponent = NodePath("../..")
-TriggerName = "hit"
-TriggerType = 1
-metadata/_custom_type_script = "uid://dia8efc0vs0jg"
-
-[node name="ResurrectionTrigger" type="Node" parent="AnimationComponent/ResurrectionCollection" node_paths=PackedStringArray("AnimationComponent")]
-script = ExtResource("8_flimc")
-AnimationComponent = NodePath("../..")
-TriggerName = "resurrection"
-metadata/_custom_type_script = "uid://dia8efc0vs0jg"
-
-[node name="SetStateAlive" type="Node" parent="AnimationComponent/ResurrectionCollection" node_paths=PackedStringArray("AnimationComponent")]
-script = ExtResource("8_flimc")
-AnimationComponent = NodePath("../..")
-TriggerName = "alive"
-TriggerType = 2
-metadata/_custom_type_script = "uid://dia8efc0vs0jg"
+metadata/_custom_type_script = "uid://csugr5nut4gyn"
 
 [connection signal="OnAttackHit" from="OnAttackHitComponent" to="DamageComponent" method="OnHit"]
-[connection signal="OnDamageTaken" from="DamageComponent" to="AnimationComponent/HitTrigger" method="Trigger"]
-[connection signal="OnDeath" from="DeathComponent" to="AnimationComponent/DeathTrigger" method="Trigger"]
+[connection signal="OnDamageTaken" from="DamageComponent" to="AnimationComponent" method="Start" binds= [&"hit"]]
 [connection signal="OnDeath" from="DeathComponent" to="CollisionComponent" method="EnableCollision" binds= [false]]
-[connection signal="OnResurrect" from="ResurrectionComponent" to="AnimationComponent/ResurrectionCollection" method="TriggerAll"]
-[connection signal="OnResurrect" from="ResurrectionComponent" to="AnimationComponent/ResurrectionCollection/SetStateAlive" method="Trigger"]
+[connection signal="OnDeath" from="DeathComponent" to="AnimationComponent" method="Start" binds= [&"death"]]
+[connection signal="OnResurrect" from="ResurrectionComponent" to="AnimationComponent" method="Start" binds= [&"resurrect"]]
+[connection signal="OnMeleeAttack" from="MeleeBehaviourComponent" to="AnimationComponent" method="TravelTo" binds= [&"attack"]]

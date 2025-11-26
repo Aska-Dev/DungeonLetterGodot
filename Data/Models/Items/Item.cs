@@ -14,7 +14,8 @@ public enum ExclusiveItemId
     HeadGear,
     ChestGear,
     LegGear,
-    Boots
+    Boots,
+    Consumable,
 }
 
 [GlobalClass]

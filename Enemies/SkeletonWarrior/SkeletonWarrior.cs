@@ -1,12 +1,6 @@
 using Godot;
 using System;
 
-public partial class SkeletonWarrior : CharacterBody3D, IEntity
+public partial class SkeletonWarrior : Enemy
 {
-    public Components Components { get; set; } = null!;
-    
-    public override void _Ready()
-    {
-        Components = new Components(this);
-    }
 }

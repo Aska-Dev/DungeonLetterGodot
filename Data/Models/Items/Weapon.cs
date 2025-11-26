@@ -7,8 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 [GlobalClass]
-public partial class Weapon : Holdable
+public partial class Weapon : TriggerableEquipment
 {
     [Export] public AttackModifier[] AttackModifiers { get; set; } = [];
-    [Export] public required AnimationChain Combo { get; set; }    
 }

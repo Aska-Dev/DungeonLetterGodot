@@ -12,7 +12,7 @@ public enum TriggerTypes
 public partial class AnimationTrigger : Node
 {
     [Export]
-    public required AnimationComponent AnimationComponent { get; set; }
+    public required OldAnimationComponent AnimationComponent { get; set; }
 
     [Export]
     public string TriggerName { get; set; } = "";

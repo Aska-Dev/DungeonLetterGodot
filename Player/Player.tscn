@@ -1,16 +1,19 @@
-[gd_scene load_steps=44 format=3 uid="uid://dox658scd5yq2"]
+[gd_scene load_steps=52 format=3 uid="uid://dox658scd5yq2"]
 
-[ext_resource type="Script" uid="uid://02ewrngl0yi3" path="res://Player/Player.cs" id="1_3qydi"]
-[ext_resource type="Script" uid="uid://cdhv4ikb2a32c" path="res://Player/OldPlayerHand.cs" id="2_tok1r"]
+[ext_resource type="Script" uid="uid://dy4yyhy6jx3v5" path="res://Components/PlayerComponents/PlayerActionControllerComponent.cs" id="1_0j2ni"]
+[ext_resource type="Script" uid="uid://02ewrngl0yi3" path="res://Player/Player.cs" id="1_v0k0e"]
+[ext_resource type="Script" uid="uid://bshofbe2vtvua" path="res://Player/PlayerHand.cs" id="2_tok1r"]
 [ext_resource type="Script" uid="uid://myyl6451qiky" path="res://Player/PlayerHands.cs" id="2_v0k0e"]
-[ext_resource type="PackedScene" uid="uid://bsgnnpeggs545" path="res://Items/Shields/WoodenRoundShield/Model.tscn" id="4_v0k0e"]
 [ext_resource type="Script" uid="uid://cj6c6ft7m1ygx" path="res://Components/InteractionRayComponent.cs" id="5_8g4oa"]
 [ext_resource type="Script" uid="uid://b5rui0vi8qnue" path="res://Components/InventoryComponents/PlayerInventoryComponent.cs" id="6_6ysni"]
+[ext_resource type="Resource" uid="uid://bxkgu1mrulrwf" path="res://Items/Weapons/Swords/Rusty Scimitar/Rusty Scimitar.tres" id="7_v0k0e"]
 [ext_resource type="Script" uid="uid://cyk1von11cq87" path="res://Components/PlayerComponents/PlayerEquipmentComponent.cs" id="8_0j2ni"]
 [ext_resource type="Script" uid="uid://wb22luuvusfw" path="res://Types/InventorySlot.cs" id="8_j23h2"]
-[ext_resource type="Script" uid="uid://c1wjq4x2gl1v2" path="res://Components/PlayerComponents/PlayerAttackComponent.cs" id="8_s1rgi"]
+[ext_resource type="Resource" uid="uid://bdoodjntqobdy" path="res://Items/Consumables/Healing Potion/SmallHealingPotion.tres" id="9_dm7nj"]
 [ext_resource type="Script" uid="uid://bf2w25psmlqsm" path="res://Components/StatsComponent.cs" id="9_j23h2"]
 [ext_resource type="Script" uid="uid://xol7jp7rgfrt" path="res://Components/ValueComponent.cs" id="10_0j2ni"]
+[ext_resource type="Script" uid="uid://cfm0cpt63r8vf" path="res://Components/OnAttackHitComponent.cs" id="12_p7tob"]
+[ext_resource type="Script" uid="uid://c6qa8g71idvo" path="res://Components/DamageComponent.cs" id="13_dm7nj"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_l2ndj"]
 
@@ -52,7 +55,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.28520975, -0.37360406, -0.69329596)]
+"values": [Vector3(-0.566, -0.609, -0.58)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -64,12 +67,12 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(5.8628935e-08, -2.93622, 0.37114426)]
+"values": [Vector3(0, -2.539454, 0.37175512)]
 }
 
 [sub_resource type="Animation" id="Animation_5wa8t"]
 resource_name = "shield_block_off"
-length = 0.23
+length = 0.15
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -77,7 +80,7 @@ tracks/0/path = NodePath("Pivot/PlayerCamera/PlayerHands/OffHand:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.23),
+"times": PackedFloat32Array(0, 0.15),
 "transitions": PackedFloat32Array(1, -2),
 "update": 0,
 "values": [Vector3(-0.28520975, -0.37360406, -0.69329596), Vector3(-0.56635046, -0.608688, -0.5797655)]
@@ -89,7 +92,7 @@ tracks/1/path = NodePath("Pivot/PlayerCamera/PlayerHands/OffHand:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.23),
+"times": PackedFloat32Array(0, 0.15),
 "transitions": PackedFloat32Array(1, -2),
 "update": 0,
 "values": [Vector3(5.8628935e-08, -2.93622, 0.37114426), Vector3(0, -2.5390003, 0)]
@@ -161,11 +164,35 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [true],
-"method": &"SetWeaponHitboxStatus"
+"method": &"SetItemHitboxStatus"
 }, {
 "args": [false],
-"method": &"SetWeaponHitboxStatus"
+"method": &"SetItemHitboxStatus"
 }]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/PlayerCamera/PlayerHands/OffHand:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.35),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.566, -0.609, -0.58), Vector3(-0.82237643, -0.7354434, -0.17296079)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Pivot/PlayerCamera/PlayerHands/OffHand:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.35),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -2.539454, 0.37175512), Vector3(2.1799611e-08, -1.9619595, 0.37175512)]
 }
 
 [sub_resource type="Animation" id="Animation_6ysni"]
@@ -194,6 +221,30 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 2),
 "update": 0,
 "values": [Vector3(-0.7381463, -0.44864905, 1.6289529), Vector3(-0.037154775, -1.4017794, 0.21433772)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/PlayerCamera/PlayerHands/OffHand:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.82237643, -0.7354434, -0.17296079), Vector3(-0.56635046, -0.608688, -0.5797655)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/PlayerCamera/PlayerHands/OffHand:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(2.1799611e-08, -1.9619595, 0.37175512), Vector3(0, -2.5390003, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_vlldt"]
@@ -234,11 +285,35 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [true],
-"method": &"SetWeaponHitboxStatus"
+"method": &"SetItemHitboxStatus"
 }, {
 "args": [false],
-"method": &"SetWeaponHitboxStatus"
+"method": &"SetItemHitboxStatus"
 }]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/PlayerCamera/PlayerHands/OffHand:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.82237643, -0.7354434, -0.17296079)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Pivot/PlayerCamera/PlayerHands/OffHand:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.99999976, 0.9999999, 0.99999964)]
 }
 
 [sub_resource type="Animation" id="Animation_j23h2"]
@@ -267,6 +342,30 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 2),
 "update": 0,
 "values": [Vector3(-0.82379043, -1.4602339, 0.25882998), Vector3(-0.037154775, -1.4017794, 0.21433772)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/PlayerCamera/PlayerHands/OffHand:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.82237643, -0.7354434, -0.17296079), Vector3(-0.56635046, -0.608688, -0.5797655)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/PlayerCamera/PlayerHands/OffHand:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -2.5390003, 0), Vector3(0, -2.5390003, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_q3lat"]
@@ -314,9 +413,9 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_tok1r"]
-resource_name = "sword_idle"
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_dm7nj"]
+resource_name = "potion_drink"
+length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -324,10 +423,10 @@ tracks/0/path = NodePath("Pivot/PlayerCamera/PlayerHands/MainHand:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.3, 0.7, 0.85, 1.2, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0.9552461, -0.6859697, -0.8526355)]
+"values": [Vector3(0.9552461, -0.6859697, -0.8526355), Vector3(0.18265206, -0.55739117, -0.9996186), Vector3(0.18265206, 0.10294521, -0.5969984), Vector3(0.18265206, 0.10294521, -0.5969984), Vector3(0.18265206, -0.55739117, -0.9996186), Vector3(1.3441489, -2.115537, -1.0163267)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -336,35 +435,38 @@ tracks/1/path = NodePath("Pivot/PlayerCamera/PlayerHands/MainHand:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.3, 0.7, 0.85, 1.2, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(-0.037154775, -1.4017794, 0.21433772)]
+"values": [Vector3(-0.037154775, -1.4017794, 0.21433772), Vector3(0.116935976, -1.4429895, -0.7371535), Vector3(0.16005886, -1.704872, -1.9637792), Vector3(0.16005886, -1.704872, -1.9637792), Vector3(0.116935976, -1.4429895, -0.7371535), Vector3(0.0025755754, -1.3742783, 0.029065596)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8g4oa"]
 _data = {
 &"RESET": SubResource("Animation_ddoul"),
+&"potion_drink": SubResource("Animation_dm7nj"),
 &"shield_block_off": SubResource("Animation_5wa8t"),
 &"shield_block_on": SubResource("Animation_v0k0e"),
 &"sword_attack_1": SubResource("Animation_8g4oa"),
 &"sword_attack_1_reset": SubResource("Animation_6ysni"),
 &"sword_attack_2": SubResource("Animation_vlldt"),
 &"sword_attack_2_reset": SubResource("Animation_j23h2"),
-&"sword_attack_horizontal": SubResource("Animation_q3lat"),
-&"sword_idle": SubResource("Animation_tok1r")
+&"sword_attack_horizontal": SubResource("Animation_q3lat")
 }
 
 [sub_resource type="Resource" id="Resource_vlldt"]
 script = ExtResource("8_j23h2")
+Item = ExtResource("7_v0k0e")
 metadata/_custom_type_script = "uid://wb22luuvusfw"
 
 [sub_resource type="Resource" id="Resource_s1rgi"]
 script = ExtResource("8_j23h2")
+Item = ExtResource("9_dm7nj")
 metadata/_custom_type_script = "uid://wb22luuvusfw"
 
 [sub_resource type="Resource" id="Resource_j23h2"]
 script = ExtResource("8_j23h2")
+Item = ExtResource("9_dm7nj")
 metadata/_custom_type_script = "uid://wb22luuvusfw"
 
 [sub_resource type="Resource" id="Resource_0j2ni"]
@@ -435,9 +537,29 @@ metadata/_custom_type_script = "uid://wb22luuvusfw"
 script = ExtResource("8_j23h2")
 metadata/_custom_type_script = "uid://wb22luuvusfw"
 
+[sub_resource type="Resource" id="Resource_hqjia"]
+script = ExtResource("8_j23h2")
+metadata/_custom_type_script = "uid://wb22luuvusfw"
+
+[sub_resource type="Resource" id="Resource_x70vp"]
+script = ExtResource("8_j23h2")
+metadata/_custom_type_script = "uid://wb22luuvusfw"
+
+[sub_resource type="Resource" id="Resource_wo5nf"]
+script = ExtResource("8_j23h2")
+metadata/_custom_type_script = "uid://wb22luuvusfw"
+
+[sub_resource type="Resource" id="Resource_croik"]
+script = ExtResource("8_j23h2")
+metadata/_custom_type_script = "uid://wb22luuvusfw"
+
+[sub_resource type="Resource" id="Resource_bgaaw"]
+script = ExtResource("8_j23h2")
+metadata/_custom_type_script = "uid://wb22luuvusfw"
+
 [node name="Player" type="CharacterBody3D"]
 collision_mask = 28
-script = ExtResource("1_3qydi")
+script = ExtResource("1_v0k0e")
 
 [node name="Pivot" type="Node3D" parent="."]
 
@@ -452,20 +574,24 @@ target_position = Vector3(0, -1.5, 0)
 collision_mask = 32
 debug_shape_thickness = 5
 
-[node name="PlayerHands" type="Node3D" parent="Pivot/PlayerCamera" node_paths=PackedStringArray("MainHand")]
+[node name="PlayerHands" type="Node3D" parent="Pivot/PlayerCamera" node_paths=PackedStringArray("EquipmentComponent", "ActionController", "MainHand", "OffHand")]
 script = ExtResource("2_v0k0e")
+EquipmentComponent = NodePath("../../../PlayerEquipmentComponent")
+ActionController = NodePath("../../../PlayerActionControllerComponent")
 MainHand = NodePath("MainHand")
+OffHand = NodePath("OffHand")
 
-[node name="MainHand" type="Node3D" parent="Pivot/PlayerCamera/PlayerHands" node_paths=PackedStringArray("AnimationPlayer", "PlayerAttackComponent")]
-transform = Transform3D(0.17215249, -1.4901161e-08, -0.9850698, 0.21255338, 0.9764431, 0.037146207, 0.9618643, -0.21577501, 0.16809718, 0.9552461, -0.6859697, -0.8526355)
+[node name="MainHand" type="Node3D" parent="Pivot/PlayerCamera/PlayerHands" node_paths=PackedStringArray("StatsComponent", "ActionController")]
+transform = Transform3D(0.17215246, -1.490116e-08, -0.98507, 0.21255335, 0.97644305, 0.037146214, 0.9618641, -0.215775, 0.16809721, 0.9552461, -0.6859697, -0.8526355)
 script = ExtResource("2_tok1r")
-AnimationPlayer = NodePath("../../../../AnimationPlayer")
-PlayerAttackComponent = NodePath("../../../../PlayerAttackComponent")
+StatsComponent = NodePath("../../../../StatsComponent")
+ActionController = NodePath("../../../../PlayerActionControllerComponent")
 
-[node name="OffHand" type="Node3D" parent="Pivot/PlayerCamera/PlayerHands"]
-transform = Transform3D(-0.9123289, 0.35506028, -0.20393205, 0.362682, 0.93191296, -5.862893e-08, 0.19004692, -0.07396255, -0.978985, -0.28520975, -0.37360406, -0.69329596)
-
-[node name="shield_round2" parent="Pivot/PlayerCamera/PlayerHands/OffHand" instance=ExtResource("4_v0k0e")]
+[node name="OffHand" type="Node3D" parent="Pivot/PlayerCamera/PlayerHands" node_paths=PackedStringArray("StatsComponent", "ActionController")]
+transform = Transform3D(-0.7678309, 0.29936466, -0.56640613, 0.36325112, 0.9316908, 0, 0.5277157, -0.20574768, -0.8241258, -0.566, -0.609, -0.58)
+script = ExtResource("2_tok1r")
+StatsComponent = NodePath("../../../../StatsComponent")
+ActionController = NodePath("../../../../PlayerActionControllerComponent")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -474,6 +600,10 @@ mesh = SubResource("CapsuleMesh_l2ndj")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_l2ndj")
+
+[node name="PlayerActionControllerComponent" type="Node" parent="."]
+script = ExtResource("1_0j2ni")
+metadata/_custom_type_script = "uid://dy4yyhy6jx3v5"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -486,12 +616,6 @@ script = ExtResource("5_8g4oa")
 Ray = NodePath("../Pivot/PlayerCamera/InteractionRay")
 metadata/_custom_type_script = "uid://cj6c6ft7m1ygx"
 
-[node name="PlayerAttackComponent" type="Node" parent="." node_paths=PackedStringArray("Player", "AttackAnimationPlayer")]
-script = ExtResource("8_s1rgi")
-Player = NodePath("..")
-AttackAnimationPlayer = NodePath("../AnimationPlayer")
-metadata/_custom_type_script = "uid://c1wjq4x2gl1v2"
-
 [node name="PlayerInventoryComponent" type="Node" parent="."]
 script = ExtResource("6_6ysni")
 Slots = Array[Object]([SubResource("Resource_vlldt"), SubResource("Resource_s1rgi"), SubResource("Resource_j23h2"), SubResource("Resource_0j2ni"), SubResource("Resource_v0k0e"), SubResource("Resource_5wa8t"), SubResource("Resource_p7tob"), SubResource("Resource_dm7nj"), SubResource("Resource_3mea3"), SubResource("Resource_7v5gs"), SubResource("Resource_8sa4y"), SubResource("Resource_3nb2p")])
@@ -501,16 +625,28 @@ metadata/_custom_type_script = "uid://b5rui0vi8qnue"
 script = ExtResource("8_0j2ni")
 Stats = NodePath("../StatsComponent")
 PlayerHands = NodePath("../Pivot/PlayerCamera/PlayerHands")
-Slots = Array[Object]([SubResource("Resource_d7xyo"), SubResource("Resource_evw08"), SubResource("Resource_roy6y"), SubResource("Resource_u5tep"), SubResource("Resource_ps8ct"), SubResource("Resource_7uipr"), SubResource("Resource_yifbt"), SubResource("Resource_s0mko")])
+Slots = Array[Object]([SubResource("Resource_d7xyo"), SubResource("Resource_evw08"), SubResource("Resource_roy6y"), SubResource("Resource_u5tep"), SubResource("Resource_ps8ct"), SubResource("Resource_7uipr"), SubResource("Resource_yifbt"), SubResource("Resource_s0mko"), SubResource("Resource_hqjia"), SubResource("Resource_x70vp"), SubResource("Resource_wo5nf"), SubResource("Resource_croik"), SubResource("Resource_bgaaw")])
 metadata/_custom_type_script = "uid://cyk1von11cq87"
 
 [node name="StatsComponent" type="Node" parent="." node_paths=PackedStringArray("Health")]
 script = ExtResource("9_j23h2")
 Health = NodePath("../Health")
+InitMaxHealth = 10
 metadata/_custom_type_script = "uid://bf2w25psmlqsm"
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("10_0j2ni")
+MaxValue = 10
 metadata/_custom_type_script = "uid://xol7jp7rgfrt"
 
-[connection signal="animation_finished" from="AnimationPlayer" to="PlayerAttackComponent" method="OnAttackAnimationFinished"]
+[node name="OnAttackHitComponent" type="Node" parent="."]
+script = ExtResource("12_p7tob")
+metadata/_custom_type_script = "uid://cfm0cpt63r8vf"
+
+[node name="DamageComponent" type="Node" parent="." node_paths=PackedStringArray("Health", "Stats")]
+script = ExtResource("13_dm7nj")
+Health = NodePath("../Health")
+Stats = NodePath("../StatsComponent")
+metadata/_custom_type_script = "uid://c6qa8g71idvo"
+
+[connection signal="OnAttackHit" from="OnAttackHitComponent" to="DamageComponent" method="OnHit"]

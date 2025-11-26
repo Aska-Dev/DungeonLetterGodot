@@ -18,20 +18,28 @@ public partial class Player : CharacterBody3D, IEntity
 	public bool IsInputEnabled { get; set; } = true;
 
     // INJECTIONS
-    private ResourcePreloader itemDb;
 	private Node3D pivot;
 	private Camera3D camera;
 
-	public override void _Ready()
+    public override void _Ready()
 	{
+		AddToGroup("player");
+
         Components = new Components(this);
 
-        itemDb = GetNode<ResourcePreloader>("/root/Database/Items");
 		pivot = GetNode<Node3D>("Pivot");
 		camera = GetNode<Camera3D>("Pivot/PlayerCamera");
 
-		UiEventBus.Instance.OnUiOpen += OnUiOpened;
+		var health = Components.Get<ValueComponent>("Health");
+		health.OnValueChanged += OnHealthChanged;
+
+		var stats = Components.Get<StatsComponent>();
+		stats.OnStatChanged += OnMaxHealthChanged;
+
+        UiEventBus.Instance.OnUiOpen += OnUiOpened;
 		UiEventBus.Instance.OnUiClose += OnUiClosed;
+
+		OnHealthChanged(new ValueEventArgs() { NewValue = health.Value });
     }
 
 	public override void _Input(InputEvent @event)
@@ -62,6 +70,12 @@ public partial class Player : CharacterBody3D, IEntity
 
 		HandlePlayerMovement(delta);
 	}
+
+	public void Heal(int amount)
+	{
+        var health = Components.Get<ValueComponent>("Health");
+		health.Increase(amount);
+    }
 
 	private void OnUiOpened(UiTriggerEventArgs args)
 	{
@@ -108,10 +122,31 @@ public partial class Player : CharacterBody3D, IEntity
 	private Vector3 HandleGravity(Vector3 velocity, double delta)
 	{
 		if(!IsOnFloor())
-		{
+		{ 
 			velocity += GetGravity() * (float)delta;
 		}
 
 		return velocity;
 	}
+
+	private void OnHealthChanged(ValueEventArgs args)
+	{
+		var maxHealth = Components.Get<StatsComponent>()!.GetStat(Stats.MaxHealth);
+		var currentHealth = args.NewValue;
+
+		UiEventBus.Instance.UpdateHealthBar(currentHealth, maxHealth);
+    }
+
+	private void OnMaxHealthChanged(StatChangedEventArgs args)
+	{
+		if(args.Stat != Stats.MaxHealth)
+		{
+			return;
+		}
+
+		var maxHealth = args.NewValue;
+		var currentHealth = Components.Get<ValueComponent>("Health")!.Value;
+
+		UiEventBus.Instance.UpdateHealthBar(currentHealth, maxHealth);
+    }
 }

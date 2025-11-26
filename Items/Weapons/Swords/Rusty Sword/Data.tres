@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=7 format=3 uid="uid://lbcx1hwxakbl"]
+
+[ext_resource type="Resource" uid="uid://cn52xws87ob54" path="res://Items/WeaponCombos/SwordAnimationChain.tres" id="1_c80si"]
+[ext_resource type="Script" uid="uid://dsuqhe4puxwpc" path="res://Types/ItemModifiers/AttackModifiers/DealPhysicalDamage.cs" id="2_fufhq"]
+[ext_resource type="Texture2D" uid="uid://b3ptbaabkysud" path="res://Items/Weapons/Swords/Rusty Sword/icon.png" id="3_sig87"]
+[ext_resource type="PackedScene" uid="uid://dir7xei8fm6gp" path="res://Items/Weapons/Swords/Rusty Sword/Model.tscn" id="4_0f4qs"]
+[ext_resource type="Script" uid="uid://dmwphj6gvabry" path="res://Data/Models/Items/Weapon.cs" id="5_pd8gb"]
+
+[sub_resource type="Resource" id="Resource_law60"]
+script = ExtResource("2_fufhq")
+DamageAmount = 1
+metadata/_custom_type_script = "uid://dsuqhe4puxwpc"
+
+[resource]
+script = ExtResource("5_pd8gb")
+AttackModifiers = Array[Object]([SubResource("Resource_law60")])
+Actions = Array[Object]([ExtResource("1_c80si")])
+ItemModel = ExtResource("4_0f4qs")
+EquipModifiers = Array[Object]([])
+Name = "Rusty Sword"
+Description = "A simpel sword."
+Icon = ExtResource("3_sig87")
+ExclusiveItemId = 1
+metadata/_custom_type_script = "uid://dmwphj6gvabry"

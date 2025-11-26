@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=7 format=3 uid="uid://bxkgu1mrulrwf"]
+
+[ext_resource type="Resource" uid="uid://cn52xws87ob54" path="res://Items/WeaponCombos/SwordAnimationChain.tres" id="1_0tqe1"]
+[ext_resource type="Script" uid="uid://dsuqhe4puxwpc" path="res://Types/ItemModifiers/AttackModifiers/DealPhysicalDamage.cs" id="1_35uly"]
+[ext_resource type="Script" uid="uid://dmwphj6gvabry" path="res://Data/Models/Items/Weapon.cs" id="1_bbvl7"]
+[ext_resource type="Texture2D" uid="uid://bulxpodt4lvr6" path="res://Items/Weapons/Swords/Rusty Scimitar/icon.png" id="3_1oyx3"]
+[ext_resource type="PackedScene" uid="uid://ulf3dp42dhcj" path="res://Items/Weapons/Swords/Rusty Scimitar/model.tscn" id="3_c6e1x"]
+
+[sub_resource type="Resource" id="Resource_64tgh"]
+script = ExtResource("1_35uly")
+DamageAmount = 1
+metadata/_custom_type_script = "uid://dsuqhe4puxwpc"
+
+[resource]
+script = ExtResource("1_bbvl7")
+AttackModifiers = Array[Object]([SubResource("Resource_64tgh")])
+Actions = Array[Object]([ExtResource("1_0tqe1")])
+ItemModel = ExtResource("3_c6e1x")
+EquipModifiers = null
+Name = "Rusty Scimitar"
+Description = "An old sword often used by skeletons."
+Icon = ExtResource("3_1oyx3")
+ExclusiveItemId = 1
+metadata/_custom_type_script = "uid://dmwphj6gvabry"

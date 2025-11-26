@@ -1,6 +1,7 @@
-[gd_scene load_steps=106 format=3 uid="uid://6ukpwtog0qgp"]
+[gd_scene load_steps=113 format=3 uid="uid://6ukpwtog0qgp"]
 
 [ext_resource type="PackedScene" uid="uid://ufo25agwljpm" path="res://Enemies/SkeletonMinion/Model/Skeleton_Minion.glb" id="1_21ajb"]
+[ext_resource type="PackedScene" uid="uid://ulf3dp42dhcj" path="res://Items/Weapons/Swords/Rusty Scimitar/model.tscn" id="2_0au7l"]
 
 [sub_resource type="Animation" id="Animation_21ajb"]
 resource_name = "1H_Melee_Attack_Chop"
@@ -2196,6 +2197,23 @@ tracks/103/path = NodePath("Rig/Skeleton3D:handIK.r")
 tracks/103/interp = 1
 tracks/103/loop_wrap = true
 tracks/103/keys = PackedFloat32Array(0, 1, 1, 1.0000001, 1)
+tracks/104/type = "method"
+tracks/104/imported = false
+tracks/104/enabled = true
+tracks/104/path = NodePath("Rig/Skeleton3D/handslot_r/weapon")
+tracks/104/interp = 1
+tracks/104/loop_wrap = true
+tracks/104/keys = {
+"times": PackedFloat32Array(0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [true],
+"method": &"SetWeaponHitbox"
+}, {
+"args": [false],
+"method": &"SetWeaponHitbox"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_8tkyi"]
 resource_name = "1H_Melee_Attack_Slice_Horizontal"
@@ -69639,85 +69657,97 @@ _data = {
 &"Walking_D_Skeletons": SubResource("Animation_ji4t5")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4pxjh"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rxl4r"]
+animation = &"1H_Melee_Attack_Slice_Diagonal"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6g8ud"]
 animation = &"Death_C_Skeletons"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_21ajb"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_80y64"]
 animation = &"Hit_B"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h0j6e"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0au7l"]
 animation = &"Idle_Combat"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8tkyi"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_68ul4"]
 animation = &"Death_C_Skeletons_Resurrect"
 
-[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_4pxjh"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_80y64"]
+advance_mode = 2
 
-[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_6yv7k"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lqk8h"]
 
-[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_21ajb"]
-input_0/name = "alive"
-input_0/auto_advance = false
-input_0/break_loop_at_end = false
-input_0/reset = true
-input_1/name = "dead"
-input_1/auto_advance = false
-input_1/break_loop_at_end = false
-input_1/reset = true
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mydse"]
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_8tkyi"]
-graph_offset = Vector2(116, -130)
-nodes/output/position = Vector2(1680, -80)
-nodes/animIdle/node = SubResource("AnimationNodeAnimation_h0j6e")
-nodes/animIdle/position = Vector2(320, -60)
-nodes/hit/node = SubResource("AnimationNodeOneShot_4pxjh")
-nodes/hit/position = Vector2(600, 20)
-nodes/animHit/node = SubResource("AnimationNodeAnimation_21ajb")
-nodes/animHit/position = Vector2(440, 160)
-nodes/animDeath/node = SubResource("AnimationNodeAnimation_4pxjh")
-nodes/animDeath/position = Vector2(1280, 160)
-nodes/state/node = SubResource("AnimationNodeTransition_21ajb")
-nodes/state/position = Vector2(1500, -80)
-nodes/resurrection/node = SubResource("AnimationNodeOneShot_6yv7k")
-nodes/resurrection/position = Vector2(1080, -80)
-nodes/animResurrection/node = SubResource("AnimationNodeAnimation_8tkyi")
-nodes/animResurrection/position = Vector2(800, 140)
-node_connections = [&"output", 0, &"state", &"hit", 0, &"animIdle", &"hit", 1, &"animHit", &"state", 0, &"resurrection", &"state", 1, &"animDeath", &"resurrection", 0, &"hit", &"resurrection", 1, &"animResurrection"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1458r"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6g8ud"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_68ul4"]
+xfade_time = 0.4
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_10dqh"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4vctq"]
+xfade_time = 0.3
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_80y64"]
+states/Start/position = Vector2(21, 100)
+states/attack/node = SubResource("AnimationNodeAnimation_rxl4r")
+states/attack/position = Vector2(352, 284)
+states/death/node = SubResource("AnimationNodeAnimation_6g8ud")
+states/death/position = Vector2(790, 100)
+states/hit/node = SubResource("AnimationNodeAnimation_80y64")
+states/hit/position = Vector2(352, -59)
+states/idle/node = SubResource("AnimationNodeAnimation_0au7l")
+states/idle/position = Vector2(352, 100)
+states/resurrect/node = SubResource("AnimationNodeAnimation_68ul4")
+states/resurrect/position = Vector2(480, 167)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_80y64"), "idle", "death", SubResource("AnimationNodeStateMachineTransition_lqk8h"), "death", "resurrect", SubResource("AnimationNodeStateMachineTransition_mydse"), "resurrect", "idle", SubResource("AnimationNodeStateMachineTransition_1458r"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_6g8ud"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_68ul4"), "idle", "hit", SubResource("AnimationNodeStateMachineTransition_10dqh"), "hit", "idle", SubResource("AnimationNodeStateMachineTransition_4vctq")]
+graph_offset = Vector2(-344, -142)
 
 [node name="Skeleton_Minion" instance=ExtResource("1_21ajb")]
 
 [node name="Skeleton3D" parent="Rig" index="0"]
-bones/1/position = Vector3(7.1671873e-09, 0.2487335, -0.030061366)
+bones/1/position = Vector3(7.167187e-09, 0.2634558, -0.030061364)
 bones/1/rotation = Quaternion(2.255949e-10, 0.17319314, 2.5649072e-09, 0.9848879)
 bones/2/rotation = Quaternion(0.11676573, -0.12958969, 0.025773186, 0.98433125)
 bones/2/scale = Vector3(1, 1, 1.0000001)
-bones/3/rotation = Quaternion(0.28962195, -0.011317634, 0.0058146524, 0.9570566)
+bones/3/rotation = Quaternion(0.29037154, -0.017069481, -0.003905918, 0.9567538)
 bones/4/position = Vector3(0.21200736, 0.13413227, 8.487841e-08)
-bones/4/rotation = Quaternion(-0.77459234, -0.113664635, -0.4378533, 0.44200855)
-bones/5/rotation = Quaternion(5.8596207e-08, -4.5283976e-08, -0.65052927, 0.75948125)
+bones/4/rotation = Quaternion(-0.7777568, -0.12718216, -0.43683994, 0.4336933)
+bones/5/rotation = Quaternion(5.7619403e-08, -2.9623088e-08, -0.6545783, 0.7559943)
 bones/6/rotation = Quaternion(-1.5167036e-08, 5.8212652e-09, 0.026658094, 0.99964464)
-bones/7/rotation = Quaternion(-0.17169409, -0.5842825, 0.0336977, 0.79246426)
+bones/7/rotation = Quaternion(-0.15762767, -0.5946641, 0.03392977, 0.7876401)
 bones/8/position = Vector3(8.3484686e-10, 0.0961252, -0.057500005)
 bones/8/rotation = Quaternion(-0.025259212, -0.00061354367, -0.50076216, 0.86521614)
 bones/9/position = Vector3(-0.21200739, 0.13413239, 2.3664171e-08)
-bones/9/rotation = Quaternion(-0.7953653, 0.079954036, 0.4272442, 0.42244986)
-bones/10/rotation = Quaternion(5.21567e-08, 3.5860495e-08, 0.44591495, 0.89507544)
+bones/9/rotation = Quaternion(-0.79182726, 0.095902056, 0.45459473, 0.3964291)
+bones/10/rotation = Quaternion(2.7623065e-08, 3.31488e-08, 0.42493913, 0.905222)
 bones/11/rotation = Quaternion(-2.9591181e-08, 1.2264811e-08, -0.026658088, 0.99964464)
-bones/12/rotation = Quaternion(-0.3713019, 0.3538515, -0.078820854, 0.85481656)
+bones/12/rotation = Quaternion(-0.3637007, 0.3660738, -0.07057993, 0.853657)
 bones/13/position = Vector3(-8.348291e-10, 0.096125126, -0.057500005)
 bones/13/rotation = Quaternion(-3.164712e-09, -1.6920891e-08, 0.7071068, 0.7071067)
-bones/14/rotation = Quaternion(-0.27813277, -0.036494024, 0.011983585, 0.9597744)
+bones/14/rotation = Quaternion(-0.2783694, -0.030664785, 0.0215809, 0.9597419)
 bones/14/scale = Vector3(1, 1, 0.9999999)
 bones/15/position = Vector3(0.17094505, 0.11358723, 1.12356435e-08)
-bones/15/rotation = Quaternion(0.895672, 0.16546015, 0.22869474, 0.3436473)
-bones/16/rotation = Quaternion(0.7800192, 5.791887e-08, -5.342328e-07, 0.62575567)
-bones/17/rotation = Quaternion(-0.683812, -0.3176669, 0.27987045, 0.594274)
+bones/15/rotation = Quaternion(0.9033156, 0.15567745, 0.22610202, 0.32964134)
+bones/16/rotation = Quaternion(0.7473154, 3.6571944e-08, -5.266619e-07, 0.66446954)
+bones/17/rotation = Quaternion(-0.6658261, -0.33362556, 0.25693807, 0.615916)
 bones/18/rotation = Quaternion(-0.00023576771, 0.9200985, -0.391687, 5.0715622e-05)
 bones/19/position = Vector3(-0.1776051, 0.1135872, 0.07694323)
-bones/19/rotation = Quaternion(0.9033819, -0.2854672, 0.27187136, 0.16880652)
+bones/19/rotation = Quaternion(0.90779775, -0.2705236, 0.27527308, 0.16414948)
 bones/19/scale = Vector3(0.9999998, 0.9999999, 1.0000013)
-bones/20/rotation = Quaternion(0.784588, -2.2244924e-08, 5.528199e-07, 0.6200175)
-bones/21/rotation = Quaternion(-0.8115324, 0.05913925, -0.23774628, 0.5304663)
+bones/20/rotation = Quaternion(0.7528757, -2.8502502e-08, 5.4808174e-07, 0.6581627)
+bones/21/rotation = Quaternion(-0.79287016, 0.07503505, -0.22403014, 0.56172705)
 bones/22/rotation = Quaternion(0.00029589876, 0.9201205, -0.39163563, -6.2588464e-05)
 bones/23/position = Vector3(0.20272529, 0.2923103, 0.57581246)
 bones/23/rotation = Quaternion(0.7071068, -2.2930234e-07, -4.6055177e-08, 0.7071068)
@@ -69743,12 +69773,21 @@ bones/34/rotation = Quaternion(-0.39108434, -6.8850014e-08, -6.5628754e-08, 0.92
 bones/35/rotation = Quaternion(1, 6.4469927e-09, 1.8628896e-07, 1.2552757e-15)
 bones/36/rotation = Quaternion(-1.7694166e-16, -6.740986e-17, -1.946692e-08, 1)
 bones/37/rotation = Quaternion(-0.7071068, -7.279511e-08, -7.279509e-08, 0.7071068)
-bones/38/position = Vector3(0.52084064, 0.7314509, -0.0096456455)
-bones/38/rotation = Quaternion(0.89506596, 0.23757493, 0.37715465, -0.01302024)
+bones/38/position = Vector3(0.52084064, 0.73145086, 0.002770648)
+bones/38/rotation = Quaternion(0.8951345, 0.24588549, 0.3717901, 0.006844081)
 bones/39/rotation = Quaternion(-0.7071068, -7.279511e-08, -7.279509e-08, 0.7071068)
-bones/40/position = Vector3(-0.5442452, 0.74524903, -0.08830582)
-bones/40/rotation = Quaternion(-0.88040924, -0.010526866, 0.43461505, 0.1894165)
+bones/40/position = Vector3(-0.5442452, 0.74524903, -0.08345897)
+bones/40/rotation = Quaternion(-0.8857109, -0.0025716575, 0.43043488, 0.1738836)
 bones/40/scale = Vector3(1, 1.0000001, 1)
+
+[node name="handslot_r" type="BoneAttachment3D" parent="Rig/Skeleton3D" index="9"]
+transform = Transform3D(-0.1451331, -0.629437, -0.76337636, -0.9395193, -0.1542379, 0.30579785, -0.31022227, 0.7615894, -0.56898385, -0.57214576, 0.5954708, -0.09935883)
+bone_name = "handslot.r"
+bone_idx = 13
+
+[node name="weapon" parent="Rig/Skeleton3D/handslot_r" index="0" instance=ExtResource("2_0au7l")]
+transform = Transform3D(-0.99682146, 0.06710185, -0.042944677, 0.067411095, 0.99770844, -0.0057972074, 0.042457215, -0.0086734, -0.9990605, 0.010494471, 0.0032204688, 0.05281079)
+IsEnemyWeapon = true
 
 [node name="AnimationPlayer" parent="." index="1"]
 libraries = {
@@ -69757,14 +69796,5 @@ libraries = {
 autoplay = "Idle_Combat"
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
-tree_root = SubResource("AnimationNodeBlendTree_8tkyi")
+tree_root = SubResource("AnimationNodeStateMachine_80y64")
 anim_player = NodePath("../AnimationPlayer")
-parameters/hit/active = false
-parameters/hit/internal_active = false
-parameters/hit/request = 0
-parameters/state/current_state = "alive"
-parameters/state/transition_request = ""
-parameters/state/current_index = 0
-parameters/resurrection/active = false
-parameters/resurrection/internal_active = false
-parameters/resurrection/request = 0

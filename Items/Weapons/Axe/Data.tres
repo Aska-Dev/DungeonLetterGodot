@@ -12,6 +12,7 @@ metadata/_custom_type_script = "uid://dsuqhe4puxwpc"
 [resource]
 script = ExtResource("2_q5ffu")
 AttackModifiers = Array[Object]([SubResource("Resource_k2cqa")])
+Actions = null
 ItemModel = ExtResource("2_6oywa")
 Type = 1
 EquipModifiers = null

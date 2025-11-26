@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ulf3dp42dhcj"]
+
+[ext_resource type="PackedScene" uid="uid://bgcqpptwtfblu" path="res://Items/Weapons/Swords/Rusty Scimitar/Model/Skeleton_Blade.gltf" id="1_5am5j"]
+[ext_resource type="Script" uid="uid://dnl1ejy7wrmhm" path="res://Items/Weapons/Swords/Rusty Scimitar/RustyScimitar.cs" id="2_er0ks"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5am5j"]
+radius = 0.1640625
+height = 1.6444702
+
+[node name="Skeleton_Blade2" instance=ExtResource("1_5am5j")]
+script = ExtResource("2_er0ks")
+
+[node name="Hitbox" type="Area3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.58504796, 0)
+collision_layer = 2
+collision_mask = 4
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021935403, -0.14859009, 0)
+shape = SubResource("CapsuleShape3D_5am5j")

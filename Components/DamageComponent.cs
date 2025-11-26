@@ -16,12 +16,18 @@ public partial class DamageComponent : Component
 
     public void TakeDamage(DealDamage[] damageModifiers)
     {
+        if (Health.Value <= 0)
+        {
+            return;
+        }
+
+        EmitSignal(SignalName.OnDamageTaken);
+
         foreach(var dmg in damageModifiers)
         {
             dmg.Apply(this);
         }
 
-        EmitSignal(SignalName.OnDamageTaken);
     }
 
     public void OnHit(AttackHitEventArgs args)

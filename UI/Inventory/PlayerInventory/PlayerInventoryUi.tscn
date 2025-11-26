@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dfuvdc5ujrk6y"]
+[gd_scene load_steps=10 format=3 uid="uid://dfuvdc5ujrk6y"]
 
 [ext_resource type="Script" uid="uid://bxptgjoclgot5" path="res://UI/Inventory/PlayerInventory/PlayerInventoryUi.cs" id="1_u2i7b"]
 [ext_resource type="PackedScene" uid="uid://d04066pudkf1t" path="res://UI/Inventory/InventorySlotUi/InventorySlotUi.tscn" id="2_gbper"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://doo21phvcryr7" path="res://UI/Icons/body_armor.png" id="5_576vm"]
 [ext_resource type="Texture2D" uid="uid://de7othxqv30q3" path="res://UI/Icons/leg_armor.png" id="6_64qhk"]
 [ext_resource type="Texture2D" uid="uid://bwvfktf7gf5ra" path="res://UI/Icons/boots.png" id="7_03bwx"]
+[ext_resource type="Texture2D" uid="uid://df1i2cptaj374" path="res://UI/Icons/consumable.png" id="9_576vm"]
 
 [node name="PlayerInventoryUi" type="Control" node_paths=PackedStringArray("ItemGrid", "EquipmentContainer")]
 custom_minimum_size = Vector2(1152, 648)
@@ -26,9 +27,9 @@ EquipmentContainer = NodePath("EquipmentInventory/Slots")
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 0
 offset_left = 135.0
-offset_top = 282.0
+offset_top = 292.0
 offset_right = 175.0
-offset_bottom = 322.0
+offset_bottom = 332.0
 
 [node name="MarginContainer" type="MarginContainer" parent="ItemInventory"]
 layout_mode = 2
@@ -47,7 +48,7 @@ layout_mode = 0
 offset_left = 135.0
 offset_top = 53.0
 offset_right = 375.0
-offset_bottom = 273.0
+offset_bottom = 283.0
 
 [node name="Slots" type="Control" parent="EquipmentInventory"]
 layout_mode = 2
@@ -59,9 +60,9 @@ offset_top = 5.0
 offset_right = 45.0
 offset_bottom = 45.0
 BackgroundTexture = ExtResource("3_i2sks")
-ExclusiveType = 1
-EquipmentSlotType = 5
 ParentInterface = 1
+ExclusiveItemId = 1
+EquipmentSlotType = 5
 
 [node name="OffHand1" parent="EquipmentInventory/Slots" instance=ExtResource("2_gbper")]
 layout_mode = 0
@@ -70,9 +71,9 @@ offset_top = 5.0
 offset_right = 89.0
 offset_bottom = 45.0
 BackgroundTexture = ExtResource("3_fp7yg")
-ExclusiveType = 2
-EquipmentSlotType = 7
 ParentInterface = 1
+ExclusiveItemId = 2
+EquipmentSlotType = 7
 
 [node name="ArmorHead" parent="EquipmentInventory/Slots" instance=ExtResource("2_gbper")]
 layout_mode = 0
@@ -81,9 +82,9 @@ offset_top = 5.0
 offset_right = 140.0
 offset_bottom = 45.0
 BackgroundTexture = ExtResource("4_i2sks")
-ExclusiveType = 3
-EquipmentSlotType = 1
 ParentInterface = 1
+ExclusiveItemId = 3
+EquipmentSlotType = 1
 
 [node name="ArmorBody" parent="EquipmentInventory/Slots" instance=ExtResource("2_gbper")]
 layout_mode = 0
@@ -92,9 +93,9 @@ offset_top = 49.0
 offset_right = 140.0
 offset_bottom = 89.0
 BackgroundTexture = ExtResource("5_576vm")
-ExclusiveType = 4
-EquipmentSlotType = 2
 ParentInterface = 1
+ExclusiveItemId = 4
+EquipmentSlotType = 2
 
 [node name="ArmorLegs" parent="EquipmentInventory/Slots" instance=ExtResource("2_gbper")]
 layout_mode = 0
@@ -103,9 +104,9 @@ offset_top = 93.0
 offset_right = 140.0
 offset_bottom = 133.0
 BackgroundTexture = ExtResource("6_64qhk")
-ExclusiveType = 5
-EquipmentSlotType = 3
 ParentInterface = 1
+ExclusiveItemId = 5
+EquipmentSlotType = 3
 
 [node name="ArmorBoots" parent="EquipmentInventory/Slots" instance=ExtResource("2_gbper")]
 layout_mode = 0
@@ -114,9 +115,9 @@ offset_top = 137.0
 offset_right = 140.0
 offset_bottom = 177.0
 BackgroundTexture = ExtResource("7_03bwx")
-ExclusiveType = 6
-EquipmentSlotType = 4
 ParentInterface = 1
+ExclusiveItemId = 6
+EquipmentSlotType = 4
 
 [node name="MainHand2" parent="EquipmentInventory/Slots" instance=ExtResource("2_gbper")]
 layout_mode = 0
@@ -125,9 +126,9 @@ offset_top = 5.0
 offset_right = 191.0
 offset_bottom = 45.0
 BackgroundTexture = ExtResource("3_i2sks")
-ExclusiveType = 1
-EquipmentSlotType = 6
 ParentInterface = 1
+ExclusiveItemId = 1
+EquipmentSlotType = 6
 
 [node name="OffHand2" parent="EquipmentInventory/Slots" instance=ExtResource("2_gbper")]
 layout_mode = 0
@@ -136,6 +137,61 @@ offset_top = 5.0
 offset_right = 235.0
 offset_bottom = 45.0
 BackgroundTexture = ExtResource("3_fp7yg")
-ExclusiveType = 2
-EquipmentSlotType = 8
 ParentInterface = 1
+ExclusiveItemId = 2
+EquipmentSlotType = 8
+
+[node name="Consumable1" parent="EquipmentInventory/Slots" instance=ExtResource("2_gbper")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 185.0
+offset_right = 50.0
+offset_bottom = 225.0
+BackgroundTexture = ExtResource("9_576vm")
+ParentInterface = 1
+ExclusiveItemId = 7
+EquipmentSlotType = 9
+
+[node name="Consumable2" parent="EquipmentInventory/Slots" instance=ExtResource("2_gbper")]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 185.0
+offset_right = 95.0
+offset_bottom = 225.0
+BackgroundTexture = ExtResource("9_576vm")
+ParentInterface = 1
+ExclusiveItemId = 7
+EquipmentSlotType = 10
+
+[node name="Consumable3" parent="EquipmentInventory/Slots" instance=ExtResource("2_gbper")]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 185.0
+offset_right = 140.0
+offset_bottom = 225.0
+BackgroundTexture = ExtResource("9_576vm")
+ParentInterface = 1
+ExclusiveItemId = 7
+EquipmentSlotType = 11
+
+[node name="Consumable4" parent="EquipmentInventory/Slots" instance=ExtResource("2_gbper")]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 185.0
+offset_right = 185.0
+offset_bottom = 225.0
+BackgroundTexture = ExtResource("9_576vm")
+ParentInterface = 1
+ExclusiveItemId = 7
+EquipmentSlotType = 12
+
+[node name="Consumable5" parent="EquipmentInventory/Slots" instance=ExtResource("2_gbper")]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 185.0
+offset_right = 230.0
+offset_bottom = 225.0
+BackgroundTexture = ExtResource("9_576vm")
+ParentInterface = 1
+ExclusiveItemId = 7
+EquipmentSlotType = 13

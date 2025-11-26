@@ -14,8 +14,8 @@ public partial class ValueComponent : Component
     [Export]
     public required int MinValue { get; set; } = 0;
 
-    [Signal]
-    public delegate void OnValueChangedEventHandler(ValueEventArgs args);
+    /// SIGNALS
+    [Signal] public delegate void OnValueChangedEventHandler(ValueEventArgs args);
 
     public int Value { get; private set; }
 

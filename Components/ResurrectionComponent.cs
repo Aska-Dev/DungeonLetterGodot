@@ -48,7 +48,7 @@ public partial class ResurrectionComponent : Component
             timer = 0f;
 
             EmitSignal(SignalName.OnResurrect);
-        }
+        }   
 
         if(isResurrecting && timer >= InvulnerabilityDuration)
         {

@@ -21,10 +21,13 @@ public partial class PlayerEquipmentComponent : Component
     public Armor? Boots { get; set; }
 
     // Weapon Slots
-    public Holdable? MainHand1 { get; set; }
-    public Holdable? MainHand2 { get; set; }
-    public Holdable? OffHand1 { get; set; }
-    public Holdable? OffHand2 { get; set; }
+    public HoldableEquipment? MainHand1 { get; set; }
+    public HoldableEquipment? MainHand2 { get; set; }
+    public HoldableEquipment? OffHand1 { get; set; }
+    public HoldableEquipment? OffHand2 { get; set; }
+
+    // Consumable Slots
+    public Consumable?[] Consumables { get; set; } = [null, null, null, null, null];
 
     public override void _Ready()
     {
@@ -37,6 +40,12 @@ public partial class PlayerEquipmentComponent : Component
 
     public void OnEquipmentChanged(EquipmentItemChangeEventArgs args)
     {
+        if(args.SlotType is EquipmentSlotType.MainHand1 or EquipmentSlotType.MainHand2 or EquipmentSlotType.OffHand1 or EquipmentSlotType.OffHand2)
+        {
+            HandleHandEquipmentChange(args);
+            return;
+        }
+
         var oldEquipment = GetBySlot(args.SlotType);
         if(oldEquipment is not null)
         {
@@ -48,16 +57,16 @@ public partial class PlayerEquipmentComponent : Component
         {
             args.NewEquipment.ApplyModifiers(Stats);
         }
-
-        HandleHandEquipmentChange(args);
     }
 
     private void HandleHandEquipmentChange(EquipmentItemChangeEventArgs args)
     {
-        if(args.NewEquipment is not Holdable holdableItem)
+        if (args.NewEquipment is not null && args.NewEquipment is not HoldableEquipment)
         {
             return;
         }
+
+        var holdableItem = args.NewEquipment as HoldableEquipment;
 
         // Update PlayerHands configurations based on equipment changes
         switch (args.SlotType)
@@ -98,6 +107,11 @@ public partial class PlayerEquipmentComponent : Component
         EquipmentSlotType.MainHand2 => MainHand2,
         EquipmentSlotType.OffHand1 => OffHand1,
         EquipmentSlotType.OffHand2 => OffHand2,
+        EquipmentSlotType.Consumable1 => Consumables[0],
+        EquipmentSlotType.Consumable2 => Consumables[1],
+        EquipmentSlotType.Consumable3 => Consumables[2],
+        EquipmentSlotType.Consumable4 => Consumables[3],
+        EquipmentSlotType.Consumable5 => Consumables[4],
         _ => null
     };
 
@@ -134,6 +148,26 @@ public partial class PlayerEquipmentComponent : Component
             case EquipmentSlotType.OffHand2:
                 OffHand2 = item as Weapon;
                 break;
+            case EquipmentSlotType.Consumable1:
+                Consumables[0] = item as Consumable;
+                break;
+            case EquipmentSlotType.Consumable2:
+                Consumables[1] = item as Consumable;
+                break;
+            case EquipmentSlotType.Consumable3:
+                Consumables[2] = item as Consumable;
+                break;
+            case EquipmentSlotType.Consumable4:
+                Consumables[3] = item as Consumable;
+                break;
+            case EquipmentSlotType.Consumable5:
+                Consumables[4] = item as Consumable;
+                break;
+        }
+
+        foreach (var slot in Consumables)
+        {
+            GD.Print(slot?.Name);
         }
     }
 
@@ -151,6 +185,11 @@ public partial class PlayerEquipmentComponent : Component
             EquipmentSlotType.MainHand2 => item.Type == EquipmentTypes.MainHand,
             EquipmentSlotType.OffHand1 or
             EquipmentSlotType.OffHand2 => item.Type == EquipmentTypes.OffHand,
+            EquipmentSlotType.Consumable1 or
+            EquipmentSlotType.Consumable2 or
+            EquipmentSlotType.Consumable3 or
+            EquipmentSlotType.Consumable4 or
+            EquipmentSlotType.Consumable5 => item.Type == EquipmentTypes.Consumable,
             _ => false
         };
     }

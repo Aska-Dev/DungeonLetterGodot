@@ -29,6 +29,11 @@ public partial class HotbarUi : Control
 			SetHandInactive(PrimaryHand);
 			SetHandActive(SecondaryHand);
         }
+		else if(args.ActiveConfig is PlayerHandConfigs.Consumable or PlayerHandConfigs.Nothing)
+		{
+			SetHandInactive(PrimaryHand);
+			SetHandInactive(SecondaryHand);
+        }
     }
 
     public void OnEquipmentItemChange(EquipmentItemChangeEventArgs args)

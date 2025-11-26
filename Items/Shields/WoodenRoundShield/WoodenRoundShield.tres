@@ -1,16 +1,26 @@
-[gd_resource type="Resource" script_class="Shield" load_steps=4 format=3 uid="uid://hnfnbefp1hyn"]
+[gd_resource type="Resource" script_class="TriggerableEquipment" load_steps=6 format=3 uid="uid://gf6ix4h775lx"]
 
 [ext_resource type="Texture2D" uid="uid://chvsyscw7ufbi" path="res://Items/Shields/WoodenRoundShield/icon.png" id="1_5dm4a"]
-[ext_resource type="Script" uid="uid://154djthx0fjq" path="res://Data/Models/Items/Shield.cs" id="2_3fbkg"]
+[ext_resource type="Script" uid="uid://dtk562psub3gd" path="res://PlayerActions/Actions/MaintainActionData.cs" id="1_m0mq2"]
 [ext_resource type="PackedScene" uid="uid://bsgnnpeggs545" path="res://Items/Shields/WoodenRoundShield/Model.tscn" id="2_m0mq2"]
+[ext_resource type="Script" uid="uid://c04nm37el6maj" path="res://Data/Models/Items/TriggerableEquipment.cs" id="3_3fbkg"]
+
+[sub_resource type="Resource" id="Resource_2trvk"]
+script = ExtResource("1_m0mq2")
+StartAnimationName = "shield_block_on"
+EndAnimationName = "shield_block_off"
+Priority = 10
+TriggerInputAction = "player_action_secondary"
+metadata/_custom_type_script = "uid://dtk562psub3gd"
 
 [resource]
-script = ExtResource("2_3fbkg")
+script = ExtResource("3_3fbkg")
+Actions = Array[Object]([SubResource("Resource_2trvk")])
 ItemModel = ExtResource("2_m0mq2")
 Type = 1
 EquipModifiers = null
 Name = "Wooden Round Shield"
-Description = "A simpel shield with reinforced edges."
+Description = "A small wooden shield"
 Icon = ExtResource("1_5dm4a")
 ExclusiveItemId = 2
-metadata/_custom_type_script = "uid://154djthx0fjq"
+metadata/_custom_type_script = "uid://c04nm37el6maj"

@@ -21,11 +21,6 @@ public partial class PlayerInventoryComponent : Component
         UiEventBus.Instance.OnUiClose += CloseInventory;
     }
 
-    public void UpdateInventory()
-    {
-
-    }
-
     public void OnOpenInventory()
     {
         var player = GetParent<Player>();
